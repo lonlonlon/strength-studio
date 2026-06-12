@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Studio — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ironstone:#1F2225;--canvas:#F4F0EB;--venetian:#B03A2E;--basalt:#3D6A60;
+  --linen:#E6DED4;--flint:#847B71;--charcoal:#2E3330;--white:#FFFFFF;
+  --bg:#FAFAF7;--border:#DDD9D2;
+  --display:'Special Gothic Expanded One',sans-serif;
+  --body:'Rethink Sans',sans-serif;
+  --serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--bg);color:var(--ironstone);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Header */
+.header{background:var(--ironstone);padding:56px 0 48px}
+.header-inner{max-width:960px;margin:0 auto;padding:0 32px}
+.header-logo{font-family:var(--display);font-size:40px;color:var(--canvas);letter-spacing:3px;line-height:1}
+.header-logo span{display:block;font-size:14px;letter-spacing:6px;margin-top:4px;font-family:var(--display)}
+.header-tagline{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--venetian);margin-top:20px}
+.header-meta{font-family:var(--body);font-size:13px;color:var(--flint);margin-top:16px;display:flex;gap:20px;flex-wrap:wrap}
+
+/* Nav */
+.toc{max-width:960px;margin:0 auto;padding:28px 32px 0}
+.toc-inner{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px 24px;display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.toc-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600}
+.toc-links{display:flex;gap:6px;flex-wrap:wrap}
+.toc-links a{font-size:13px;color:var(--ironstone);text-decoration:none;padding:6px 14px;border-radius:6px;background:var(--canvas);font-weight:500;transition:all .15s}
+.toc-links a:hover{background:var(--venetian);color:var(--white)}
+
+/* Main */
+main{max-width:960px;margin:0 auto;padding:40px 32px 80px}
+
+/* Sections */
+.section{margin-bottom:64px}
+.section-num{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--venetian);margin-bottom:4px}
+.section-title{font-family:var(--body);font-size:24px;font-weight:700;color:var(--ironstone);margin-bottom:8px}
+.section-desc{font-size:14px;color:var(--flint);margin-bottom:28px;max-width:640px;line-height:1.7}
+
+/* Cards */
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px}
+.card-title{font-size:16px;font-weight:600;color:var(--ironstone);margin-bottom:4px}
+.card-sub{font-size:13px;color:var(--flint);margin-bottom:12px}
+
+/* Swatch grid */
+.swatch-grid{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.swatch{flex:1;min-width:140px}
+.swatch-box{height:72px;border-radius:10px;margin-bottom:8px;display:flex;align-items:flex-end;padding:10px 12px}
+.swatch-box.light{border:1px solid var(--border)}
+.swatch-hex{font-family:monospace;font-size:12px}
+.swatch-name{font-weight:600;font-size:14px;color:var(--ironstone);margin-bottom:1px}
+.swatch-role{font-size:11px;color:var(--venetian);text-transform:uppercase;letter-spacing:.8px;font-weight:600;margin-bottom:3px}
+.swatch-usage{font-size:12px;color:var(--flint);line-height:1.5}
+
+/* Strip */
+.color-strip{display:flex;border-radius:10px;overflow:hidden;height:48px;margin-bottom:24px}
+
+/* Gradient cards */
+.grad-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px}
+.grad-preview{height:140px;display:flex;align-items:flex-end;padding:16px 20px}
+.grad-preview .logo{font-family:var(--display);font-size:20px;color:var(--canvas);letter-spacing:2px}
+.grad-preview .logo span{display:block;font-family:var(--display);font-size:9px;letter-spacing:4px}
+.grad-info{padding:16px 20px;display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.grad-name{font-weight:600;font-size:15px;color:var(--ironstone);margin-bottom:2px}
+.grad-desc{font-size:13px;color:var(--flint);line-height:1.6;flex:1;min-width:200px}
+.grad-stops{display:flex;gap:4px;align-items:center}
+.grad-dot{width:18px;height:18px;border-radius:4px}
+.grad-arrow{color:#ccc;font-size:11px}
+
+/* Type specimen */
+.specimen{background:var(--canvas);border-radius:10px;padding:24px;margin-bottom:16px}
+.specimen-label{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--flint);font-weight:600;margin-bottom:12px}
+.weight-row{display:flex;gap:12px;align-items:baseline;margin-bottom:8px;flex-wrap:wrap}
+.weight-label{font-family:monospace;font-size:10px;color:var(--flint);min-width:100px}
+
+/* Proportion bars */
+.prop-row{margin-bottom:16px}
+.prop-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.prop-name{font-size:14px;font-weight:600;color:var(--ironstone);display:flex;align-items:center;gap:8px}
+.prop-pct{font-family:monospace;font-size:13px;color:var(--venetian);font-weight:600}
+.prop-bar{height:8px;border-radius:4px;background:var(--linen);overflow:hidden;margin-bottom:4px}
+.prop-fill{height:100%;border-radius:4px}
+.prop-desc{font-size:13px;color:var(--flint);line-height:1.5}
+.prop-dot{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+
+/* Usage guidance */
+.usage-box{background:var(--canvas);border-left:3px solid var(--venetian);border-radius:0 8px 8px 0;padding:16px 20px;margin-bottom:8px}
+.usage-box.basalt{border-left-color:var(--basalt)}
+.usage-box .usage-title{font-size:13px;font-weight:600;color:var(--ironstone);margin-bottom:4px}
+.usage-box .usage-text{font-size:13px;color:var(--flint);line-height:1.6}
+
+/* Tag row */
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tag{padding:5px 12px;border-radius:6px;font-size:12px;font-weight:500;background:var(--white);border:1px solid var(--border);color:var(--charcoal)}
+
+/* Dual accent */
+.dual-grid{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+.dual-card{flex:1;min-width:240px;border-radius:10px;padding:20px;border:1px solid var(--border)}
+.dual-card .dual-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.dual-card .dual-dot{width:24px;height:24px;border-radius:6px}
+.dual-card .dual-name{font-weight:600;font-size:14px;color:var(--ironstone)}
+.dual-card .dual-desc{font-size:13px;color:var(--flint);line-height:1.6}
+
+/* Footer */
+.doc-footer{max-width:960px;margin:0 auto;padding:0 32px 48px;text-align:center;font-size:12px;color:var(--flint)}
+.doc-footer .line{width:40px;height:2px;background:var(--venetian);margin:0 auto 12px}
+
+/* Type scale table */
+.scale-table{width:100%;border-collapse:collapse;margin-bottom:16px}
+.scale-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--flint);font-weight:600;padding:8px 12px;border-bottom:1px solid var(--border)}
+.scale-table td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px;color:var(--charcoal);vertical-align:top}
+.scale-table td:first-child{font-weight:600;color:var(--ironstone);white-space:nowrap}
+.scale-table tr:last-child td{border-bottom:none}
+
+@media(max-width:768px){
+  .header-inner,main,.toc,.doc-footer{padding-left:20px;padding-right:20px}
+  .header-logo{font-size:28px}
+  .swatch-grid{flex-direction:column}
+  .dual-grid{flex-direction:column}
+}
+@media print{
+  body{background:#fff}
+  .header{background:#fff;color:var(--ironstone);border-bottom:2px solid var(--ironstone)}
+  .header-logo,.header-tagline{color:var(--ironstone)}
+  .card,.grad-card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="header-inner">
+  <div class="header-logo">STRENGTH<span>STUDIO</span></div>
+  <div class="header-tagline">Where strength meets science</div>
+  <div class="header-meta">
+    <span>Brand Guidelines v1.0</span>
+    <span>May 2026</span>
+    <span>JSF Transformative Pte Ltd</span>
+  </div>
+</div>
+</header>
+
+<nav class="toc">
+<div class="toc-inner">
+  <span class="toc-label">Contents</span>
+  <div class="toc-links">
+    <a href="#colour">Colour palette</a>
+    <a href="#proportions">Proportions</a>
+    <a href="#gradients">Gradients</a>
+    <a href="#typography">Typography</a>
+    <a href="#type-scale">Type scale</a>
+    <a href="#usage">Usage rules</a>
+    <a href="#archive">Archive</a>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- ===== COLOUR PALETTE ===== -->
+<div class="section" id="colour">
+<p class="section-num">Section 01</p>
+<h2 class="section-title">Colour Palette</h2>
+<p class="section-desc">A palette built on contrasts that don't compete. The dark anchor grounds without intimidating. The warm surfaces invite without feeling soft. The accents activate without shouting. Every tone is calibrated to feel like a space you'd want to spend time in — more private studio than public gym.</p>
+
+<div class="color-strip">
+  <div style="flex:3;background:var(--ironstone)"></div>
+  <div style="flex:5;background:var(--canvas)"></div>
+  <div style="flex:2;background:var(--venetian)"></div>
+  <div style="flex:2;background:var(--basalt)"></div>
+  <div style="flex:4;background:var(--linen)"></div>
+  <div style="flex:2;background:var(--flint)"></div>
+</div>
+
+<h3 style="font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:14px">Core palette</h3>
+<div class="swatch-grid">
+  <div class="swatch">
+    <div class="swatch-box" style="background:var(--ironstone)"><span class="swatch-hex" style="color:rgba(255,255,255,.5)">#1F2225</span></div>
+    <div class="swatch-name">Ironstone</div><div class="swatch-role">Primary dark</div>
+    <div class="swatch-usage">Headlines, navigation, hero backgrounds, footer. The foundation — present but never heavy.</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box light" style="background:var(--canvas)"><span class="swatch-hex" style="color:#999">#F4F0EB</span></div>
+    <div class="swatch-name">Canvas</div><div class="swatch-role">Primary light</div>
+    <div class="swatch-usage">Default page backgrounds. Warm enough to feel inviting, neutral enough to let content lead.</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="background:var(--venetian)"><span class="swatch-hex" style="color:rgba(255,255,255,.5)">#B03A2E</span></div>
+    <div class="swatch-name">Venetian Red</div><div class="swatch-role">Primary accent</div>
+    <div class="swatch-usage">CTAs, links, active states, key moments. A deep, architectural red — bold but never aggressive. Used deliberately, never splashed.</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="background:var(--basalt)"><span class="swatch-hex" style="color:rgba(255,255,255,.5)">#3D6A60</span></div>
+    <div class="swatch-name">Basalt</div><div class="swatch-role">Secondary accent</div>
+    <div class="swatch-usage">Physio-related sections, tags, secondary buttons, physiotherapy content. Bridges the training and physio sides of the brand.</div>
+  </div>
+</div>
+
+<h3 style="font-size:13px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:14px">Supporting</h3>
+<div class="swatch-grid">
+  <div class="swatch">
+    <div class="swatch-box light" style="background:var(--linen)"><span class="swatch-hex" style="color:#999">#E6DED4</span></div>
+    <div class="swatch-name">Linen</div><div class="swatch-role">Surface</div>
+    <div class="swatch-usage">Alternate section backgrounds, card surfaces, input fields. Creates rhythm between sections.</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="background:var(--flint)"><span class="swatch-hex" style="color:rgba(255,255,255,.5)">#847B71</span></div>
+    <div class="swatch-name">Flint</div><div class="swatch-role">Body text</div>
+    <div class="swatch-usage">Paragraphs, descriptions, captions. Readable without the harshness of pure black on warm backgrounds.</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box" style="background:var(--charcoal)"><span class="swatch-hex" style="color:rgba(255,255,255,.5)">#2E3330</span></div>
+    <div class="swatch-name">Charcoal</div><div class="swatch-role">Text emphasis</div>
+    <div class="swatch-usage">Subheadings, labels, strong body text. A warmer alternative to Ironstone for mid-weight type.</div>
+  </div>
+  <div class="swatch">
+    <div class="swatch-box light" style="background:var(--white)"><span class="swatch-hex" style="color:#999">#FFFFFF</span></div>
+    <div class="swatch-name">White</div><div class="swatch-role">Utility</div>
+    <div class="swatch-usage">Text on dark backgrounds, card surfaces on dark sections, breathing room.</div>
+  </div>
+</div>
+
+<!-- Dual accent logic -->
+<div class="dual-grid">
+  <div class="dual-card" style="background:#FBF7F2">
+    <div class="dual-header"><div class="dual-dot" style="background:var(--venetian)"></div><span class="dual-name">Venetian Red — the "do" colour</span></div>
+    <div class="dual-desc">Training side. Intensity, resolve, results. Used for primary CTAs, active navigation states, training-related labels, and the brand monogram.</div>
+  </div>
+  <div class="dual-card" style="background:#F3F6F4">
+    <div class="dual-header"><div class="dual-dot" style="background:var(--basalt)"></div><span class="dual-name">Basalt — the "heal" colour</span></div>
+    <div class="dual-desc">Physio side. Calm, restoration, depth. Used for physio page accents, physio content tags, secondary buttons, and promotional banners.</div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PROPORTIONS ===== -->
+<div class="section" id="proportions">
+<p class="section-num">Section 02</p>
+<h2 class="section-title">Usage Proportions</h2>
+<p class="section-desc">The 60-30-10 rule adapted for a dual-accent system. Warm neutrals dominate. Venetian Red and Basalt are used sparingly for maximum impact.</p>
+
+<div class="card">
+  <div class="prop-row">
+    <div class="prop-header">
+      <span class="prop-name"><span class="prop-dot" style="background:var(--canvas);border:1px solid var(--border)"></span>Canvas + Linen + White</span>
+      <span class="prop-pct">60%</span>
+    </div>
+    <div class="prop-bar"><div class="prop-fill" style="width:60%;background:var(--canvas);border:1px solid var(--border)"></div></div>
+    <div class="prop-desc">Backgrounds, surfaces, breathing room. The dominant visual experience.</div>
+  </div>
+  <div class="prop-row">
+    <div class="prop-header">
+      <span class="prop-name"><span class="prop-dot" style="background:var(--ironstone)"></span>Ironstone + Charcoal + Flint</span>
+      <span class="prop-pct">25%</span>
+    </div>
+    <div class="prop-bar"><div class="prop-fill" style="width:25%;background:var(--ironstone)"></div></div>
+    <div class="prop-desc">Text, navigation, dark sections. Grounding presence throughout.</div>
+  </div>
+  <div class="prop-row">
+    <div class="prop-header">
+      <span class="prop-name"><span class="prop-dot" style="background:var(--venetian)"></span>Venetian Red</span>
+      <span class="prop-pct">10%</span>
+    </div>
+    <div class="prop-bar"><div class="prop-fill" style="width:10%;background:var(--venetian)"></div></div>
+    <div class="prop-desc">Primary accent. CTAs, links, monogram, active states. Every instance should feel intentional.</div>
+  </div>
+  <div class="prop-row">
+    <div class="prop-header">
+      <span class="prop-name"><span class="prop-dot" style="background:var(--basalt)"></span>Basalt</span>
+      <span class="prop-pct">5%</span>
+    </div>
+    <div class="prop-bar"><div class="prop-fill" style="width:5%;background:var(--basalt)"></div></div>
+    <div class="prop-desc">Secondary accent. Physio content, promotional moments, supporting tags. Rarer than Venetian Red.</div>
+  </div>
+
+  <div class="color-strip" style="margin-top:20px;margin-bottom:0">
+    <div style="flex:60;background:var(--canvas);border:1px solid var(--border)"></div>
+    <div style="flex:25;background:var(--ironstone)"></div>
+    <div style="flex:10;background:var(--venetian)"></div>
+    <div style="flex:5;background:var(--basalt)"></div>
+  </div>
+</div>
+</div>
+
+<!-- ===== GRADIENTS ===== -->
+<div class="section" id="gradients">
+<p class="section-num">Section 03</p>
+<h2 class="section-title">Gradient System</h2>
+<p class="section-desc">Four named gradients built from the brand palette. Used as a secondary texture layer for social media, promotional materials, branded merch, and seasonal campaign moments. Never used for core website backgrounds, the logo, or day-to-day brand communications.</p>
+
+<div class="grad-card">
+  <div class="grad-preview" style="background:linear-gradient(135deg,#1F2225 0%,#3D6A60 40%,#B03A2E 100%)">
+    <div class="logo">STRENGTH<span>STUDIO</span></div>
+  </div>
+  <div class="grad-info">
+    <div style="flex:1;min-width:200px">
+      <div class="grad-name">Forge</div>
+      <div class="grad-desc">The signature gradient. Ironstone through Basalt into Venetian Red — cold metal heated until it glows. Maps to the training philosophy: start grounded, build through physio, ignite results.</div>
+    </div>
+    <div class="grad-stops"><div class="grad-dot" style="background:#1F2225"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#3D6A60"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#B03A2E"></div></div>
+  </div>
+</div>
+
+<div class="grad-card">
+  <div class="grad-preview" style="background:linear-gradient(135deg,#3D6A60 0%,#E6DED4 50%,#B03A2E 100%)">
+    <div class="logo" style="color:#1F2225">STRENGTH<span style="color:#1F2225">STUDIO</span></div>
+  </div>
+  <div class="grad-info">
+    <div style="flex:1;min-width:200px">
+      <div class="grad-name">Duality</div>
+      <div class="grad-desc">Physio to training in a single sweep. Basalt fades through Linen into Venetian Red — the calm-to-action transition. Best for content that spans both brand pillars.</div>
+    </div>
+    <div class="grad-stops"><div class="grad-dot" style="background:#3D6A60"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#E6DED4;border:1px solid var(--border)"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#B03A2E"></div></div>
+  </div>
+</div>
+
+<div class="grad-card">
+  <div class="grad-preview" style="background:linear-gradient(135deg,#1F2225 0%,#2E3330 30%,#3D6A60 70%,#4A7D72 100%)">
+    <div class="logo">STRENGTH<span>STUDIO</span></div>
+  </div>
+  <div class="grad-info">
+    <div style="flex:1;min-width:200px">
+      <div class="grad-name">Depth</div>
+      <div class="grad-desc">The moody, physio-focused gradient. Dark tones only — Ironstone through Charcoal into Basalt. Atmospheric and calm. Best for physio content, evening social posts, meditative brand moments.</div>
+    </div>
+    <div class="grad-stops"><div class="grad-dot" style="background:#1F2225"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#2E3330"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#3D6A60"></div></div>
+  </div>
+</div>
+
+<div class="grad-card">
+  <div class="grad-preview" style="background:linear-gradient(145deg,#B03A2E 0%,#6E3632 40%,#2E3330 100%)">
+    <div class="logo">STRENGTH<span>STUDIO</span></div>
+  </div>
+  <div class="grad-info">
+    <div style="flex:1;min-width:200px">
+      <div class="grad-name">Anneal</div>
+      <div class="grad-desc">Venetian Red darkening through deep brick into Charcoal. Named after the metalworking process of heating and slow-cooling. The high-energy option — good for launch campaigns, merch, and high-impact visuals.</div>
+    </div>
+    <div class="grad-stops"><div class="grad-dot" style="background:#B03A2E"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#6E3632"></div><span class="grad-arrow">→</span><div class="grad-dot" style="background:#2E3330"></div></div>
+  </div>
+</div>
+
+<div class="usage-box" style="margin-top:20px">
+  <div class="usage-title">When to use gradients</div>
+  <div class="usage-text">Social media graphics and stories, promotional banners, event collateral, Instagram highlight covers, email headers, branded merchandise, seasonal website hero sections, presentation decks for corporate wellness pitches.</div>
+</div>
+<div class="usage-box basalt">
+  <div class="usage-title">When NOT to use gradients</div>
+  <div class="usage-text">Core website page backgrounds (keep those solid), the logo itself (always flat colour), body text areas, pricing tables, forms, navigation, and day-to-day brand communications. The gradient is a special treatment — overuse dilutes its impact.</div>
+</div>
+</div>
+
+<!-- ===== TYPOGRAPHY ===== -->
+<div class="section" id="typography">
+<p class="section-num">Section 04</p>
+<h2 class="section-title">Typography</h2>
+<p class="section-desc">A three-font system: an industrial expanded sans for the logotype, a versatile geometric sans for everything else, and a refined serif for accent moments. All open-source via Google Fonts.</p>
+
+<!-- Logotype -->
+<div class="card">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:16px">Logotype — Special Gothic Expanded One</div>
+  <div style="background:var(--ironstone);border-radius:10px;padding:32px 28px;margin-bottom:16px">
+    <div style="font-family:var(--display);font-size:42px;color:var(--canvas);letter-spacing:3px;line-height:1">STRENGTH</div>
+    <div style="font-family:var(--display);font-size:14px;color:var(--canvas);letter-spacing:6px;margin-top:4px">STUDIO</div>
+  </div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px">
+    <div style="flex:1;min-width:200px;background:var(--canvas);border-radius:8px;padding:20px">
+      <div style="font-family:var(--display);font-size:28px;color:var(--ironstone);letter-spacing:2px">STRENGTH</div>
+      <div style="font-family:var(--display);font-size:10px;color:var(--ironstone);letter-spacing:5px;margin-top:2px">STUDIO</div>
+    </div>
+    <div style="flex:1;min-width:200px;background:var(--venetian);border-radius:8px;padding:20px">
+      <div style="font-family:var(--display);font-size:28px;color:var(--white);letter-spacing:2px">STRENGTH</div>
+      <div style="font-family:var(--display);font-size:10px;color:var(--white);letter-spacing:5px;margin-top:2px">STUDIO</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--flint);line-height:1.7">A multi-width gothic typeface designed by Alistair McCready (Monolith, NZ). The expanded width gives "STRENGTH" a wide, commanding presence — each letter occupies space with quiet authority. <strong style="color:var(--ironstone)">Used exclusively for the logotype and brand name lockup. Never for body copy, headlines, or UI elements.</strong></p>
+</div>
+
+<!-- Body font -->
+<div class="card">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:16px">Primary typeface — Rethink Sans</div>
+  <div style="font-family:var(--body);font-size:48px;font-weight:700;color:var(--ironstone);line-height:1.1;margin-bottom:16px">Where Strength Meets Science</div>
+  <p style="font-family:var(--body);font-size:15px;color:var(--flint);line-height:1.7;max-width:540px;margin-bottom:20px">Premium training and physiotherapy for established professionals on Singapore's East Coast. Evidence-based programming designed around your body, your goals, and your timeline.</p>
+
+  <div class="specimen">
+    <div class="specimen-label">Weight ramp</div>
+    <div class="weight-row"><span class="weight-label">Regular 400</span><span style="font-family:var(--body);font-weight:400;font-size:16px;color:var(--ironstone)">The quick brown fox jumps over the lazy dog</span></div>
+    <div class="weight-row"><span class="weight-label">Medium 500</span><span style="font-family:var(--body);font-weight:500;font-size:16px;color:var(--ironstone)">Solo Track — 1-to-1 premium training</span></div>
+    <div class="weight-row"><span class="weight-label">SemiBold 600</span><span style="font-family:var(--body);font-weight:600;font-size:16px;color:var(--ironstone)">Book Your Movement Assessment</span></div>
+    <div class="weight-row"><span class="weight-label">Bold 700</span><span style="font-family:var(--body);font-weight:700;font-size:16px;color:var(--ironstone)">Founding Mvenetians — 50 Spots</span></div>
+    <div class="weight-row"><span class="weight-label">ExtraBold 800</span><span style="font-family:var(--body);font-weight:800;font-size:16px;color:var(--ironstone)">STRENGTH STUDIO OPENS JULY 2026</span></div>
+  </div>
+
+  <p style="font-size:13px;color:var(--flint);line-height:1.7">A fork of DM Sans by Hans Thiessen (Rethink agency, 2023). Clean, confident, slightly geometric but warmer than Inter. Built-in weight-specific tracking, tabular figures, and variable font support. <strong style="color:var(--ironstone)">Used for all headlines, body copy, navigation, CTAs, labels, and UI elements across web, social, and print.</strong></p>
+</div>
+
+<!-- Accent serif -->
+<div class="card">
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:16px">Accent serif — Instrument Serif</div>
+  <div style="font-family:var(--serif);font-size:42px;color:var(--ironstone);line-height:1.2;font-style:italic;margin-bottom:8px">Where strength meets science</div>
+  <div style="font-family:var(--serif);font-size:24px;color:var(--flint);line-height:1.4;margin-bottom:16px">"The body achieves what the mind believes."</div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px">
+    <div style="flex:1;min-width:200px;background:var(--venetian);border-radius:8px;padding:20px">
+      <div style="font-family:var(--serif);font-style:italic;font-size:20px;color:var(--white);line-height:1.4">Where strength meets science</div>
+    </div>
+    <div style="flex:1;min-width:200px;background:var(--canvas);border-radius:8px;padding:20px;border-left:2px solid var(--venetian)">
+      <div style="font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ironstone);line-height:1.5">"After six months, I'm stronger at 52 than I was at 30."</div>
+      <div style="font-family:var(--body);font-size:12px;color:var(--flint);margin-top:8px">— James K., founding mvenetian</div>
+    </div>
+  </div>
+
+  <p style="font-size:13px;color:var(--flint);line-height:1.7;margin-bottom:12px">An elegant transitional serif with expressive italics. Adds a layer of editorial sophistication that prevents the brand from feeling purely technical.</p>
+
+  <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--flint);font-weight:600;margin-bottom:8px">Use for</div>
+  <div class="tag-row">
+    <span class="tag">Tagline</span>
+    <span class="tag">Pull quotes</span>
+    <span class="tag">Testimonials</span>
+    <span class="tag">Blog drop caps</span>
+    <span class="tag">Editorial headlines</span>
+    <span class="tag">Special campaigns</span>
+  </div>
+</div>
+</div>
+
+<!-- ===== TYPE SCALE ===== -->
+<div class="section" id="type-scale">
+<p class="section-num">Section 05</p>
+<h2 class="section-title">Type Scale</h2>
+<p class="section-desc">Recommended sizes and weights for web. All sizes in pixels; use rem equivalents (base 16px) in production.</p>
+
+<div class="card" style="overflow-x:auto">
+<table class="scale-table">
+  <thead>
+    <tr><th>Element</th><th>Font</th><th>Weight</th><th>Size</th><th>Colour</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Logotype</td><td>Special Gothic Expanded One</td><td>400</td><td>32–48px</td><td>Ironstone or Canvas</td></tr>
+    <tr><td>Page title (H1)</td><td>Rethink Sans</td><td>700</td><td>36–48px</td><td>Ironstone</td></tr>
+    <tr><td>Section heading (H2)</td><td>Rethink Sans</td><td>700</td><td>24–28px</td><td>Ironstone</td></tr>
+    <tr><td>Subsection (H3)</td><td>Rethink Sans</td><td>600</td><td>18–20px</td><td>Ironstone or Charcoal</td></tr>
+    <tr><td>Body copy</td><td>Rethink Sans</td><td>400</td><td>15–16px</td><td>Flint</td></tr>
+    <tr><td>Small/caption</td><td>Rethink Sans</td><td>400–500</td><td>12–13px</td><td>Flint</td></tr>
+    <tr><td>Label / overline</td><td>Rethink Sans</td><td>600</td><td>11–12px, uppercase</td><td>Venetian Red or Basalt</td></tr>
+    <tr><td>CTA button</td><td>Rethink Sans</td><td>600</td><td>13–14px</td><td>White on Venetian Red</td></tr>
+    <tr><td>Nav link</td><td>Rethink Sans</td><td>500</td><td>14px</td><td>Ironstone / Flint</td></tr>
+    <tr><td>Tagline</td><td>Instrument Serif</td><td>400 italic</td><td>18–24px</td><td>Venetian Red</td></tr>
+    <tr><td>Pull quote</td><td>Instrument Serif</td><td>400 italic</td><td>18–22px</td><td>Ironstone</td></tr>
+    <tr><td>Testimonial</td><td>Instrument Serif</td><td>400 italic</td><td>16–20px</td><td>Ironstone or Charcoal</td></tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<!-- ===== USAGE RULES ===== -->
+<div class="section" id="usage">
+<p class="section-num">Section 06</p>
+<h2 class="section-title">Usage Rules</h2>
+<p class="section-desc">Key principles that keep the brand consistent across all touchpoints.</p>
+
+<div class="usage-box">
+  <div class="usage-title">Special Gothic Expanded One is logotype-only</div>
+  <div class="usage-text">Never use for headlines, body text, buttons, or any UI element. It appears only in the brand name lockup (STRENGTH / STUDIO) and the monogram mark (S).</div>
+</div>
+<div class="usage-box">
+  <div class="usage-title">Rethink Sans handles everything else</div>
+  <div class="usage-text">Headlines, body, navigation, CTAs, forms, labels, metadata, social captions. One font family, multiple weights — keep it simple.</div>
+</div>
+<div class="usage-box basalt">
+  <div class="usage-title">Instrument Serif is an accent, not a workhorse</div>
+  <div class="usage-text">Reserve for the tagline, pull quotes, testimonials, blog drop caps, and occasional editorial headlines. If it appears more than once per screen, it's overused.</div>
+</div>
+<div class="usage-box">
+  <div class="usage-title">Venetian Red is for action, Basalt is for physio</div>
+  <div class="usage-text">Never swap them. Training labels, primary CTAs, and active states always use Venetian Red. Physio labels, physio tags, and secondary promotions always use Basalt.</div>
+</div>
+<div class="usage-box basalt">
+  <div class="usage-title">Gradients are special occasions</div>
+  <div class="usage-text">Social media, merch, campaigns, seasonal heroes. Never on core website backgrounds, forms, or pricing tables. Maximum 3 colour stops per gradient. Transitions always soft (no hard lines), default angle 135°.</div>
+</div>
+<div class="usage-box">
+  <div class="usage-title">No GoFit reference</div>
+  <div class="usage-text">Strength Studio operates as a completely separate brand. The only parent company reference is "JSF Transformative Pte Ltd" in footer copyright lines and legal documents.</div>
+</div>
+</div>
+
+<!-- ===== COLOUR ARCHIVE ===== -->
+<div class="section" id="archive" style="margin-top:64px;padding-top:40px;border-top:2px solid var(--linen)">
+<p class="section-num">Archive</p>
+<h2 class="section-title">Alternate Primary Accent — Ember</h2>
+<p class="section-desc">Ember was the original primary accent colour, developed as part of the initial brand exploration. It is retained here as a backup option should the brand direction shift toward a warmer, more orange-red accent in future.</p>
+
+<div class="card" style="background:var(--canvas)">
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+    <div>
+      <div style="width:120px;height:120px;border-radius:12px;background:#D15229;display:flex;align-items:flex-end;padding:12px">
+        <span style="font-family:monospace;font-size:12px;color:rgba(255,255,255,0.6)">#D15229</span>
+      </div>
+    </div>
+    <div style="flex:1;min-width:240px">
+      <div style="font-weight:600;font-size:18px;color:var(--ironstone);margin-bottom:2px">Ember</div>
+      <div style="font-size:11px;color:#D15229;text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:8px">Archived — Primary accent (alternate)</div>
+      <div style="font-size:14px;color:var(--flint);line-height:1.7;margin-bottom:12px">A warm burnt orange — the colour of heat and effort made visible. More energetic and orange-leaning than Venetian Red. Suited to brand contexts where a warmer, more approachable tone is desired over the architectural restraint of Venetian Red.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="background:#D15229;color:#fff;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:600">CTA example</span>
+        <span style="padding:8px 18px;border-radius:6px;font-size:13px;font-weight:500;border:1px solid var(--linen);color:var(--ironstone)">Outline example</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+    <div style="flex:1;min-width:200px;background:var(--ironstone);border-radius:8px;padding:16px">
+      <div style="font-size:11px;color:#D15229;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-bottom:4px">Training</div>
+      <div style="font-weight:600;font-size:15px;color:var(--canvas)">Solo Track</div>
+      <div style="font-size:12px;color:var(--flint);margin-top:4px">On dark backgrounds</div>
+    </div>
+    <div style="flex:1;min-width:200px;background:var(--white);border-radius:8px;padding:16px;border:1px solid var(--linen)">
+      <div style="font-size:11px;color:#D15229;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;margin-bottom:4px">Training</div>
+      <div style="font-weight:600;font-size:15px;color:var(--ironstone)">Solo Track</div>
+      <div style="font-size:12px;color:var(--flint);margin-top:4px">On light backgrounds</div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--linen)">
+    <div style="font-size:12px;color:var(--flint);line-height:1.6">
+      <strong style="color:var(--ironstone)">Comparison:</strong> Venetian Red (#B03A2E) is the active primary accent. Ember (#D15229) is warmer and more orange, reading as energetic and sporty. Venetian Red is cooler and more muted, reading as premium and architectural. Both pair well with Basalt (#3D6A60) as the secondary accent.
+    </div>
+    <div style="display:flex;gap:6px;margin-top:10px;align-items:center">
+      <div style="width:36px;height:36px;border-radius:6px;background:#B03A2E"></div>
+      <span style="font-size:11px;color:var(--flint)">Venetian Red (active)</span>
+      <span style="font-size:11px;color:var(--linen);margin:0 4px">|</span>
+      <div style="width:36px;height:36px;border-radius:6px;background:#D15229"></div>
+      <span style="font-size:11px;color:var(--flint)">Ember (archived)</span>
+    </div>
+  </div>
+</div>
+</div>
+
+</main>
+
+<footer class="doc-footer">
+<div class="line"></div>
+<p>Strength Studio Brand Guidelines v1.0 &nbsp;·&nbsp; May 2026<br>Prepared for JSF Transformative Pte Ltd</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Studio — Site Architecture Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ironstone:#1F2225;--canvas:#F4F0EB;--venetian:#B03A2E;--basalt:#3D6A60;
+  --linen:#E6DED4;--flint:#847B71;--charcoal:#2E3330;--white:#FFFFFF;
+  --bg:#FAFAF7;--border:#DDD9D2;
+  --display:'Special Gothic Expanded One',sans-serif;
+  --body:'Rethink Sans',sans-serif;
+  --serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--bg);color:var(--ironstone);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+.header{background:var(--ironstone);padding:48px 0 40px}
+.header-inner{max-width:960px;margin:0 auto;padding:0 32px}
+.header-logo{font-family:var(--display);font-size:32px;color:var(--canvas);letter-spacing:3px;line-height:1}
+.header-logo span{display:block;font-size:14px;letter-spacing:6px;margin-top:4px;font-family:var(--display)}
+.header-meta{font-size:14px;color:var(--flint);margin-top:16px;display:flex;gap:24px;flex-wrap:wrap}
+.header-meta span{display:flex;align-items:center;gap:6px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--venetian);display:inline-block}
+.header-subtitle{font-size:15px;color:var(--canvas);opacity:0.7;margin-top:20px;max-width:600px;line-height:1.7}
+
+.toc{max-width:960px;margin:0 auto;padding:32px 32px 0}
+.toc-inner{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 28px;display:flex;gap:32px;flex-wrap:wrap;align-items:center}
+.toc-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600}
+.toc-links{display:flex;gap:8px;flex-wrap:wrap}
+.toc-links a{font-size:13px;color:var(--ironstone);text-decoration:none;padding:6px 14px;border-radius:6px;background:var(--canvas);font-weight:500;transition:all .2s}
+.toc-links a:hover{background:var(--venetian);color:white}
+
+main{max-width:960px;margin:0 auto;padding:40px 32px 80px}
+
+.section{margin-bottom:56px}
+.section-num{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--venetian);margin-bottom:4px}
+.section-title{font-size:22px;font-weight:700;color:var(--ironstone);margin-bottom:8px}
+.section-desc{font-size:14px;color:var(--flint);margin-bottom:24px;max-width:640px;line-height:1.7}
+
+.nav-flow{background:var(--ironstone);color:var(--canvas);border-radius:10px;padding:24px 28px;margin-bottom:24px;font-size:14px;line-height:2}
+.nav-flow strong{color:var(--venetian);font-weight:600}
+.nav-flow code{background:rgba(255,255,255,0.08);padding:2px 8px;border-radius:4px;font-size:13px;font-family:'SF Mono','Fira Code',monospace}
+
+.page-card{background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden}
+.page-card-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.page-name{font-size:17px;font-weight:600;color:var(--ironstone);margin-bottom:2px}
+.page-route{font-family:'SF Mono','Fira Code',monospace;font-size:12px;color:var(--flint);margin-bottom:4px}
+.page-purpose{font-size:13px;color:var(--flint)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:5px;letter-spacing:0.3px}
+.tag-cms{background:#E6F1FB;color:#185FA5}
+.tag-static{background:var(--canvas);color:var(--flint)}
+.tag-rezerv{background:#FAEEDA;color:#854F0B}
+.tag-cta{background:#E8F5E9;color:#1B7A2D}
+
+.page-card-body{padding:0}
+.block-list{list-style:none}
+.block-item{display:flex;gap:14px;padding:12px 24px;border-bottom:1px solid var(--border);font-size:14px;align-items:baseline}
+.block-item:last-child{border-bottom:none}
+.block-num{font-family:'SF Mono','Fira Code',monospace;font-size:11px;color:var(--flint);min-width:22px;padding-top:2px}
+.block-label{font-weight:600;color:var(--ironstone)}
+.block-desc{color:#555;font-weight:400}
+
+.child-pages{margin:0 16px 16px;border-left:3px solid var(--venetian);padding-left:0}
+.child-pages .page-card{border-top-left-radius:0;border-bottom-left-radius:0;margin-bottom:0;border-bottom:1px solid var(--border)}
+.child-pages .page-card:last-child{border-bottom:none}
+.child-pages .page-card-header{background:var(--canvas)}
+
+.coll-card{background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden}
+.coll-header{padding:18px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.coll-icon{width:32px;height:32px;background:var(--ironstone);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--venetian);font-weight:700;font-size:14px;flex-shrink:0}
+.coll-name{font-size:16px;font-weight:600;color:var(--ironstone);margin-bottom:1px}
+.coll-purpose{font-size:13px;color:var(--flint)}
+.field-list{list-style:none}
+.field-item{display:flex;gap:12px;padding:10px 24px;border-bottom:1px solid var(--border);font-size:13px;align-items:baseline}
+.field-item:last-child{border-bottom:none}
+.field-item:nth-child(even){background:var(--canvas)}
+.field-name{font-weight:600;color:var(--ironstone);min-width:140px}
+.field-type{font-family:'SF Mono','Fira Code',monospace;font-size:11px;color:var(--venetian);min-width:80px;background:rgba(176,58,46,0.08);padding:2px 6px;border-radius:3px;text-align:center}
+.field-desc{color:#666}
+
+.integ-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px;margin-bottom:16px}
+.integ-title{font-size:16px;font-weight:600;color:var(--ironstone);margin-bottom:4px}
+.integ-sub{font-size:13px;color:var(--flint);margin-bottom:14px}
+.integ-list{list-style:none}
+.integ-list li{font-size:14px;padding:6px 0;color:#444;display:flex;gap:8px;align-items:baseline}
+.integ-list li::before{content:'→';color:var(--venetian);font-weight:600}
+.integ-note{font-size:13px;color:var(--flint);font-style:italic;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);line-height:1.6}
+
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:10px;overflow:hidden;margin-top:16px}
+.footer-col{background:var(--white);padding:18px 20px}
+.footer-col-label{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--flint);font-weight:600;margin-bottom:8px}
+.footer-col p{font-size:13px;color:#555;line-height:1.6}
+.footer-bottom{background:var(--canvas);padding:14px 20px;grid-column:1/-1;font-size:12px;color:var(--flint)}
+
+.callout{background:var(--canvas);border-left:3px solid var(--venetian);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:#555;line-height:1.7}
+.callout strong{color:var(--ironstone)}
+
+.doc-footer{max-width:960px;margin:0 auto;padding:0 32px 48px;text-align:center;font-size:12px;color:var(--flint)}
+.doc-footer .line{width:40px;height:2px;background:var(--venetian);margin:0 auto 12px}
+
+@media(max-width:768px){
+  .header-inner,main,.toc,.doc-footer{padding-left:20px;padding-right:20px}
+  .header-logo{font-size:24px}
+  .toc-inner{flex-direction:column;gap:12px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .page-card-header{flex-direction:column}
+  .field-item{flex-wrap:wrap}
+  .field-name{min-width:100%}
+}
+@media print{
+  body{background:white}
+  .header{background:white;color:var(--ironstone);border-bottom:2px solid var(--ironstone)}
+  .header-logo,.header-subtitle{color:var(--ironstone)}
+  .nav-flow{background:var(--canvas);color:var(--ironstone)}
+  .page-card,.coll-card,.integ-card{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-logo">STRENGTH<span>STUDIO</span></div>
+    <div class="header-meta">
+      <span><span class="dot"></span> Site Architecture Plan</span>
+      <span>Domain: strength.sg</span>
+      <span>Platform: Webflow</span>
+      <span>Booking: book.strength.sg (Rezerv)</span>
+    </div>
+    <p class="header-subtitle">Complete site map, page wireframes, CMS collections, and integration points for the Strength Studio website on Webflow. Prepared for JSF Transformative Pte Ltd.</p>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <span class="toc-label">Jump to</span>
+    <div class="toc-links">
+      <a href="#sitemap">Site map</a>
+      <a href="#pages">Page wireframes</a>
+      <a href="#cms">CMS collections</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#notes">Notes</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- SECTION 1: SITEMAP -->
+<div class="section" id="sitemap">
+  <p class="section-num">Section 01</p>
+  <h2 class="section-title">Site map & navigation</h2>
+  <p class="section-desc">12 pages total — 7 primary, 3 CMS templates, 2 utility. All booking CTAs route to the Rezerv platform at book.strength.sg.</p>
+
+  <div class="nav-flow">
+    <strong>Primary nav:</strong> Home · Training · Physio · Trainers · Join Us · Happenings · Contact<br>
+    <strong>Utility nav (top right):</strong> <code>Book Now → book.strength.sg</code><br>
+    <strong>Footer:</strong> All nav links · JSF Transformative Pte Ltd · @strength.sg · Contact · Privacy · Terms<br>
+    <strong>Subpages:</strong> Join Us → Membership, Corporate Wellness · Happenings → Blog [template], Offers [template] · Trainers → Profile [template]
+  </div>
+</div>
+
+<!-- SECTION 2: PAGE WIREFRAMES -->
+<div class="section" id="pages">
+  <p class="section-num">Section 02</p>
+  <h2 class="section-title">Page wireframes</h2>
+  <p class="section-desc">Content block flow for each page — what appears, in what order, and what it needs to achieve. Not visual design; this is the content architecture.</p>
+
+  <!-- HOME -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Home</div><div class="page-route">/</div><div class="page-purpose">Brand story, first impression, conversion entry point</div></div>
+      <div class="tags"><span class="tag tag-static">Static</span><span class="tag tag-cta">CTA: Book assessment</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Hero</span> — <span class="block-desc">Full-bleed image or video. Headline (tagline), subheadline (positioning statement), CTA button → book.strength.sg</span></span></li>
+        <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Positioning strip</span> — <span class="block-desc">"Where strength meets science" — 3-4 pillars (Science-backed, Personalised, Longevity-focused, Expert-led) as icon+text cards</span></span></li>
+        <li class="block-item"><span class="block-num">03</span><span><span class="block-label">Training overview</span> — <span class="block-desc">2-column: image left, text right. Brief intro to Solo/Duo/Crew tracks. CTA → /training</span></span></li>
+        <li class="block-item"><span class="block-num">04</span><span><span class="block-label">Physio overview</span> — <span class="block-desc">2-column: text left, image right. Brief intro to physio-led treatment and corrective exercise. CTA → /physio</span></span></li>
+        <li class="block-item"><span class="block-num">05</span><span><span class="block-label">Trainer spotlight</span> — <span class="block-desc">Carousel or grid of 2-3 trainer cards pulled from CMS. CTA → /trainers</span></span></li>
+        <li class="block-item"><span class="block-num">06</span><span><span class="block-label">Social proof</span> — <span class="block-desc">2-3 testimonial quotes. Can pull from Testimonials CMS collection</span></span></li>
+        <li class="block-item"><span class="block-num">07</span><span><span class="block-label">Location & space</span> — <span class="block-desc">Interior photo gallery + embedded Google Map. Address: 77 @ East Coast. "By appointment" messaging</span></span></li>
+        <li class="block-item"><span class="block-num">08</span><span><span class="block-label">CTA banner</span> — <span class="block-desc">Full-width "Start with a Movement Assessment" → book.strength.sg</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRAINING -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Training</div><div class="page-route">/training</div><div class="page-purpose">Parent page for all strength training services</div></div>
+      <div class="tags"><span class="tag tag-static">Static + CMS</span><span class="tag tag-cta">CTA: Book session</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Hero</span> — <span class="block-desc">Training-specific imagery. Headline: "Intelligent strength programming." Subheadline on evidence-based approach</span></span></li>
+        <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Movement Assessment</span> — <span class="block-desc">Feature block for the 60-min comprehensive screen ($200 value). Positioned as the entry point before any training</span></span></li>
+        <li class="block-item"><span class="block-num">03</span><span><span class="block-label">Training tracks</span> — <span class="block-desc">Three cards side-by-side: Solo Track (1-to-1), Duo Track (2 pax), Crew Track (3-4 pax). Each with description, ideal-for, and CTA</span></span></li>
+        <li class="block-item"><span class="block-num">04</span><span><span class="block-label">Packages</span> — <span class="block-desc">Foundation (8 sessions) → Momentum (16) → Mastery (24). Pricing tiers if ready, or "Enquire" CTA</span></span></li>
+        <li class="block-item"><span class="block-num">05</span><span><span class="block-label">Programming Only</span> — <span class="block-desc">Monthly custom program + bi-weekly check-ins + video review. For experienced lifters who train independently</span></span></li>
+        <li class="block-item"><span class="block-num">06</span><span><span class="block-label">Who it's for</span> — <span class="block-desc">Audience segments with messaging: injured athletes, aging professionals, preventative/longevity, high performers</span></span></li>
+        <li class="block-item"><span class="block-num">07</span><span><span class="block-label">CTA banner</span> — <span class="block-desc">"Start with a Movement Assessment" → book.strength.sg</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RECOVERY -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Physio</div><div class="page-route">/physio</div><div class="page-purpose">Parent page for physiotherapy & corrective exercise services</div></div>
+      <div class="tags"><span class="tag tag-static">Static</span><span class="tag tag-cta">CTA: Book physio session</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Hero</span> — <span class="block-desc">Physio-specific imagery (treatment, mobility work). Headline: "Move better. Live stronger."</span></span></li>
+        <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Approach</span> — <span class="block-desc">Explanation of physio-led treatment philosophy. Manual therapy + corrective exercise. Not just passive treatment</span></span></li>
+        <li class="block-item"><span class="block-num">03</span><span><span class="block-label">Physio services</span> — <span class="block-desc">Cards for each offering: Manual Therapy, Corrective Exercise, Integrated Physio (bundled with strength). Standalone or combined options</span></span></li>
+        <li class="block-item"><span class="block-num">04</span><span><span class="block-label">Who benefits</span> — <span class="block-desc">Use cases: post-surgery rehab, chronic pain management, injury prevention, athletic recovery, mobility restoration</span></span></li>
+        <li class="block-item"><span class="block-num">05</span><span><span class="block-label">Add-on services</span> — <span class="block-desc">Nutrition consultation, performance testing, remote coaching — positioned as complements to physio</span></span></li>
+        <li class="block-item"><span class="block-num">06</span><span><span class="block-label">CTA banner</span> — <span class="block-desc">"Book a Physio Session" → book.strength.sg</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TRAINERS -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Trainers</div><div class="page-route">/trainers</div><div class="page-purpose">Team page — CMS-driven trainer profiles</div></div>
+      <div class="tags"><span class="tag tag-cms">CMS: Trainers</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Hero</span> — <span class="block-desc">Headline: "Expert-led. Always." Brief copy on dual-credentialed team philosophy</span></span></li>
+        <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Trainer grid</span> — <span class="block-desc">Photo + name + title + specialisations for each trainer. Clickable → individual profile pages</span></span></li>
+      </ul>
+    </div>
+    <div class="child-pages">
+      <div class="page-card">
+        <div class="page-card-header">
+          <div><div class="page-name">Trainer profile (CMS template)</div><div class="page-route">/trainers/[slug]</div><div class="page-purpose">Auto-generated per trainer from CMS</div></div>
+          <div class="tags"><span class="tag tag-cms">CMS template</span></div>
+        </div>
+        <div class="page-card-body">
+          <ul class="block-list">
+            <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Profile header</span> — <span class="block-desc">Large photo, name, title, certifications, specialisations</span></span></li>
+            <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Bio</span> — <span class="block-desc">Background, philosophy, training approach. Rich text from CMS</span></span></li>
+            <li class="block-item"><span class="block-num">03</span><span><span class="block-label">Specialisations</span> — <span class="block-desc">Tag-style display of focus areas (e.g. Senior Strength, Post-Rehab, Athletic Performance)</span></span></li>
+            <li class="block-item"><span class="block-num">04</span><span><span class="block-label">CTA</span> — <span class="block-desc">"Book a session with [Name]" → book.strength.sg</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOIN US -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Join Us</div><div class="page-route">/join</div><div class="page-purpose">Gateway to membership and corporate options</div></div>
+      <div class="tags"><span class="tag tag-static">Static</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Hero</span> — <span class="block-desc">Headline: "Train with us." Two clear pathways: Individuals → /join/membership, Organisations → /join/corporate-wellness</span></span></li>
+        <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Two-path layout</span> — <span class="block-desc">Side-by-side cards. Left: Membership (icon, brief description, CTA). Right: Corporate Wellness (icon, brief description, CTA)</span></span></li>
+        <li class="block-item"><span class="block-num">03</span><span><span class="block-label">FAQ accordion</span> — <span class="block-desc">General joining questions — cancellation, trial sessions, what to bring, etc. Pulled from FAQ CMS collection</span></span></li>
+      </ul>
+    </div>
+    <div class="child-pages">
+      <div class="page-card">
+        <div class="page-card-header">
+          <div><div class="page-name">Membership</div><div class="page-route">/join/membership</div><div class="page-purpose">Individual membership options and packages</div></div>
+          <div class="tags"><span class="tag tag-static">Static</span><span class="tag tag-rezerv">Links to book.strength.sg</span></div>
+        </div>
+        <div class="page-card-body">
+          <ul class="block-list">
+            <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Membership philosophy</span> — <span class="block-desc">Brief intro: limited to 50-100 members, appointment-based, premium positioning</span></span></li>
+            <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Package tiers</span> — <span class="block-desc">Pricing cards: Foundation (8 sessions), Momentum (16), Mastery (24). Solo/Duo/Crew pricing per track</span></span></li>
+            <li class="block-item"><span class="block-num">03</span><span><span class="block-label">What's included</span> — <span class="block-desc">Checklist: Movement Assessment, personalised programming, progress tracking, physio integration</span></span></li>
+            <li class="block-item"><span class="block-num">04</span><span><span class="block-label">Founding Member callout</span> — <span class="block-desc">Pre-launch: exclusive founding member offer (50 spots, locked rates, complimentary assessment). Toggleable post-launch</span></span></li>
+            <li class="block-item"><span class="block-num">05</span><span><span class="block-label">CTA</span> — <span class="block-desc">"Get Started" → book.strength.sg or enquiry form</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-card-header">
+          <div><div class="page-name">Corporate Wellness</div><div class="page-route">/join/corporate-wellness</div><div class="page-purpose">B2B partnerships — corporate fitness programmes</div></div>
+          <div class="tags"><span class="tag tag-static">Static</span><span class="tag tag-cta">CTA: Enquiry form</span></div>
+        </div>
+        <div class="page-card-body">
+          <ul class="block-list">
+            <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Value proposition</span> — <span class="block-desc">Why corporate wellness at Strength Studio: reduced absenteeism, employee wellbeing, productivity</span></span></li>
+            <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Programme options</span> — <span class="block-desc">Discounted memberships, lunchtime PT sessions, wellness talks/workshops, movement assessments for teams</span></span></li>
+            <li class="block-item"><span class="block-num">03</span><span><span class="block-label">How it works</span> — <span class="block-desc">3-step process: Enquire → Custom proposal → Launch</span></span></li>
+            <li class="block-item"><span class="block-num">04</span><span><span class="block-label">Enquiry form</span> — <span class="block-desc">Webflow native form: company name, contact person, number of employees, interest areas. Sends to team email</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HAPPENINGS -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Happenings</div><div class="page-route">/happenings</div><div class="page-purpose">Content hub — blog and offers</div></div>
+      <div class="tags"><span class="tag tag-cms">CMS: Blog + Offers</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Hero</span> — <span class="block-desc">Headline: "What's happening at Strength Studio." Tabbed or segmented view: Blog | Offers</span></span></li>
+        <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Featured post</span> — <span class="block-desc">Large hero card for latest/pinned blog post or active offer</span></span></li>
+        <li class="block-item"><span class="block-num">03</span><span><span class="block-label">Blog feed</span> — <span class="block-desc">Grid of recent blog posts (thumbnail, title, date, category tag). CMS collection list with pagination</span></span></li>
+        <li class="block-item"><span class="block-num">04</span><span><span class="block-label">Offers section</span> — <span class="block-desc">Active promotions displayed as cards with expiry dates, descriptions, and CTA buttons</span></span></li>
+      </ul>
+    </div>
+    <div class="child-pages">
+      <div class="page-card">
+        <div class="page-card-header">
+          <div><div class="page-name">Blog post (CMS template)</div><div class="page-route">/happenings/blog/[slug]</div><div class="page-purpose">Individual article page — auto-generated from CMS</div></div>
+          <div class="tags"><span class="tag tag-cms">CMS template</span></div>
+        </div>
+        <div class="page-card-body">
+          <ul class="block-list">
+            <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Article header</span> — <span class="block-desc">Title, author (ref → Trainers), publish date, category tag, hero image</span></span></li>
+            <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Article body</span> — <span class="block-desc">Rich text content area. Supports images, embedded video, pull quotes</span></span></li>
+            <li class="block-item"><span class="block-num">03</span><span><span class="block-label">Related posts</span> — <span class="block-desc">3 related articles by category (CMS filtered)</span></span></li>
+            <li class="block-item"><span class="block-num">04</span><span><span class="block-label">CTA</span> — <span class="block-desc">"Ready to start?" → book.strength.sg</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-card">
+        <div class="page-card-header">
+          <div><div class="page-name">Offer detail (CMS template)</div><div class="page-route">/happenings/offers/[slug]</div><div class="page-purpose">Individual offer/promo page — auto-generated from CMS</div></div>
+          <div class="tags"><span class="tag tag-cms">CMS template</span></div>
+        </div>
+        <div class="page-card-body">
+          <ul class="block-list">
+            <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Offer header</span> — <span class="block-desc">Title, validity dates, hero image, short description</span></span></li>
+            <li class="block-item"><span class="block-num">02</span><span><span class="block-label">Offer details</span> — <span class="block-desc">Rich text: what's included, terms & conditions, eligibility</span></span></li>
+            <li class="block-item"><span class="block-num">03</span><span><span class="block-label">CTA</span> — <span class="block-desc">Redeem/claim button → book.strength.sg or enquiry form</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Contact</div><div class="page-route">/contact</div><div class="page-purpose">Location, hours, enquiry form</div></div>
+      <div class="tags"><span class="tag tag-static">Static</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">01</span><span><span class="block-label">Contact info</span> — <span class="block-desc">Address (77 @ East Coast), phone, email, operating hours ("By appointment"), embedded Google Map</span></span></li>
+        <li class="block-item"><span class="block-num">02</span><span><span class="block-label">General enquiry form</span> — <span class="block-desc">Name, email, phone, enquiry type (dropdown: Training / Physio / Membership / Corporate / Other), message</span></span></li>
+        <li class="block-item"><span class="block-num">03</span><span><span class="block-label">Social links</span> — <span class="block-desc">Instagram @strength.sg, any other active channels</span></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- UTILITY -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <div><div class="page-name">Utility pages</div><div class="page-purpose">Not in primary nav — footer links only</div></div>
+      <div class="tags"><span class="tag tag-static">Static</span></div>
+    </div>
+    <div class="page-card-body">
+      <ul class="block-list">
+        <li class="block-item"><span class="block-num">—</span><span><span class="block-label">/privacy</span> — <span class="block-desc">Privacy policy</span></span></li>
+        <li class="block-item"><span class="block-num">—</span><span><span class="block-label">/terms</span> — <span class="block-desc">Terms of service</span></span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: CMS COLLECTIONS -->
+<div class="section" id="cms">
+  <p class="section-num">Section 03</p>
+  <h2 class="section-title">Webflow CMS collections</h2>
+  <p class="section-desc">7 collections powering dynamic content across the site. Reference fields link collections together (e.g. Blog posts → Trainers as author).</p>
+
+  <div class="coll-card">
+    <div class="coll-header"><div class="coll-icon">T</div><div><div class="coll-name">Trainers</div><div class="coll-purpose">Powers /trainers grid and individual profile pages. Referenced by Blog posts as author.</div></div></div>
+    <ul class="field-list">
+      <li class="field-item"><span class="field-name">Name</span><span class="field-type">Plain text</span><span class="field-desc">Full name</span></li>
+      <li class="field-item"><span class="field-name">Slug</span><span class="field-type">Auto</span><span class="field-desc">URL-friendly name</span></li>
+      <li class="field-item"><span class="field-name">Title</span><span class="field-type">Plain text</span><span class="field-desc">e.g. "Senior Strength Coach" or "Physiotherapist"</span></li>
+      <li class="field-item"><span class="field-name">Photo</span><span class="field-type">Image</span><span class="field-desc">Professional headshot / training photo</span></li>
+      <li class="field-item"><span class="field-name">Bio</span><span class="field-type">Rich text</span><span class="field-desc">Background, philosophy, approach</span></li>
+      <li class="field-item"><span class="field-name">Certifications</span><span class="field-type">Plain text</span><span class="field-desc">Comma-separated credentials</span></li>
+      <li class="field-item"><span class="field-name">Specialisations</span><span class="field-type">Multi-ref</span><span class="field-desc">→ Specialisations collection (tags)</span></li>
+      <li class="field-item"><span class="field-name">Order</span><span class="field-type">Number</span><span class="field-desc">Display sort order on grid</span></li>
+    </ul>
+  </div>
+
+  <div class="coll-card">
+    <div class="coll-header"><div class="coll-icon">S</div><div><div class="coll-name">Specialisations</div><div class="coll-purpose">Tag collection for trainer expertise areas. Enables filtering and consistent labelling.</div></div></div>
+    <ul class="field-list">
+      <li class="field-item"><span class="field-name">Name</span><span class="field-type">Plain text</span><span class="field-desc">e.g. "Senior Strength", "Post-Rehab", "Athletic Performance"</span></li>
+      <li class="field-item"><span class="field-name">Slug</span><span class="field-type">Auto</span><span class="field-desc">URL-friendly version</span></li>
+    </ul>
+  </div>
+
+  <div class="coll-card">
+    <div class="coll-header"><div class="coll-icon">B</div><div><div class="coll-name">Blog posts</div><div class="coll-purpose">Powers /happenings/blog. Content marketing, SEO, authority building.</div></div></div>
+    <ul class="field-list">
+      <li class="field-item"><span class="field-name">Title</span><span class="field-type">Plain text</span><span class="field-desc">Article headline</span></li>
+      <li class="field-item"><span class="field-name">Slug</span><span class="field-type">Auto</span><span class="field-desc">URL-friendly title</span></li>
+      <li class="field-item"><span class="field-name">Hero image</span><span class="field-type">Image</span><span class="field-desc">Featured image</span></li>
+      <li class="field-item"><span class="field-name">Excerpt</span><span class="field-type">Plain text</span><span class="field-desc">2-3 sentence summary for cards and SEO meta</span></li>
+      <li class="field-item"><span class="field-name">Body</span><span class="field-type">Rich text</span><span class="field-desc">Full article content</span></li>
+      <li class="field-item"><span class="field-name">Author</span><span class="field-type">Ref</span><span class="field-desc">→ Trainers collection</span></li>
+      <li class="field-item"><span class="field-name">Category</span><span class="field-type">Ref</span><span class="field-desc">→ Blog categories collection</span></li>
+      <li class="field-item"><span class="field-name">Published date</span><span class="field-type">Date</span><span class="field-desc">For sort order and display</span></li>
+      <li class="field-item"><span class="field-name">Featured</span><span class="field-type">Switch</span><span class="field-desc">Pin to featured slot on /happenings</span></li>
+    </ul>
+  </div>
+
+  <div class="coll-card">
+    <div class="coll-header"><div class="coll-icon">C</div><div><div class="coll-name">Blog categories</div><div class="coll-purpose">Enables filtered blog views and related post logic.</div></div></div>
+    <ul class="field-list">
+      <li class="field-item"><span class="field-name">Name</span><span class="field-type">Plain text</span><span class="field-desc">e.g. "Training Tips", "Physio", "Nutrition", "Studio News"</span></li>
+      <li class="field-item"><span class="field-name">Slug</span><span class="field-type">Auto</span><span class="field-desc">URL-friendly version</span></li>
+    </ul>
+  </div>
+
+  <div class="coll-card">
+    <div class="coll-header"><div class="coll-icon">O</div><div><div class="coll-name">Offers</div><div class="coll-purpose">Powers /happenings/offers. Time-bound promotions and campaigns.</div></div></div>
+    <ul class="field-list">
+      <li class="field-item"><span class="field-name">Title</span><span class="field-type">Plain text</span><span class="field-desc">Offer headline</span></li>
+      <li class="field-item"><span class="field-name">Slug</span><span class="field-type">Auto</span><span class="field-desc">URL-friendly version</span></li>
+      <li class="field-item"><span class="field-name">Hero image</span><span class="field-type">Image</span><span class="field-desc">Promo visual</span></li>
+      <li class="field-item"><span class="field-name">Short description</span><span class="field-type">Plain text</span><span class="field-desc">Card-level summary</span></li>
+      <li class="field-item"><span class="field-name">Details</span><span class="field-type">Rich text</span><span class="field-desc">Full offer info, T&Cs</span></li>
+      <li class="field-item"><span class="field-name">Start date</span><span class="field-type">Date</span><span class="field-desc">Offer goes live</span></li>
+      <li class="field-item"><span class="field-name">End date</span><span class="field-type">Date</span><span class="field-desc">Offer expires (conditional visibility)</span></li>
+      <li class="field-item"><span class="field-name">CTA label</span><span class="field-type">Plain text</span><span class="field-desc">e.g. "Claim Offer", "Book Now", "Enquire"</span></li>
+      <li class="field-item"><span class="field-name">CTA URL</span><span class="field-type">Link</span><span class="field-desc">→ book.strength.sg or custom landing</span></li>
+      <li class="field-item"><span class="field-name">Active</span><span class="field-type">Switch</span><span class="field-desc">Manual override to show/hide</span></li>
+    </ul>
+  </div>
+
+  <div class="coll-card">
+    <div class="coll-header"><div class="coll-icon">★</div><div><div class="coll-name">Testimonials</div><div class="coll-purpose">Powers social proof sections across Home and service pages.</div></div></div>
+    <ul class="field-list">
+      <li class="field-item"><span class="field-name">Quote</span><span class="field-type">Plain text</span><span class="field-desc">Testimonial text</span></li>
+      <li class="field-item"><span class="field-name">Name</span><span class="field-type">Plain text</span><span class="field-desc">Client name (first name + last initial)</span></li>
+      <li class="field-item"><span class="field-name">Context</span><span class="field-type">Plain text</span><span class="field-desc">e.g. "Recovering runner, 48"</span></li>
+      <li class="field-item"><span class="field-name">Photo</span><span class="field-type">Image</span><span class="field-desc">Optional client photo</span></li>
+      <li class="field-item"><span class="field-name">Featured</span><span class="field-type">Switch</span><span class="field-desc">Show on Home page</span></li>
+      <li class="field-item"><span class="field-name">Service type</span><span class="field-type">Option</span><span class="field-desc">Training / Physio / Both — for page-specific filtering</span></li>
+    </ul>
+  </div>
+
+  <div class="coll-card">
+    <div class="coll-header"><div class="coll-icon">?</div><div><div class="coll-name">FAQs</div><div class="coll-purpose">Powers accordion sections on Join Us and potentially other pages.</div></div></div>
+    <ul class="field-list">
+      <li class="field-item"><span class="field-name">Question</span><span class="field-type">Plain text</span><span class="field-desc">The question</span></li>
+      <li class="field-item"><span class="field-name">Answer</span><span class="field-type">Rich text</span><span class="field-desc">Supports links, formatting</span></li>
+      <li class="field-item"><span class="field-name">Category</span><span class="field-type">Option</span><span class="field-desc">General / Membership / Training / Physio / Corporate</span></li>
+      <li class="field-item"><span class="field-name">Order</span><span class="field-type">Number</span><span class="field-desc">Display sort order</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 4: INTEGRATIONS -->
+<div class="section" id="integrations">
+  <p class="section-num">Section 04</p>
+  <h2 class="section-title">Integration & handoff points</h2>
+  <p class="section-desc">How the Webflow site connects to Rezerv, social channels, and third-party services.</p>
+
+  <div class="integ-card">
+    <div class="integ-title">Rezerv — book.strength.sg</div>
+    <div class="integ-sub">Every "Book" CTA across the site links to book.strength.sg. The Rezerv platform handles:</div>
+    <ul class="integ-list">
+      <li>Session booking (Movement Assessment, Solo/Duo/Crew, Physio)</li>
+      <li>Package purchases (Foundation / Momentum / Mastery)</li>
+      <li>Membership management and payments</li>
+      <li>Client accounts and scheduling</li>
+    </ul>
+    <p class="integ-note">Where possible, "Book" CTAs should deep-link to the specific service on Rezerv (e.g. book.strength.sg/movement-assessment) rather than the generic timetable. This reduces friction and improves conversion.</p>
+  </div>
+
+  <div class="integ-card">
+    <div class="integ-title">Footer structure</div>
+    <div class="footer-grid">
+      <div class="footer-col"><div class="footer-col-label">Brand</div><p>Strength Studio wordmark + tagline<br>"A studio by JSF Transformative Pte Ltd"</p></div>
+      <div class="footer-col"><div class="footer-col-label">Quick links</div><p>Training · Physio · Trainers · Join Us · Happenings · Contact</p></div>
+      <div class="footer-col"><div class="footer-col-label">Contact</div><p>77 @ East Coast<br>Phone · Email<br>By appointment</p></div>
+      <div class="footer-col"><div class="footer-col-label">Connect</div><p>Instagram @strength.sg<br>Book Now → book.strength.sg</p></div>
+      <div class="footer-bottom">© 2026 JSF Transformative Pte Ltd &nbsp;·&nbsp; Privacy &nbsp;·&nbsp; Terms</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: NOTES -->
+<div class="section" id="notes">
+  <p class="section-num">Section 05</p>
+  <h2 class="section-title">Implementation notes</h2>
+
+  <div class="callout"><strong>Pricing visibility.</strong> The Membership page includes a pricing tiers section, but consider keeping pricing as "Enquire" rather than public at launch. Premium studios often do this to qualify leads and avoid direct price comparison with standard gyms.</div>
+  <div class="callout"><strong>Founding Member toggle.</strong> The Membership page has a "Founding Member callout" block designed to be switched on during pre-launch and hidden post-launch via Webflow's conditional visibility. No separate landing page needed.</div>
+  <div class="callout"><strong>Blog → Trainer linking.</strong> Blog posts reference the Trainers CMS collection as author. This means every article automatically links back to the trainer's profile page — strengthening internal linking, SEO, and team authority positioning.</div>
+  <div class="callout"><strong>Offers with date logic.</strong> The Offers collection includes start/end dates and an active toggle. Use Webflow's conditional visibility to auto-hide expired offers from /happenings while keeping detail pages alive for SEO value.</div>
+  <div class="callout"><strong>No GoFit reference.</strong> Strength Studio operates as a completely separate brand. The only parent company reference is "JSF Transformative Pte Ltd" in the footer copyright line.</div>
+</div>
+
+</main>
+
+<footer class="doc-footer">
+  <div class="line"></div>
+  <p>Strength Studio Site Architecture Plan &nbsp;·&nbsp; May 2026<br>Prepared for JSF Transformative Pte Ltd</p>
+</footer>
+
+</body>
+</html>

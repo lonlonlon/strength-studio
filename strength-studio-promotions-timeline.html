@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Studio — Pre-Launch Physical Promotions Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ironstone:#1F2225;--canvas:#F4F0EB;--venetian:#B03A2E;--basalt:#3D6A60;
+  --linen:#E6DED4;--flint:#847B71;--charcoal:#2E3330;
+  --body:'Rethink Sans',sans-serif;--serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:#fff;color:var(--ironstone);line-height:1.6;-webkit-font-smoothing:antialiased;max-width:760px;margin:0 auto;padding:40px 28px 80px}
+
+.header{margin-bottom:36px;padding-bottom:20px;border-bottom:2px solid var(--ironstone)}
+.header-brand{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--venetian);font-weight:600;margin-bottom:4px}
+h1{font-size:22px;font-weight:700;color:var(--ironstone);margin-bottom:6px;line-height:1.3}
+.header-sub{font-size:14px;color:var(--flint);line-height:1.6}
+
+.summary{background:var(--canvas);border-radius:10px;padding:20px 24px;margin-bottom:36px}
+.summary-title{font-size:13px;font-weight:600;color:var(--ironstone);margin-bottom:8px}
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.summary-item{background:#fff;border-radius:8px;padding:12px 14px;text-align:center}
+.summary-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--flint);font-weight:600;margin-bottom:2px}
+.summary-value{font-size:16px;font-weight:700;color:var(--ironstone)}
+.summary-note{font-size:11px;color:var(--flint);margin-top:1px}
+
+/* Phase blocks */
+.phase{margin-bottom:32px}
+.phase-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.phase-marker{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.phase-info{flex:1}
+.phase-name{font-size:17px;font-weight:700;color:var(--ironstone);line-height:1.3}
+.phase-dates{font-size:13px;color:var(--flint)}
+
+/* Task cards */
+.task{background:#fff;border:1px solid var(--linen);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.task-header{padding:14px 18px;display:flex;align-items:flex-start;gap:12px}
+.task-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;margin-top:1px}
+.task-content{flex:1}
+.task-name{font-size:15px;font-weight:600;color:var(--ironstone);margin-bottom:2px;line-height:1.4}
+.task-desc{font-size:13px;color:var(--flint);line-height:1.6}
+
+/* Tags */
+.task-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.tag{font-size:10px;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;padding:2px 8px;border-radius:4px}
+.tag-high{background:rgba(176,58,46,0.1);color:var(--venetian)}
+.tag-med{background:rgba(200,170,50,0.12);color:#8B7722}
+.tag-tbd{background:rgba(132,123,113,0.12);color:var(--flint)}
+.tag-owner{background:rgba(61,106,96,0.1);color:var(--basalt)}
+
+/* Subtasks */
+.subtasks{border-top:1px solid var(--linen);padding:10px 18px 12px 58px}
+.subtask{display:flex;align-items:flex-start;gap:8px;padding:4px 0;font-size:13px;color:var(--charcoal);line-height:1.5}
+.subtask::before{content:"☐";color:var(--linen);font-size:14px;flex-shrink:0;margin-top:1px}
+.subtask-note{color:var(--flint);font-style:italic}
+
+/* Dependency callout */
+.dependency{background:#FEF6F5;border:1px solid rgba(176,58,46,0.15);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--venetian);line-height:1.6}
+.dependency strong{font-weight:600}
+
+/* Connector line between phases */
+.connector{width:2px;height:20px;background:var(--linen);margin:0 0 0 19px}
+
+/* TBD overlay */
+.task.tbd{opacity:0.7;border-style:dashed}
+.task.tbd .task-name{color:var(--flint)}
+
+.footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--linen);font-size:12px;color:var(--flint);text-align:center}
+
+@media(max-width:600px){
+  .summary-grid{grid-template-columns:repeat(2,1fr)}
+  .subtasks{padding-left:42px}
+}
+@media print{
+  body{padding:20px;max-width:100%}
+  .task{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">Strength Studio</div>
+  <h1>Pre-Launch Physical Promotions Timeline</h1>
+  <div class="header-sub">Physical marketing activities from June through soft launch in August Week 1. All materials drive to strength.sg. Target: affluent professionals aged 35-60 within 3km of 77 @ East Coast.</div>
+</div>
+
+<div class="summary">
+  <div class="summary-title">Timeline overview</div>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="summary-label">Prep</div>
+      <div class="summary-value">Jun</div>
+      <div class="summary-note">Design & print</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Reno starts</div>
+      <div class="summary-value">Jul W1</div>
+      <div class="summary-note">Hoarding goes up</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Outreach</div>
+      <div class="summary-value">Jul W2-4</div>
+      <div class="summary-note">Drops & partnerships</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Soft launch</div>
+      <div class="summary-value">Aug W1</div>
+      <div class="summary-note">Doors open</div>
+    </div>
+  </div>
+</div>
+
+<div class="dependency"><strong>Blocker:</strong> All printed materials depend on the finalised logo. Logo must be locked before any design work begins. This is the critical path item for June.</div>
+
+<!-- ============================== -->
+<!-- PHASE 1: JUNE -->
+<!-- ============================== -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-marker" style="background:var(--venetian)">1</div>
+    <div class="phase-info">
+      <div class="phase-name">Preparation — Design & Print</div>
+      <div class="phase-dates">June 2026 (before renovation begins)</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">1.1</div>
+      <div class="task-content">
+        <div class="task-name">Finalise logo & brand assets</div>
+        <div class="task-desc">Lock the logomark and wordmark. Export production files in all colour variants. Everything downstream depends on this.</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Allon + Glenn</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Confirm final logotype (Special Gothic Expanded One vs Neue DIN XWide)</div>
+      <div class="subtask">Confirm final logomark (SS monogram direction)</div>
+      <div class="subtask">Export SVGs in all brand colour variants</div>
+      <div class="subtask">Prepare print-ready files (CMYK, vector, high-res PNG)</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">1.2</div>
+      <div class="task-content">
+        <div class="task-name">Design construction hoarding / window wrap</div>
+        <div class="task-desc">Large-format vinyl or adhesive for any street-facing or corridor-facing glass at 77 @ East Coast. Visible throughout the entire renovation period — highest ROI physical asset.</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Allon</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Survey the unit: measure all glass panels and identify which face common areas / street</div>
+      <div class="subtask">Design artwork: logomark + "Strength Studio" + "Opening August 2026" + strength.sg + @strength.sg</div>
+      <div class="subtask">Get print quote from large-format printer (vinyl wrap or frosted adhesive)</div>
+      <div class="subtask">Confirm with condo MCST that hoarding/wrap is permitted during renovation</div>
+      <div class="subtask">Print and prepare for install on Day 1 of renovation</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">1.3</div>
+      <div class="task-content">
+        <div class="task-name">Design & print premium referral cards</div>
+        <div class="task-desc">Thick stock, premium feel — not a flyer. Used for café partnerships, condo drops, and clinic introductions. One design, multiple use cases.</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Allon</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Design front: logomark + "Strength Studio — Training & Physio" + strength.sg</div>
+      <div class="subtask">Design back: "Complimentary Movement Assessment — book at strength.sg" + address + @strength.sg</div>
+      <div class="subtask">Select card stock: 400gsm+ with matte laminate or soft-touch finish</div>
+      <div class="subtask">Print run: 500-800 cards</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">1.4</div>
+      <div class="task-content">
+        <div class="task-name">Design & print condo letterbox cards</div>
+        <div class="task-desc">Premium A5 card for targeted letterbox drops to surrounding high-end condos. Should look and feel like an invitation, not a promotion.</div>
+        <div class="task-tags"><span class="tag tag-med">Medium priority</span><span class="tag tag-owner">Allon</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Design A5 card: invitation-style, "A new kind of studio is opening in your neighbourhood"</div>
+      <div class="subtask">Include founding member offer (e.g. complimentary Movement Assessment + locked rates)</div>
+      <div class="subtask">Print run: 500-1,000 cards</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">1.5</div>
+      <div class="task-content">
+        <div class="task-name">Draft condo management introduction letter</div>
+        <div class="task-desc">Formal letter to 77 @ East Coast MCST introducing Strength Studio, explaining the business, and requesting permission for lift lobby / common area notice placement.</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Glenn</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Draft letter on JSF Transformative Pte Ltd letterhead</div>
+      <div class="subtask">Include: business description, operating hours ("by appointment"), noise/disruption mitigation during reno</div>
+      <div class="subtask">Request: lift lobby notice, common area noticeboard, permission for hoarding during renovation</div>
+      <div class="subtask">Propose: exclusive residents-only founding member offer (e.g. 15% off first package)</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">1.6</div>
+      <div class="task-content">
+        <div class="task-name">Identify café and F&B partners in Siglap Village</div>
+        <div class="task-desc">Shortlist 3-4 cafés along the East Coast / Siglap strip where your target demo spends weekend mornings. Approach in person to propose a card display partnership.</div>
+        <div class="task-tags"><span class="tag tag-med">Medium priority</span><span class="tag tag-owner">Glenn</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Shortlist target cafés (e.g. Penny University, The Bravery, Coq & Balls, or equivalent)</div>
+      <div class="subtask">Visit in person — introduce yourself, explain the studio concept</div>
+      <div class="subtask">Propose: branded card display at counter in exchange for complimentary Movement Assessment for staff</div>
+      <div class="subtask">Confirm placement arrangements and card replenishment schedule</div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"></div>
+
+<!-- ============================== -->
+<!-- PHASE 2: JULY WEEK 1 -->
+<!-- ============================== -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-marker" style="background:var(--basalt)">2</div>
+    <div class="phase-info">
+      <div class="phase-name">Renovation Starts — Install & Activate</div>
+      <div class="phase-dates">July Week 1, 2026</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(61,106,96,0.1);color:var(--basalt)">2.1</div>
+      <div class="task-content">
+        <div class="task-name">Install construction hoarding / window wrap</div>
+        <div class="task-desc">Day 1 of renovation. The wrap goes up before any construction starts — from this moment, the studio is visible to every condo resident and visitor daily.</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Allon + Contractor</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Coordinate with renovation contractor on installation timing</div>
+      <div class="subtask">Install wrap on all identified glass panels</div>
+      <div class="subtask">Photograph the installed wrap for social media (first @strength.sg post)</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(61,106,96,0.1);color:var(--basalt)">2.2</div>
+      <div class="task-content">
+        <div class="task-name">Deliver condo management letter + residents notice</div>
+        <div class="task-desc">Submit the introduction letter to MCST. If approved, place the residents notice in lift lobby and common area noticeboard.</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Glenn</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Hand-deliver letter to MCST office or managing agent</div>
+      <div class="subtask">Follow up within 48 hours for approval on notice placement</div>
+      <div class="subtask">Install residents notice once approved</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(61,106,96,0.1);color:var(--basalt)">2.3</div>
+      <div class="task-content">
+        <div class="task-name">Deploy café counter cards</div>
+        <div class="task-desc">Drop off the first batch of referral cards at confirmed café partners. Brief the staff on what Strength Studio is so they can answer basic questions.</div>
+        <div class="task-tags"><span class="tag tag-med">Medium priority</span><span class="tag tag-owner">Glenn</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Deliver 30-50 cards per café</div>
+      <div class="subtask">Brief café staff (30 seconds: "It's a new PT and physio studio opening at 77 East Coast in August")</div>
+      <div class="subtask">Set calendar reminder to replenish cards fortnightly</div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"></div>
+
+<!-- ============================== -->
+<!-- PHASE 3: JULY WEEKS 2-4 -->
+<!-- ============================== -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-marker" style="background:var(--charcoal)">3</div>
+    <div class="phase-info">
+      <div class="phase-name">Outreach — Drops & Partnerships</div>
+      <div class="phase-dates">July Weeks 2–4, 2026</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(31,34,37,0.08);color:var(--charcoal)">3.1</div>
+      <div class="task-content">
+        <div class="task-name">Letterbox drops to surrounding condos</div>
+        <div class="task-desc">Targeted drops to high-end condos within 1km. Premium A5 invitation cards only — no cheap flyers. Stagger over 2 weeks to manage response volume.</div>
+        <div class="task-tags"><span class="tag tag-med">Medium priority</span><span class="tag tag-owner">Glenn + Lead Trainer</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Map target condos: The Seafront on Meyer, Silversea, Coastline Residences, The Shore Residences, Tanjong Katong Complex, etc.</div>
+      <div class="subtask">Week 2: Drop first batch (300-500 units — closest condos first)</div>
+      <div class="subtask">Week 3: Drop second batch (remaining 300-500 units)</div>
+      <div class="subtask">Track response: ask every enquiry "how did you hear about us?"</div>
+    </div>
+  </div>
+
+  <div class="task tbd">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(132,123,113,0.1);color:var(--flint)">3.2</div>
+      <div class="task-content">
+        <div class="task-name">GP and physio clinic referral cards</div>
+        <div class="task-desc">Introduce the studio to 5-8 GP clinics, physiotherapy practices, and sports medicine clinics in the Katong / Marine Parade / Siglap area. Leave referral cards and propose a reciprocal referral arrangement.</div>
+        <div class="task-tags"><span class="tag tag-tbd">TBD</span><span class="tag tag-owner">Glenn + Lead Trainer</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Identify 5-8 clinics within the Katong–Siglap corridor</div>
+      <div class="subtask">Visit in person — Glenn or lead trainer introduces the studio</div>
+      <div class="subtask">Explain the integrated training + physio model</div>
+      <div class="subtask">Leave 20-30 referral cards per clinic</div>
+      <div class="subtask">Propose reciprocal arrangement: you refer clinical cases to them, they refer post-discharge patients to you</div>
+    </div>
+  </div>
+
+  <div class="task tbd">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(132,123,113,0.1);color:var(--flint)">3.3</div>
+      <div class="task-content">
+        <div class="task-name">Running / cycling club pop-ups</div>
+        <div class="task-desc">Offer a free "Runner's Movement Screen" pop-up (30 min, 5-6 slots) at a weekend run along East Coast Park. Lead trainer runs the assessments; collect names and emails.</div>
+        <div class="task-tags"><span class="tag tag-tbd">TBD</span><span class="tag tag-owner">Lead Trainer</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Identify local running/cycling groups that use ECP (Parkrun Bedok Reservoir, ECP running clubs)</div>
+      <div class="subtask">Approach group organiser — propose a free movement screen for members</div>
+      <div class="subtask">Set up: portable table, branded banner, sign-up sheet, referral cards</div>
+      <div class="subtask">Run 5-6 mini movement screens (5 min each)</div>
+      <div class="subtask">Follow up within 48 hours with a personalised email + booking link</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(31,34,37,0.08);color:var(--charcoal)">3.4</div>
+      <div class="task-content">
+        <div class="task-name">"Coming soon" A-frame board</div>
+        <div class="task-desc">If the condo allows it, place a branded A-frame or chalkboard near the ground-floor entrance during the final 2 weeks of renovation. Low cost, daily impressions from foot traffic.</div>
+        <div class="task-tags"><span class="tag tag-med">Medium priority</span><span class="tag tag-owner">Allon</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Check with MCST if A-frame placement is permitted near the entrance</div>
+      <div class="subtask">Design and produce A-frame: logomark + "Opening August" + strength.sg</div>
+      <div class="subtask">Deploy during final 2 weeks of renovation (mid-to-late July)</div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"></div>
+
+<!-- ============================== -->
+<!-- PHASE 4: LATE JULY -->
+<!-- ============================== -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-marker" style="background:var(--venetian)">4</div>
+    <div class="phase-info">
+      <div class="phase-name">Pre-Launch — Founding Member Push</div>
+      <div class="phase-dates">Late July 2026 (1-2 weeks before soft launch)</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">4.1</div>
+      <div class="task-content">
+        <div class="task-name">Launch founding member offer on strength.sg</div>
+        <div class="task-desc">All physical materials have been driving to strength.sg for 3-4 weeks. Now activate the founding member landing page with a clear offer: 50 spots, locked rates, complimentary Movement Assessment.</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Allon + Glenn</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Activate founding member section on /join/membership (toggle on in Webflow)</div>
+      <div class="subtask">Set up booking flow on book.strength.sg for Movement Assessments</div>
+      <div class="subtask">Announce on @strength.sg Instagram</div>
+      <div class="subtask">Update café cards and condo notices with "Now accepting founding members"</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(176,58,46,0.1);color:var(--venetian)">4.2</div>
+      <div class="task-content">
+        <div class="task-name">Replenish all physical materials</div>
+        <div class="task-desc">Top up café cards, check condo notices are still posted, confirm A-frame is in position. Final push before doors open.</div>
+        <div class="task-tags"><span class="tag tag-med">Medium priority</span><span class="tag tag-owner">Glenn</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Visit all café partners — replenish cards, confirm they're still displayed</div>
+      <div class="subtask">Check condo lift lobby and noticeboard notices</div>
+      <div class="subtask">Ensure A-frame is visible and in good condition</div>
+    </div>
+  </div>
+
+  <div class="task tbd">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(132,123,113,0.1);color:var(--flint)">4.3</div>
+      <div class="task-content">
+        <div class="task-name">Branded merchandise as soft launch gifts</div>
+        <div class="task-desc">Small branded item for the first 20-30 founding members: resistance band with logomark, premium gym towel, or branded water bottle. Creates word-of-mouth when used at ECP or other gyms.</div>
+        <div class="task-tags"><span class="tag tag-tbd">TBD</span><span class="tag tag-owner">Allon</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Select item (resistance band, towel, or bottle — balance cost vs perceived value)</div>
+      <div class="subtask">Source supplier and confirm lead time (need 2-3 weeks minimum)</div>
+      <div class="subtask">Design branding: logomark + strength.sg (subtle, not plastered)</div>
+      <div class="subtask">Order 30-50 units</div>
+      <div class="subtask">Package for handoff during first Movement Assessment sessions</div>
+    </div>
+  </div>
+</div>
+
+<div class="connector"></div>
+
+<!-- ============================== -->
+<!-- PHASE 5: AUG WEEK 1 -->
+<!-- ============================== -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-marker" style="background:var(--ironstone)">5</div>
+    <div class="phase-info">
+      <div class="phase-name">Soft Launch</div>
+      <div class="phase-dates">August Week 1, 2026</div>
+    </div>
+  </div>
+
+  <div class="task">
+    <div class="task-header">
+      <div class="task-icon" style="background:rgba(31,34,37,0.08);color:var(--ironstone)">5.1</div>
+      <div class="task-content">
+        <div class="task-name">Doors open — first Movement Assessments</div>
+        <div class="task-desc">Begin booking and conducting Movement Assessments for founding members. Every interaction is a chance to create a referral. Ask each founding member: "Who else in your circle would benefit from this?"</div>
+        <div class="task-tags"><span class="tag tag-high">High priority</span><span class="tag tag-owner">Lead Trainer</span></div>
+      </div>
+    </div>
+    <div class="subtasks">
+      <div class="subtask">Conduct first 5-10 Movement Assessments in Week 1</div>
+      <div class="subtask">Collect testimonial consent from early clients (for website and social)</div>
+      <div class="subtask">Photograph the studio space (final, post-renovation) for website and social</div>
+      <div class="subtask">Post opening announcement on @strength.sg</div>
+      <div class="subtask">Remove construction hoarding — replace with permanent signage if applicable</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Strength Studio — Pre-Launch Physical Promotions Timeline &nbsp;·&nbsp; June–August 2026<br>
+  Prepared for JSF Transformative Pte Ltd
+</div>
+
+</body>
+</html>
