@@ -1,0 +1,2240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Studio - Brand Strategy & Launch Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ironstone: #1F2225;
+            --canvas: #F4F0EB;
+            --venetian: #B03A2E;
+            --basalt: #3D6A60;
+            --linen: #E6DED4;
+            --flint: #847B71;
+            --charcoal: #2E3330;
+            --white: #FFFFFF;
+            --bg: #FAFAF7;
+            --border: #DDD9D2;
+            --display: 'Special Gothic Expanded One', sans-serif;
+            --body-font: 'Rethink Sans', sans-serif;
+            --serif: 'Instrument Serif', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.4;
+            color: var(--charcoal);
+            background: var(--bg);
+            font-size: 14px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--ironstone);
+            color: var(--canvas);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-family: var(--display);
+            font-size: 1.375rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+            color: var(--canvas);
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 769px) {
+            h1 {
+                margin-bottom: 0;
+            }
+        }
+
+        h1 .subtitle-inline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--venetian);
+            opacity: 1;
+            letter-spacing: 0;
+        }
+
+        .subtitle {
+            display: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(244,240,235,0.3) transparent;
+        }
+
+        /* Hide header nav on desktop */
+        @media (min-width: 769px) {
+            header nav {
+                display: none;
+            }
+        }
+
+        nav::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        nav::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background: rgba(244,240,235,0.3);
+            border-radius: 2px;
+        }
+
+        nav::-webkit-scrollbar-thumb:hover {
+            background: rgba(244,240,235,0.5);
+        }
+
+        nav a {
+            color: var(--canvas);
+            text-decoration: none;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            background: rgba(244,240,235,0.06);
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.8125rem;
+            flex-shrink: 0;
+        }
+
+        nav a:hover {
+            background: var(--venetian);
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Sidebar Navigation - Desktop Only */
+        .sidebar-nav {
+            display: none;
+        }
+
+        @media (min-width: 769px) {
+            .sidebar-nav {
+                display: block;
+                width: 220px;
+                flex-shrink: 0;
+                position: sticky;
+                top: calc(1rem + 70px);
+                align-self: flex-start;
+                max-height: calc(100vh - 70px - 2rem);
+                overflow-y: auto;
+            }
+
+            .sidebar-nav::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .sidebar-nav::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .sidebar-nav::-webkit-scrollbar-thumb {
+                background: rgba(31,34,37,0.15);
+                border-radius: 2px;
+            }
+
+            .sidebar-nav nav {
+                flex-direction: column;
+                gap: 0.25rem;
+                overflow: visible;
+            }
+
+            .sidebar-nav nav a {
+                color: var(--charcoal);
+                background: transparent;
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+                white-space: normal;
+                border-left: 3px solid transparent;
+                border-radius: 0 4px 4px 0;
+            }
+
+            .sidebar-nav nav a:hover {
+                background: var(--canvas);
+                border-left-color: var(--venetian);
+                color: var(--ironstone);
+            }
+
+            .sidebar-nav nav a.active {
+                background: var(--canvas);
+                border-left-color: var(--venetian);
+                color: var(--venetian);
+                font-weight: 600;
+            }
+
+            main {
+                padding: 1.5rem 2rem;
+            }
+        }
+
+        .main-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        section {
+            background: var(--white);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(31,34,37,0.04);
+            scroll-margin-top: 100px;
+        }
+
+        h2 {
+            font-family: var(--body-font);
+            color: var(--ironstone);
+            font-size: 1.625rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--venetian);
+        }
+
+        h3 {
+            font-family: var(--body-font);
+            color: var(--ironstone);
+            font-size: 1.1875rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        h4 {
+            font-family: var(--body-font);
+            color: var(--charcoal);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--flint);
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--flint);
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        strong {
+            color: var(--charcoal);
+        }
+
+        a {
+            color: var(--venetian);
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: var(--canvas);
+            border-left: 4px solid var(--venetian);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+
+        .highlight-box h4 {
+            color: var(--ironstone);
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background: var(--canvas);
+            border-left: 4px solid #D15229;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+
+        .warning-box h4 {
+            color: var(--ironstone);
+            margin-top: 0;
+        }
+
+        .success-box {
+            background: #F3F6F4;
+            border-left: 4px solid var(--basalt);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+
+        .success-box h4 {
+            color: var(--ironstone);
+            margin-top: 0;
+        }
+
+        /* Brand Name Cards */
+        .brand-names-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .brand-card {
+            background: var(--canvas);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .brand-card:hover {
+            border-color: var(--venetian);
+            box-shadow: 0 4px 12px rgba(176, 58, 46, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .brand-card h4 {
+            color: var(--ironstone);
+            font-size: 1.1875rem;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .brand-card .tagline {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--venetian);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .brand-card p {
+            font-size: 0.9375rem;
+        }
+
+        .brand-card ul {
+            font-size: 0.9375rem;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .pros, .cons {
+            padding: 0.75rem;
+            border-radius: 6px;
+        }
+
+        .pros {
+            background: #F3F6F4;
+        }
+
+        .cons {
+            background: #FBF1EF;
+        }
+
+        .pros h5, .cons h5 {
+            margin-bottom: 0.5rem;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .pros h5 {
+            color: var(--basalt);
+        }
+
+        .cons h5 {
+            color: var(--venetian);
+        }
+
+        .pros ul, .cons ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.8125rem;
+        }
+
+        .pros li {
+            color: var(--basalt);
+        }
+
+        .cons li {
+            color: var(--venetian);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--linen);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--venetian);
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--venetian);
+        }
+
+        .timeline-item h4 {
+            margin-top: 0;
+            color: var(--ironstone);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--canvas);
+            font-weight: 600;
+            color: var(--ironstone);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            color: var(--flint);
+        }
+
+        td strong {
+            color: var(--charcoal);
+        }
+
+        tr:hover {
+            background: var(--canvas);
+        }
+
+        /* Recommended Badge */
+        .recommended {
+            display: inline-block;
+            background: var(--venetian);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Read More / Expandable Content */
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .expandable-content.expanded {
+            max-height: none;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background: var(--venetian);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: var(--body-font);
+            margin: 1.5rem 0;
+            transition: background 0.2s ease;
+        }
+
+        .read-more-btn:hover {
+            background: #963024;
+        }
+
+        .read-more-btn:focus {
+            outline: 2px solid var(--venetian);
+            outline-offset: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ironstone);
+            color: var(--linen);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            color: var(--linen);
+            margin-bottom: 0.25rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 0;
+            }
+
+            .header-content {
+                padding: 0.5rem 0.75rem;
+            }
+
+            main {
+                padding: 0.75rem;
+            }
+
+            main {
+                display: block;
+            }
+
+            .sidebar-nav {
+                display: none !important;
+            }
+
+            section {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+                scroll-margin-top: 80px;
+            }
+
+            h1 {
+                font-size: 1.0625rem;
+                gap: 0.5rem;
+            }
+
+            h1 .subtitle-inline {
+                font-size: 0.6875rem;
+            }
+
+            nav {
+                gap: 0.35rem;
+                margin-top: 0.5rem;
+            }
+
+            nav a {
+                padding: 0.25rem 0.4rem;
+                font-size: 0.75rem;
+            }
+
+            h2 {
+                font-size: 1.3125rem;
+            }
+
+            h3 {
+                font-size: 1.0625rem;
+            }
+
+            h4 {
+                font-size: 0.9375rem;
+            }
+
+            .brand-names-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .brand-card h4 {
+                font-size: 1.0625rem;
+            }
+
+            .brand-card .tagline {
+                font-size: 0.875rem;
+            }
+
+            .brand-card p,
+            .brand-card ul {
+                font-size: 0.875rem;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>STRENGTH<span style="font-size:0.45em;letter-spacing:5px;">STUDIO</span><span class="subtitle-inline">Brand Strategy & Launch Marketing Plan</span></h1>
+            <p class="subtitle">Brand Strategy & Launch Marketing Plan</p>
+            <nav>
+                <a href="#overview">Overview</a>
+                <a href="#brand-strategy">Brand Strategy</a>
+                <a href="#brand-identity">Brand Identity</a>
+                <a href="#marketing-plan">Marketing Plan</a>
+                <a href="#budget">Budget & Metrics</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sidebar Navigation - Desktop Only -->
+        <aside class="sidebar-nav">
+            <nav>
+                <a href="#overview">Overview</a>
+                <a href="#brand-strategy">Brand Strategy</a>
+                <a href="#brand-identity">Brand Identity</a>
+                <a href="#marketing-plan">Marketing Plan</a>
+                <a href="#budget">Budget & Metrics</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2>Project Overview</h2>
+            
+            <h3>Current Situation</h3>
+            <div class="highlight-box">
+                <h4>GoFit Toa Payoh - Your Foundation</h4>
+                <ul>
+                    <li>Membership-driven model with 400+ contracts</li>
+                    <li>PT packages generating 2x membership revenue (strong demand for personalized service)</li>
+                    <li>3 years operational, profitable with healthy margins</li>
+                    <li>24/7 self-service positioning</li>
+                </ul>
+            </div>
+
+            <h3>New Venture - Key Differentiators</h3>
+            <ul>
+                <li><strong>Location:</strong> Siglap/East Coast (affluent, expat-heavy, family-oriented demographic)</li>
+                <li><strong>Space:</strong> 1,600 sqft with shower room at 77 @ East Coast condominium</li>
+                <li><strong>Concept:</strong> Strength training + physiotherapy fusion</li>
+                <li><strong>Focus:</strong> Premium 1-to-1 and semi-private training</li>
+                <li><strong>Target:</strong> Maintenance, elevation, rehabilitation for affluent individuals</li>
+            </ul>
+
+            <h3>Strategic Positioning</h3>
+            <p><strong>Premium strength and recovery studio</strong> - not a traditional gym. The combination of strength training and physiotherapy occupies valuable middle ground where performance meets rehabilitation.</p>
+
+            <div class="success-box">
+                <h4>Positioning Statement</h4>
+                <p>"Where strength meets science" - A specialized training and recovery studio that combines evidence-based strength programming with physiotherapy expertise to help established professionals and active adults train smarter, recover faster, and build lasting resilience.</p>
+            </div>
+        </section>
+
+        <!-- Brand Strategy Section -->
+        <section id="brand-strategy">
+            <h2>Proposed Brand Strategy</h2>
+
+            <h3>Target Customer Profile</h3>
+            <ul>
+                <li><strong>Age:</strong> 35-60 years old</li>
+                <li><strong>Demographics:</strong> Affluent professionals and families in East Coast corridor</li>
+                <li><strong>Psychographics:</strong>
+                    <ul>
+                        <li>Previous gym-goers dealing with injuries or age-related concerns</li>
+                        <li>Athletes/active individuals needing rehabilitation</li>
+                        <li>Time-poor individuals willing to pay premium for results</li>
+                        <li>Preventative health-conscious segment</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Revenue Model Recommendations</h3>
+            <p>Given GoFit's experience where PT packages outperform memberships 2:1:</p>
+            <ol>
+                <li><strong>Primary Revenue:</strong> Semi-Private Training Sessions (2-4 people) - Higher margin than 1-to-1, builds community</li>
+                <li><strong>Premium Revenue:</strong> 1-to-1 Training + Physio Packages - Flagship offering</li>
+                <li><strong>Foundation Revenue:</strong> Limited Membership Access - 50-100 members for off-peak hours</li>
+                <li><strong>Ancillary:</strong> Assessment & Programming - Initial consultations, movement assessments</li>
+            </ol>
+
+            <h3>Operational Model</h3>
+            <ul>
+                <li><strong>Hours:</strong> Appointment-based (not 24/7)</li>
+                <li><strong>Peak times:</strong> 6-9am, 12-2pm, 6-9pm</li>
+                <li><strong>Staffing:</strong> Dual-credentialed trainers (strength + physio background) or partnerships with physios</li>
+                <li><strong>Capacity:</strong> 6-8 training slots per day max to maintain premium positioning</li>
+            </ul>
+
+            <h3>Key Brand Pillars</h3>
+            <div class="brand-names-grid">
+                <div class="brand-card">
+                    <h4>Expertise</h4>
+                    <p>Qualified physios and specialized strength coaches delivering evidence-based programming.</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Personalization</h4>
+                    <p>No cookie-cutter programs. Every plan tailored to individual bodies and goals.</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Longevity</h4>
+                    <p>Training for life, not just aesthetics. Building resilience that lasts decades.</p>
+                </div>
+                <div class="brand-card">
+                    <h4>Science-backed</h4>
+                    <p>Evidence-based programming and recovery protocols, not fitness trends.</p>
+                </div>
+            </div>
+
+            <h3>Pricing Strategy</h3>
+            <p>Premium positioning 30-50% above standard PT rates in Singapore. The physio integration justifies higher pricing and attracts clients who view this as healthcare investment, not gym expense.</p>
+
+            <h3>Service Menu Structure</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service Tier</th>
+                        <th>Description</th>
+                        <th>Revenue Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Movement Assessment</strong></td>
+                        <td>60min comprehensive screen, injury history, goal-setting ($200 value)</td>
+                        <td>Lead Generation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1-to-1 Training</strong></td>
+                        <td>Solo Track - Premium personalized training</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Semi-Private (2-4 pax)</strong></td>
+                        <td>Duo/Crew Track - Community + personalization</td>
+                        <td>Primary</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recovery Sessions</strong></td>
+                        <td>Physio-led manual therapy + corrective exercise</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Programming Only</strong></td>
+                        <td>Monthly custom program, bi-weekly check-ins, video review</td>
+                        <td>Ancillary</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Brand Identity Section -->
+        <section id="brand-identity">
+            <h2>Complete Brand Identity</h2>
+
+            <h3>Brand Name: Strength Studio</h3>
+            
+            <p><strong>Confirmed Digital Assets:</strong></p>
+            <ul>
+                <li><strong>Domain:</strong> strength.sg</li>
+                <li><strong>Instagram:</strong> @strength.sg</li>
+                <li><strong>Location identifier:</strong> 77 @ East Coast (Siglap)</li>
+            </ul>
+            
+            <p><strong>Subtitle/Descriptor:</strong> "Integrated Strength & Physiotherapy"</p>
+
+            <h3>Brand Essence</h3>
+            <p>The science of sustainable strength - where movement expertise meets personalized training.</p>
+
+            <h3>Positioning Statement</h3>
+            <div class="success-box">
+                <p>Strength Studio is Singapore's premium strength and physiotherapy studio for discerning professionals who demand more than generic fitness. We combine evidence-based movement science with expert strength programming to help established adults train intelligently, recover completely, and build resilience that lasts.</p>
+            </div>
+
+            <h3>Brand Promise</h3>
+            <p><strong>"Movement mastery for the long game"</strong> - We don't just build strength; we build movement intelligence that keeps you active for life.</p>
+
+            <h3>Brand Pillars - Messaging Framework</h3>
+            
+            <div class="brand-names-grid">
+                <div class="brand-card">
+                    <h4>1. SCIENCE-BACKED</h4>
+                    <p>Every program grounded in movement science, biomechanics, and physiotherapy principles. No guesswork, no trends—just proven methodology.</p>
+                    <p><strong>Messaging:</strong></p>
+                    <ul>
+                        <li>"Evidence-based programming, not fitness fads"</li>
+                        <li>"Your body is complex. Your training should be too."</li>
+                        <li>"Precision over volume, science over hype"</li>
+                    </ul>
+                </div>
+
+                <div class="brand-card">
+                    <h4>2. PERSONALIZED</h4>
+                    <p>True 1-to-1 and small group attention. Your body, your goals, your program.</p>
+                    <p><strong>Messaging:</strong></p>
+                    <ul>
+                        <li>"No cookie-cutter programs. Ever."</li>
+                        <li>"Tailored to your body, not borrowed from someone else's"</li>
+                        <li>"Your movement signature is unique. So is your training."</li>
+                    </ul>
+                </div>
+
+                <div class="brand-card">
+                    <h4>3. LONGEVITY-FOCUSED</h4>
+                    <p>Training for decades, not just seasons. Building bodies that last.</p>
+                    <p><strong>Messaging:</strong></p>
+                    <ul>
+                        <li>"Strong today. Stronger tomorrow. Resilient for life."</li>
+                        <li>"Train for your 60s while you're in your 40s"</li>
+                        <li>"Performance that compounds, not crashes"</li>
+                    </ul>
+                </div>
+
+                <div class="brand-card">
+                    <h4>4. EXPERT-LED</h4>
+                    <p>Dual-credentialed professionals who understand both performance and rehabilitation.</p>
+                    <p><strong>Messaging:</strong></p>
+                    <ul>
+                        <li>"Trained by specialists, not generalists"</li>
+                        <li>"Where physio expertise meets strength coaching excellence"</li>
+                        <li>"Your movement deserves expert guidance"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Visual Identity</h3>
+
+            <div class="success-box">
+                <h4>Finalized in Brand Guidelines v1.0</h4>
+                <p>Colour palette, typography, gradients, and logo direction have since been finalized and documented separately in the official <strong>Strength Studio Brand Guidelines</strong>. The exploratory recommendations previously listed here (color palette, typography, and logo concept) are superseded by that document.</p>
+                <p style="margin-top: 0.75rem;"><strong>Quick reference:</strong> Ironstone, Canvas, Venetian Red, and Basalt form the core palette; Special Gothic Expanded One (logotype only), Rethink Sans (body/UI), and Instrument Serif (accent) form the type system. Logo direction is a hexagonal-container wordmark.</p>
+            </div>
+
+            <h4>Design Elements</h4>
+            
+            <p><strong>Graphic System:</strong></p>
+            <ul>
+                <li>Four named gradients (Forge, Duality, Depth, Anneal) built from the core palette — see Brand Guidelines for usage rules</li>
+                <li>Gradients reserved for social media, campaigns, and merchandise — not core website backgrounds or the logo itself</li>
+                <li>Grid systems suggesting precision</li>
+            </ul>
+
+            <p><strong>Photography Style:</strong></p>
+            <ul>
+                <li>Real clients, real training (not stock fitness models)</li>
+                <li>Focus on movement quality, not just heavy weights</li>
+                <li>Diverse age range (35-65)</li>
+                <li>Clean, well-lit spaces</li>
+                <li>Close-ups on form, technique, expert guidance</li>
+                <li>Black and white with accent color pops</li>
+            </ul>
+
+            <h3>Tone of Voice</h3>
+
+            <h4>Brand Personality</h4>
+            <p><strong>Expert but accessible</strong> | <strong>Confident without arrogance</strong> | <strong>Scientific yet human</strong> | <strong>Premium without pretension</strong></p>
+
+            <h4>Voice Characteristics</h4>
+            
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>What we ARE</h5>
+                    <ul>
+                        <li>Knowledgeable and authoritative</li>
+                        <li>Direct and clear</li>
+                        <li>Encouraging and supportive</li>
+                        <li>Evidence-oriented</li>
+                        <li>Professionally warm</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>What we're NOT</h5>
+                    <ul>
+                        <li>Overly technical/jargon-heavy</li>
+                        <li>Intimidating or elitist</li>
+                        <li>Motivational poster clichés</li>
+                        <li>Aggressive or extreme</li>
+                        <li>Trendy fitness-speak</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Messaging Examples</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Generic Fitness Says...</th>
+                        <th>Strength Studio Says...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>"No pain, no gain! Push your limits!"</td>
+                        <td>"Sustainable progress beats unsustainable intensity. Every time."</td>
+                    </tr>
+                    <tr>
+                        <td>"Get shredded in 6 weeks!"</td>
+                        <td>"Build strength that serves you for decades, not just for beach season."</td>
+                    </tr>
+                    <tr>
+                        <td>"Join our bootcamp!"</td>
+                        <td>"Your movement assessment reveals exactly where to start. Let's build your program."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Tagline Options</h3>
+
+            <div class="brand-names-grid">
+                <div class="brand-card">
+                    <h4>"Movement. Mastered." <span class="recommended">PRIMARY</span></h4>
+                    <p>Simple, confident, memorable. Emphasizes expertise and precision. Works across all touchpoints.</p>
+                </div>
+
+                <div class="brand-card">
+                    <h4>"Where Strength Meets Science"</h4>
+                    <p>Clear differentiation. Dual offering evident. Professional and credible.</p>
+                </div>
+
+                <div class="brand-card">
+                    <h4>"Engineered for Longevity"</h4>
+                    <p>Technical precision. Long-term focus. Premium positioning.</p>
+                </div>
+
+                <div class="brand-card">
+                    <h4>"Intelligent Strength"</h4>
+                    <p>Differentiates from brute-force gyms. Suggests sophisticated approach. Aspirational.</p>
+                </div>
+            </div>
+
+            <h3>Brand Messaging for Different Audiences</h3>
+
+            <h4>Injured/Recovering Athletes (35-50)</h4>
+            <p>"You're not done competing—with yourself or the clock. Strength Studio rebuilds strength the right way, addressing the root cause of injury while building resilience that prevents the next one. This is your comeback, engineered."</p>
+
+            <h4>Aging Active Professionals (45-60)</h4>
+            <p>"The rules change as you age, but giving up isn't one of them. Strength Studio combines physiotherapy expertise with strength science to keep you in the game—golf, tennis, running, life. Train smarter, not just harder."</p>
+
+            <h4>Preventative/Longevity-Focused (40-55)</h4>
+            <p>"Invest in your future self. Strength Studio's integrated approach builds strength while protecting joints, corrects movement patterns before they become problems, and creates resilience that compounds year after year."</p>
+
+            <h4>High-Performing Professionals (35-50)</h4>
+            <p>"Your career demands peak performance. So does your body. Strength Studio delivers personalized programming that fits your schedule and yields measurable results—without the injuries that derail progress."</p>
+
+            <button class="read-more-btn" onclick="toggleExpandableContent()" id="readMoreBtn">
+                Read More ▼
+            </button>
+
+            <div class="expandable-content" id="expandableContent">
+
+            <h3>Service Menu & Naming</h3>
+
+            <h4>Signature Offerings</h4>
+
+            <div class="highlight-box">
+                <h4>1. Movement Assessment ($200, 60min)</h4>
+                <ul>
+                    <li>Comprehensive movement screen</li>
+                    <li>Injury history review</li>
+                    <li>Goal-setting session</li>
+                    <li>Customized program roadmap</li>
+                </ul>
+
+                <h4>2. Strength Program (Core offering)</h4>
+                <ul>
+                    <li><strong>Solo Track:</strong> 1-to-1 training</li>
+                    <li><strong>Duo Track:</strong> 2-person semi-private</li>
+                    <li><strong>Crew Track:</strong> 3-4 person small group</li>
+                </ul>
+                <p><strong>Packages:</strong></p>
+                <ul>
+                    <li><strong>Foundation:</strong> 8 sessions</li>
+                    <li><strong>Momentum:</strong> 16 sessions</li>
+                    <li><strong>Mastery:</strong> 24 sessions</li>
+                </ul>
+
+                <h4>3. Recovery Sessions</h4>
+                <ul>
+                    <li>Physiotherapy-led recovery</li>
+                    <li>Manual therapy + corrective exercise</li>
+                    <li>Standalone or integrated with strength sessions</li>
+                </ul>
+
+                <h4>4. Programming Only (For experienced lifters)</h4>
+                <ul>
+                    <li>Monthly customized program design</li>
+                    <li>Bi-weekly check-ins</li>
+                    <li>Video form review</li>
+                    <li>Train independently, guided by experts</li>
+                </ul>
+            </div>
+
+            <h4>Add-On Services</h4>
+            <ul>
+                <li><strong>Nutrition Consultation</strong> (Partner with sports nutritionist)</li>
+                <li><strong>Performance Testing</strong> (Quarterly benchmarking)</li>
+                <li><strong>Remote Coaching</strong> (For travel or schedule flexibility)</li>
+            </ul>
+
+            <h3>Environmental/Space Design</h3>
+
+            <h4>Studio Aesthetic</h4>
+            <p><strong>Overall Feel:</strong> Scandinavian Wellness meets Performance Lab. Natural materials with biophilic design - warm wood tones, living greenery, abundant natural light. Premium residential spa aesthetic rather than industrial warehouse. Clean, serene, sophisticated.</p>
+
+            <div class="highlight-box">
+                <h4>Core Design Principles</h4>
+                <ul>
+                    <li><strong>Natural Materials First:</strong> Light wood (oak, ash) as primary material - warm, inviting, premium</li>
+                    <li><strong>Biophilic Integration:</strong> Living walls, plants, maximum natural light - wellness through nature</li>
+                    <li><strong>Equipment as Sculpture:</strong> Black equipment contrasts beautifully against light wood - functional art</li>
+                    <li><strong>Spa-like Serenity:</strong> Calm, clean, organized - luxury wellness club, not gym</li>
+                    <li><strong>Lighting Layers:</strong> Natural light priority, warm ambient lighting, strategic accent lighting</li>
+                </ul>
+            </div>
+
+            <h4>Material Palette</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Material</th>
+                        <th>Application</th>
+                        <th>Effect</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Light Wood Slats</strong></td>
+                        <td>Feature walls, equipment storage integration, ceiling details</td>
+                        <td>Warmth, texture, premium residential feel, sound dampening</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Light Wood Flooring</strong></td>
+                        <td>Training floor, throughout main spaces</td>
+                        <td>Cohesive, warm, high-end, easier on joints than concrete</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clean White</strong></td>
+                        <td>Ceilings, walls (where not wood), reception desk</td>
+                        <td>Brightness, openness, clinical precision, spa-like calm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Black Metal/Equipment</strong></td>
+                        <td>All training equipment, racks, storage systems</td>
+                        <td>Strong contrast, professional, sculptural quality</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Living Greenery</strong></td>
+                        <td>Moss walls (backlit), potted plants, vertical gardens</td>
+                        <td>Biophilic wellness, air quality, visual calm, Instagram-worthy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glass</strong></td>
+                        <td>Mirrors, consultation room partitions, equipment storage</td>
+                        <td>Openness, light reflection, space expansion</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Lighting Strategy</h4>
+            <ul>
+                <li><strong>Natural Light:</strong> Maximum window exposure, large glass panels where possible</li>
+                <li><strong>Ambient Lighting:</strong> Recessed cove lighting in ceiling, warm white (3000K), even distribution</li>
+                <li><strong>Accent Lighting:</strong> Backlit moss walls, LED strips behind wood features, pendant fixtures over key areas</li>
+                <li><strong>Task Lighting:</strong> Linear track lighting over training zones, adjustable for different activities</li>
+                <li><strong>Overall Temperature:</strong> Warm whites (2700K-3000K) - not cool clinical whites</li>
+            </ul>
+
+            <h4>Spatial Zones (Updated)</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Zone</th>
+                        <th>Design Features</th>
+                        <th>Key Elements</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Reception/Welcome</strong></td>
+                        <td>Sculptural curved white reception desk, wood paneled wall with signage, recessed cove lighting</td>
+                        <td>Premium water station, minimal seating (2-3 chairs), educational materials on wood shelving, signature scent diffuser, small potted plants</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Main Training Floor</strong></td>
+                        <td>Light wood floors and slat walls, living moss wall feature (backlit), large windows, pendant lighting, organized equipment display</td>
+                        <td>Premium equipment (Rogue/Eleiko), black racks integrated into wood walls, dumbbell display, kettlebells, functional training area, mirrors strategically placed (not wall-to-wall)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assessment/Consultation</strong></td>
+                        <td>Private area with wood slat partition, warm lighting, comfortable seating</td>
+                        <td>Video analysis screen, movement assessment tools, consultation table, anatomical models on wood shelving, natural light if possible</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Physiotherapy/Recovery Zone</strong></td>
+                        <td>More private, softer lighting, wood and white palette, plants for calm atmosphere</td>
+                        <td>Treatment table, mobility tools, foam rollers, recovery equipment, perhaps small living wall or vertical garden, towel storage in wood cabinetry</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transition/Circulation</strong></td>
+                        <td>Clean, minimal corridors with wood accents</td>
+                        <td>Educational posters (biomechanics, movement science) in minimal frames, directional signage integrated into wood features</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Equipment Integration</h4>
+            <p><strong>Key Principle:</strong> Equipment should be displayed like sculptural objects, not hidden. The contrast of black professional equipment against light wood creates visual impact and signals quality.</p>
+            
+            <ul>
+                <li><strong>Wall-Mounted Storage:</strong> Integrate racks, plate storage, and accessories into wood slat walls - functional and beautiful</li>
+                <li><strong>Organized Display:</strong> Dumbbells arranged by weight on black metal racks against wood walls</li>
+                <li><strong>Equipment Brands:</strong> Rogue, Eleiko, Concept2 - premium brands that look as good as they perform</li>
+                <li><strong>Color Consistency:</strong> All equipment in black or dark tones - no bright colors or mismatched pieces</li>
+                <li><strong>Spacing:</strong> Generous space around each piece - not crowded, allows equipment to breathe</li>
+            </ul>
+
+            <h4>Biophilic Elements</h4>
+            
+            <div class="success-box">
+                <h4>Why Biophilic Design Matters for Strength Studio</h4>
+                <p>Research shows natural elements reduce stress, improve recovery, and enhance focus - perfect for a strength + physio studio. This isn't just aesthetic; it's functional wellness design.</p>
+            </div>
+
+            <ul>
+                <li><strong>Living Moss Walls:</strong> Backlit preserved moss panels (low maintenance) as statement feature - dramatic, Instagram-worthy, conversation starter</li>
+                <li><strong>Potted Plants:</strong> Strategic placement - corners, reception, near windows - Snake plants, Monstera, Fiddle Leaf Fig (easy care, high impact)</li>
+                <li><strong>Natural Light:</strong> Maximize window exposure, keep windows unobstructed, light sheer curtains if needed for glare control</li>
+                <li><strong>Natural Materials:</strong> Wood, plants, natural light - avoid plastic, fake plants, or synthetic finishes where possible</li>
+                <li><strong>Outdoor Connection:</strong> If possible, visual connection to exterior greenery through windows</li>
+            </ul>
+
+            <h4>Branding Touchpoints in Space</h4>
+            <ul>
+                <li><strong>Primary Signage:</strong> Strength Studio logo on wood paneled wall behind reception - dimensional letters (brushed metal or wood), backlit or pin-mounted</li>
+                <li><strong>Wayfinding:</strong> Minimal signage integrated into wood features - laser-cut or routed into wood panels</li>
+                <li><strong>Educational Content:</strong> Movement science posters in simple black frames on white walls - informative, not motivational</li>
+                <li><strong>Workout Cards:</strong> Custom-designed cards with Strength Studio branding, stored in wood holders near training zones</li>
+                <li><strong>Towels:</strong> Premium towels in brand colors (charcoal or white), neatly rolled in wood cabinetry</li>
+                <li><strong>Signature Scent:</strong> Cedar + eucalyptus (ties to wood aesthetic, promotes focus and recovery) - diffused subtly</li>
+                <li><strong>Retail Display:</strong> If selling branded items or supplements, integrate into wood shelving - curated, minimal, premium</li>
+            </ul>
+
+            <h4>Ceiling Treatment</h4>
+            <ul>
+                <li><strong>Finish:</strong> Clean white, not exposed industrial</li>
+                <li><strong>Lighting:</strong> Recessed cove lighting around perimeter, linear track lighting over training zones</li>
+                <li><strong>Height:</strong> Maintain ceiling height perception - avoid drop ceilings unless necessary for acoustic control</li>
+                <li><strong>Accent:</strong> Consider wood slat details on ceiling sections for continuity (like Image 2)</li>
+            </ul>
+
+            <h4>Flooring Details</h4>
+            <ul>
+                <li><strong>Primary:</strong> Light wood or wood-look luxury vinyl plank (LVP) - warm, cohesive, durable</li>
+                <li><strong>Training Zones:</strong> Rubber platforms for deadlifts/Olympic lifts - black to match equipment</li>
+                <li><strong>Recovery Area:</strong> Consider slightly softer flooring or area rugs for comfort during floor work</li>
+                <li><strong>Consistency:</strong> Same flooring throughout (except platforms) for visual continuity</li>
+            </ul>
+
+            <h4>Design NOT-TO-DO List</h4>
+            <div class="cons">
+                <ul>
+                    <li>❌ No exposed concrete or raw industrial finishes</li>
+                    <li>❌ No neon signs or motivational quotes on walls</li>
+                    <li>❌ No mismatched equipment colors (no red, blue, bright accents)</li>
+                    <li>❌ No wall-to-wall mirrors (strategic placement only)</li>
+                    <li>❌ No bright white cool lighting (creates harsh clinical feel)</li>
+                    <li>❌ No clutter or exposed storage chaos</li>
+                    <li>❌ No traditional "gym" aesthetic - this is a wellness studio</li>
+                </ul>
+            </div>
+
+            <h3>Design Inspiration & Aesthetic References</h3>
+
+            <div class="highlight-box">
+                <h4>Visual Direction Summary</h4>
+                <p>Based on reference images selected by the Strength Studio team, the following design elements define the aesthetic identity. This is the standard to maintain across all spatial design decisions.</p>
+            </div>
+
+            <h4>Core Design Elements (Consolidated from Reference Images)</h4>
+
+            <div class="brand-names-grid">
+                <div class="brand-card">
+                    <h4>Material Palette</h4>
+                    <ul>
+                        <li><strong>Light wood slat walls</strong> - vertical orientation, natural oak/ash tones, floor-to-ceiling</li>
+                        <li><strong>Light wood flooring</strong> - cohesive with walls, warm natural tones</li>
+                        <li><strong>Clean white</strong> - ceilings, walls (where not wood), reception desk</li>
+                        <li><strong>Black equipment</strong> - all training gear in black/dark tones for contrast</li>
+                        <li><strong>Living greenery</strong> - moss walls (backlit), potted plants throughout</li>
+                    </ul>
+                </div>
+
+                <div class="brand-card">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><strong>Sculptural white reception desk</strong> - curved, organic form, makes statement</li>
+                        <li><strong>Backlit moss wall panels</strong> - dramatic, Instagram-worthy, wellness signal</li>
+                        <li><strong>Equipment as art</strong> - organized displays, integrated storage in wood walls</li>
+                        <li><strong>Large windows</strong> - maximum natural light, connection to exterior</li>
+                        <li><strong>Strategic mirrors</strong> - functional placement, not wall-to-wall</li>
+                    </ul>
+                </div>
+
+                <div class="brand-card">
+                    <h4>Lighting Approach</h4>
+                    <ul>
+                        <li><strong>Natural light priority</strong> - large windows, unobstructed</li>
+                        <li><strong>Recessed cove lighting</strong> - warm ambient glow in ceiling perimeter</li>
+                        <li><strong>LED backlighting</strong> - behind moss walls, under wood features</li>
+                        <li><strong>Pendant fixtures</strong> - warm industrial style over key zones</li>
+                        <li><strong>Linear track lighting</strong> - adjustable task lighting for training areas</li>
+                    </ul>
+                </div>
+
+                <div class="brand-card">
+                    <h4>Overall Aesthetic</h4>
+                    <ul>
+                        <li><strong>Scandinavian wellness</strong> - clean, natural, serene</li>
+                        <li><strong>Premium residential</strong> - luxury home gym, NOT commercial gym</li>
+                        <li><strong>Spa-like calm</strong> - organized, uncluttered, sophisticated</li>
+                        <li><strong>Biophilic integration</strong> - nature elements throughout</li>
+                        <li><strong>Professional performance lab</strong> - serious training capability with refined presentation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Critical Design Principles</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Principle</th>
+                        <th>Implementation</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wood as Hero Material</strong></td>
+                        <td>Vertical slat walls dominate the space, equipment storage integrated into wood features, wood flooring throughout</td>
+                        <td>Creates warmth, premium residential feel, differentiates from typical gyms, sound dampening</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Black Equipment Contrast</strong></td>
+                        <td>All equipment in black/dark tones - racks, dumbbells, plates, benches, accessories</td>
+                        <td>Strong visual impact against light wood, signals professional quality, creates sculptural effect</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organized Display</strong></td>
+                        <td>Equipment arranged by type and weight, integrated storage, backlit displays, everything visible and accessible</td>
+                        <td>Functional art, premium positioning, easy navigation, Instagram-worthy, signals care and attention</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biophilic Wellness</strong></td>
+                        <td>Living moss walls (backlit), multiple potted plants, maximum natural light through large windows</td>
+                        <td>Reduces stress, enhances recovery, improves focus, aligns with physio/wellness positioning, social media appeal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Warm Lighting Layers</strong></td>
+                        <td>Natural light + recessed cove + LED accents + pendants - all warm white (2700K-3000K)</td>
+                        <td>Creates calm atmosphere, flattering for clients, spa-like feel, not harsh clinical gym lighting</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sculptural Reception</strong></td>
+                        <td>Curved white reception desk, wood wall with dimensional signage, cove lighting, minimal accessories</td>
+                        <td>Sets tone immediately - premium, professional, wellness-focused, memorable first impression</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>What This IS vs. What This ISN'T</h4>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>THIS IS:</h5>
+                    <ul>
+                        <li>✓ Luxury home training room scaled to studio</li>
+                        <li>✓ Scandinavian wellness spa meets performance lab</li>
+                        <li>✓ Natural materials with biophilic integration</li>
+                        <li>✓ Equipment displayed as functional sculpture</li>
+                        <li>✓ Warm, inviting, serene, professional</li>
+                        <li>✓ Premium residential aesthetic</li>
+                        <li>✓ Instagram-worthy at every angle</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>THIS ISN'T:</h5>
+                    <ul>
+                        <li>✗ Industrial warehouse with exposed concrete</li>
+                        <li>✗ Commercial gym with mirrors everywhere</li>
+                        <li>✗ Bright, harsh, clinical medical facility</li>
+                        <li>✗ Cluttered equipment storage chaos</li>
+                        <li>✗ Motivational quotes and neon signs</li>
+                        <li>✗ Cold, sterile, intimidating</li>
+                        <li>✗ Typical fitness studio aesthetic</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Design Must-Haves (Non-Negotiable)</h4>
+
+            <ol>
+                <li><strong>Vertical wood slat feature walls</strong> - This is the signature design element that defines the space</li>
+                <li><strong>Light wood flooring</strong> - Creates cohesive, warm, premium foundation</li>
+                <li><strong>Living moss or plant wall</strong> - Backlit statement feature, biophilic anchor</li>
+                <li><strong>All black equipment</strong> - No color mixing, maintains visual consistency</li>
+                <li><strong>Sculptural white reception desk</strong> - First impression sets premium tone</li>
+                <li><strong>Warm lighting throughout</strong> - Never cool white, always 2700K-3000K</li>
+                <li><strong>Maximum natural light</strong> - Large windows, unobstructed views where possible</li>
+                <li><strong>Organized equipment display</strong> - Integrated storage, everything visible and beautiful</li>
+            </ol>
+
+            <h4>Design Implementation Priority</h4>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Phase 1: Structural & Base (Week 1-4)</h4>
+                    <ul>
+                        <li>Ceiling finish (white, smooth, any structural work)</li>
+                        <li>Flooring installation (light wood or wood-look LVP)</li>
+                        <li>Wall preparation for wood slat installation</li>
+                        <li>Lighting rough-in (cove lighting, track systems, pendants)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Phase 2: Feature Elements (Week 5-6)</h4>
+                    <ul>
+                        <li>Wood slat wall installation (primary feature walls)</li>
+                        <li>Reception desk fabrication and installation</li>
+                        <li>Living moss wall or plant wall installation</li>
+                        <li>Equipment storage integration into wood walls</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Phase 3: Equipment & Finishing (Week 7-8)</h4>
+                    <ul>
+                        <li>Equipment delivery and placement</li>
+                        <li>Mirrors, signage, branding elements</li>
+                        <li>Plants, accessories, towels</li>
+                        <li>Lighting final adjustments and programming</li>
+                        <li>Final styling and photography</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Budget Allocation Guidance (Rough %)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>% of Design Budget</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wood Slat Walls + Installation</td>
+                        <td>25-30%</td>
+                        <td>Highest - Defining feature</td>
+                    </tr>
+                    <tr>
+                        <td>Flooring (Wood/LVP)</td>
+                        <td>15-20%</td>
+                        <td>High - Foundation of aesthetic</td>
+                    </tr>
+                    <tr>
+                        <td>Lighting (Cove, Track, Pendants, LED strips)</td>
+                        <td>15-20%</td>
+                        <td>High - Creates atmosphere</td>
+                    </tr>
+                    <tr>
+                        <td>Reception Desk (Custom fabrication)</td>
+                        <td>8-12%</td>
+                        <td>High - First impression</td>
+                    </tr>
+                    <tr>
+                        <td>Living Wall / Biophilic Elements</td>
+                        <td>8-10%</td>
+                        <td>Medium-High - Differentiator</td>
+                    </tr>
+                    <tr>
+                        <td>Mirrors, Glass, Partitions</td>
+                        <td>5-8%</td>
+                        <td>Medium - Functional + aesthetic</td>
+                    </tr>
+                    <tr>
+                        <td>Paint, Ceiling Work</td>
+                        <td>3-5%</td>
+                        <td>Medium - Clean base required</td>
+                    </tr>
+                    <tr>
+                        <td>Signage, Branding Elements</td>
+                        <td>3-5%</td>
+                        <td>Medium - Brand presence</td>
+                    </tr>
+                    <tr>
+                        <td>Plants, Styling, Accessories</td>
+                        <td>2-4%</td>
+                        <td>Lower - Finishing touches</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Note:</strong> Equipment budget is separate from design/build-out budget. Premium equipment (Rogue, Eleiko, Concept2) will be significant additional investment.</p>
+
+            <h3>Digital Presence</h3>
+
+            <h4>Website Structure</h4>
+            <ul>
+                <li><strong>Homepage:</strong> Hero with "Movement. Mastered." + striking movement photography, clear value proposition, CTA: Book Assessment / Learn Our Approach</li>
+                <li><strong>About:</strong> The Strength Studio difference, Meet the team (credentials matter!), Facility tour</li>
+                <li><strong>Services:</strong> Movement Assessment, Strength Programs (Solo/Duo/Crew), Recovery Sessions, Pricing transparency</li>
+                <li><strong>Approach:</strong> Science-backed methodology, Integration of strength + physio, Who we serve best</li>
+                <li><strong>Team:</strong> Credentialed professionals, Philosophy statements, Specializations</li>
+                <li><strong>Blog/Resources:</strong> Educational content, Client success stories, Movement science education</li>
+                <li><strong>Book Now:</strong> Easy online scheduling, Clear process</li>
+            </ul>
+
+            <h4>Social Media Strategy</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Priority</th>
+                        <th>Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Instagram</strong></td>
+                        <td>Primary</td>
+                        <td>Educational reels on movement science, client transformations, behind-the-scenes training, "Movement Monday" tips, form breakdowns</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook</strong></td>
+                        <td>Secondary</td>
+                        <td>Community building, event promotion, longer-form educational content, local engagement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn</strong></td>
+                        <td>Tertiary</td>
+                        <td>Professional audience, thought leadership, corporate wellness outreach</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Content Pillars</h4>
+            <ol>
+                <li><strong>Education (40%):</strong> Movement science, training principles</li>
+                <li><strong>Inspiration (30%):</strong> Client stories, progress</li>
+                <li><strong>Community (20%):</strong> Events, team, culture</li>
+                <li><strong>Promotion (10%):</strong> Offers, services</li>
+            </ol>
+
+            <h3>Competitive Differentiation</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>vs. Competitor Type</th>
+                        <th>Strength Studio Positioning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Traditional Gyms</strong><br>(Fitness First, Anytime Fitness)</td>
+                        <td>"We're not a gym membership you'll abandon. We're an expert-led training studio where every session is guided, every program is personalized, and your movement quality matters more than your sweat volume."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Boutique Studios</strong><br>(F45, Barry's)</td>
+                        <td>"Group classes follow the class. At Strength Studio, the program follows you—your body, your limitations, your goals. Science-backed individualization, not templated workouts."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Physiotherapy Clinics</strong></td>
+                        <td>"Traditional physio stops when pain stops. Strength Studio builds beyond recovery—we create strength and resilience that prevents re-injury and elevates performance."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Premium PT</strong><br>(private trainers)</td>
+                        <td>"Your trainer is strong. But are they movement specialists? Strength Studio trainers combine strength coaching expertise with physiotherapy knowledge—because your body deserves both."</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Brand Guidelines Summary</h3>
+
+            <div class="pros-cons">
+                <div class="pros">
+                    <h5>DO's</h5>
+                    <ul>
+                        <li>Lead with science and expertise</li>
+                        <li>Show real clients and real results</li>
+                        <li>Emphasize long-term outcomes</li>
+                        <li>Maintain premium but accessible tone</li>
+                        <li>Focus on movement quality</li>
+                        <li>Use technical accuracy in all claims</li>
+                        <li>Highlight dual strength + physio expertise</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h5>DON'Ts</h5>
+                    <ul>
+                        <li>Use fitness clichés or motivational quotes</li>
+                        <li>Show extreme/risky training behaviors</li>
+                        <li>Make unrealistic promises (6-week transformations)</li>
+                        <li>Use aggressive or intimidating language</li>
+                        <li>Rely on aesthetic-only marketing</li>
+                        <li>Appear elitist or exclusive</li>
+                        <li>Neglect accessibility for varying abilities</li>
+                    </ul>
+                </div>
+            </div>
+            </div><!-- End expandable content -->
+
+        </section>
+
+        <!-- Marketing Plan Section -->
+        <section id="marketing-plan">
+            <h2>Launch Marketing Plan - East Coast Market</h2>
+
+            <h3>Campaign Overview: June - October 2026</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Timeline</th>
+                        <th>Primary Focus</th>
+                        <th>Key Activities</th>
+                        <th>Success Targets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Phase 1:<br>Pre-Launch</strong></td>
+                        <td>June 2 - August 18<br>(11 weeks)</td>
+                        <td>Foundation building, awareness generation, lead capture</td>
+                        <td>Brand launch, Rezerv.io & Sleekflow setup, Founding Member program, digital ads, open house events, partnerships</td>
+                        <td>30-40 Founding Members, 100+ leads, 20-30 package sales, 5+ partnerships</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phase 2:<br>Grand Opening</strong></td>
+                        <td>August 19-25<br>(1 week)</td>
+                        <td>Official launch, conversion, media coverage</td>
+                        <td>Soft opening (Aug 19-21), Official launch event (Aug 22), Opening weekend special (Aug 23-25), PR blitz</td>
+                        <td>100+ event attendees, media coverage, immediate bookings, social media buzz</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phase 3:<br>Post-Launch</strong></td>
+                        <td>September - October<br>(2 months)</td>
+                        <td>Momentum building, community establishment, retention</td>
+                        <td>Referral program, corporate partnerships, content marketing, member events, ad optimization, PR round 2</td>
+                        <td>80-100 active clients, 30%+ referrals, 3-5 media features, established community</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Technology Stack & Integration</h3>
+
+            <div class="highlight-box">
+                <h4>Core Systems Overview</h4>
+                <p>Strength Studio's operational technology is designed for seamless client experience from first inquiry through ongoing training.</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Purpose</th>
+                        <th>Key Features</th>
+                        <th>Integration Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rezerv.io</strong></td>
+                        <td>Service Management Platform - Booking, Payments, Membership Management</td>
+                        <td>
+                            <ul>
+                                <li>Online booking (web + mobile)</li>
+                                <li>Payment processing & package management</li>
+                                <li>Trainer scheduling & availability</li>
+                                <li>Member portal & account management</li>
+                                <li>Automated reminders & confirmations</li>
+                                <li>Reporting & analytics dashboard</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Website embedded booking widget</li>
+                                <li>Instagram/Facebook "Book Now" buttons</li>
+                                <li>Sleekflow integration for booking links in chats</li>
+                                <li>Email marketing (Mailchimp/similar)</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sleekflow</strong></td>
+                        <td>WhatsApp & Social CRM - Unified messaging across WhatsApp, Instagram, Facebook</td>
+                        <td>
+                            <ul>
+                                <li>WhatsApp Business API integration</li>
+                                <li>Instagram & Facebook DM management</li>
+                                <li>Automated welcome & follow-up sequences</li>
+                                <li>Broadcast messaging for announcements</li>
+                                <li>Contact tagging & segmentation</li>
+                                <li>Team collaboration & assignment</li>
+                                <li>Quick replies & templates library</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>WhatsApp click-to-chat on website</li>
+                                <li>Instagram/Facebook DM auto-responses</li>
+                                <li>Rezerv.io booking links in chat flows</li>
+                                <li>Lead capture from social media ads</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Website</strong></td>
+                        <td>Primary digital presence & information hub</td>
+                        <td>
+                            <ul>
+                                <li>Service information & pricing</li>
+                                <li>Team profiles & credentials</li>
+                                <li>Embedded Rezerv.io booking widget</li>
+                                <li>WhatsApp click-to-chat button</li>
+                                <li>Blog/resources section</li>
+                                <li>Contact forms & inquiry capture</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li>Google Analytics for traffic tracking</li>
+                                <li>Facebook Pixel for ad retargeting</li>
+                                <li>Google Business Profile link</li>
+                                <li>Social media profile links</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Client Journey Through Technology</h4>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Discovery → Inquiry</h4>
+                    <p><strong>Channels:</strong> Instagram/Facebook ad → Website → WhatsApp or Instagram DM</p>
+                    <p><strong>Tech Flow:</strong></p>
+                    <ul>
+                        <li>Client sees social media ad, clicks through to website</li>
+                        <li>Browses services, reads team bios, checks pricing</li>
+                        <li>Clicks WhatsApp button or sends Instagram DM</li>
+                        <li>Sleekflow auto-reply provides welcome message + booking link</li>
+                        <li>Staff follow up via Sleekflow to answer questions</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Booking → Payment</h4>
+                    <p><strong>Platform:</strong> Rezerv.io</p>
+                    <p><strong>Tech Flow:</strong></p>
+                    <ul>
+                        <li>Client clicks Rezerv.io booking link (from website, WhatsApp, or social)</li>
+                        <li>Selects service type (Movement Assessment, Strength Program, Recovery)</li>
+                        <li>Chooses date/time based on real-time trainer availability</li>
+                        <li>Completes payment via Stripe/PayPal integration</li>
+                        <li>Receives automated confirmation email + SMS</li>
+                        <li>Added to member portal with login credentials</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Pre-Session → Attendance</h4>
+                    <p><strong>Platforms:</strong> Rezerv.io (automated) + Sleekflow (if needed)</p>
+                    <p><strong>Tech Flow:</strong></p>
+                    <ul>
+                        <li>48-hour reminder sent automatically via email/SMS (Rezerv.io)</li>
+                        <li>24-hour reminder via WhatsApp (Sleekflow automation)</li>
+                        <li>Client can reschedule via member portal if needed</li>
+                        <li>Staff check-in via Rezerv.io iPad at reception</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Post-Session → Retention</h4>
+                    <p><strong>Platforms:</strong> Sleekflow + Rezerv.io</p>
+                    <p><strong>Tech Flow:</strong></p>
+                    <ul>
+                        <li>Trainer logs session notes in Rezerv.io (visible to client in portal)</li>
+                        <li>Automated post-session survey sent (Rezerv.io)</li>
+                        <li>Follow-up WhatsApp message for package renewals (Sleekflow)</li>
+                        <li>Birthday messages, milestone celebrations (Sleekflow)</li>
+                        <li>Re-engagement campaigns for inactive clients (Sleekflow)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>Setup Timeline & Costs</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Setup Timeline</th>
+                        <th>Monthly Cost (Est.)</th>
+                        <th>Setup Tasks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rezerv.io</strong></td>
+                        <td>2-3 weeks (Weeks 1-3 of pre-launch)</td>
+                        <td>SGD $150-300/month<br>(based on features & client volume)</td>
+                        <td>Service configuration, pricing setup, payment gateway integration, staff training, testing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sleekflow</strong></td>
+                        <td>1-2 weeks (Weeks 2-3 of pre-launch)</td>
+                        <td>SGD $100-200/month<br>(based on contact volume & features)</td>
+                        <td>WhatsApp Business setup, automation flows, template creation, social integration, team training</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Website</strong></td>
+                        <td>4-6 weeks (starts Week 1)</td>
+                        <td>SGD $30-100/month<br>(hosting + maintenance)</td>
+                        <td>Design, development, content, Rezerv.io widget integration, SEO setup</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Phase 1: Pre-Launch (June 2 - August 18, 2026)</h3>
+            
+            <p><strong>Duration:</strong> 11 weeks before launch</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Week 1-4: Foundation Building (June 2-29, 2026)</h4>
+                    <p><strong>1. Brand Identity Rollout</strong></p>
+                    <ul>
+                        <li>Logo, color palette, brand guidelines finalized</li>
+                        <li>Website development begins (live 7 weeks pre-launch)</li>
+                        <li>Social media handles secured (Instagram, Facebook)</li>
+                        <li>Google Business Profile created</li>
+                    </ul>
+
+                    <p><strong>2. Service Management Platform Setup</strong></p>
+                    <div class="success-box">
+                        <h4>Rezerv.io Implementation</h4>
+                        <ul>
+                            <li><strong>Service Configuration:</strong> Set up Movement Assessment, Strength Programs (Solo/Duo/Crew), Recovery Sessions, package structures</li>
+                            <li><strong>Booking System:</strong> Configure scheduling, trainer availability, room/zone allocation</li>
+                            <li><strong>Payment Gateway:</strong> Integrate payment processing, package pricing, membership billing</li>
+                            <li><strong>Member Portal:</strong> Client dashboard setup, booking interface, payment history access</li>
+                            <li><strong>Staff Training:</strong> Train reception and trainers on platform usage</li>
+                            <li><strong>Testing:</strong> Full system testing before pre-launch campaign begins</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>3. WhatsApp/Social CRM Setup</strong></p>
+                    <div class="success-box">
+                        <h4>Sleekflow Configuration</h4>
+                        <ul>
+                            <li><strong>WhatsApp Business Integration:</strong> Set up official WhatsApp Business account, verify business profile</li>
+                            <li><strong>Automated Workflows:</strong> Welcome messages, booking confirmations, appointment reminders, follow-up sequences</li>
+                            <li><strong>Instagram/Facebook DM Integration:</strong> Connect social media accounts for unified inbox</li>
+                            <li><strong>Quick Reply Templates:</strong> Pre-written responses for FAQs, pricing, booking instructions</li>
+                            <li><strong>Contact Segmentation:</strong> Tag system for leads, trial clients, members, referrals</li>
+                            <li><strong>Staff Access:</strong> Configure team member permissions and response assignments</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>4. Founding Member Program</strong></p>
+                    <ul>
+                        <li>Create exclusive "Founding Member" offer: 50 spots only</li>
+                        <li>Benefits: Locked-in rates for 12 months, priority booking, complimentary movement assessment ($200 value)</li>
+                        <li>Pricing: 20% discount on package rates for first 50 sign-ups</li>
+                        <li>Booking via Rezerv.io, lead nurturing via Sleekflow</li>
+                        <li><strong>Goal:</strong> Secure 30-40 commitments before opening, generate pre-launch revenue</li>
+                    </ul>
+
+                    <p><strong>5. Strategic Partnerships</strong></p>
+                    <ul>
+                        <li>East Coast orthopedic/sports medicine clinics (referral agreements)</li>
+                        <li>Siglap/Marine Parade family doctors</li>
+                        <li>Local sports clubs (cycling, running, tennis)</li>
+                        <li>Yoga/Pilates studios (complementary services)</li>
+                        <li>Premium lifestyle businesses (cafes, wellness centers)</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Week 5-8: Awareness Generation (June 30 - July 27, 2026)</h4>
+                    <p><strong>1. Hyper-Local Digital Targeting</strong></p>
+                    <ul>
+                        <li>Facebook/Instagram Ads: Geo-targeted within 3km radius of Siglap</li>
+                        <li>Audience: Ages 35-60, interests in fitness/health/wellness</li>
+                        <li>Budget: $1,500-2,000/month</li>
+                        <li>Creative: Brand story, founder story, facility sneak peeks</li>
+                        <li>Lead magnet: Free movement assessment - capture 100+ leads</li>
+                    </ul>
+
+                    <p><strong>2. Content Marketing Launch</strong></p>
+                    <p>Instagram content pillars:</p>
+                    <ul>
+                        <li>Education: "Common strength mistakes after 40"</li>
+                        <li>Transformation: "Rebuilding after injury" stories</li>
+                        <li>Behind-the-scenes: Facility build-out, equipment arrival</li>
+                        <li>Expert tips: Short-form physio/training advice</li>
+                        <li>Post frequency: 4-5x per week</li>
+                        <li>Reels/video content: 2-3x per week</li>
+                    </ul>
+
+                    <p><strong>3. PR & Media Outreach</strong></p>
+                    <ul>
+                        <li>Press release: Straits Times, 8Days Singapore, Honey Combers</li>
+                        <li>Angle: "New hybrid strength-physio studio brings personalized approach to East Coast"</li>
+                        <li>Pitch lifestyle/wellness writers for feature stories</li>
+                    </ul>
+
+                    <p><strong>4. Community Engagement</strong></p>
+                    <ul>
+                        <li>Sponsor local East Coast events (parkrun, community activities)</li>
+                        <li>Attendance at East Coast condo events/markets</li>
+                        <li>Coffee shop partnerships for leaflet distribution</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>Week 9-11: Conversion Push (July 28 - August 18, 2026)</h4>
+                    <p><strong>1. Open House Events</strong> (3 weekends before launch)</p>
+                    <ul>
+                        <li>Saturday/Sunday afternoon sessions</li>
+                        <li>Free mini-assessments (15-min movement screens)</li>
+                        <li>Facility tours</li>
+                        <li>Meet the trainers/physios</li>
+                        <li>Special opening week offers for attendees</li>
+                        <li><strong>Goal:</strong> 100+ visitors, 20-30 package sales</li>
+                    </ul>
+
+                    <p><strong>2. Influencer/Ambassador Seeding</strong></p>
+                    <ul>
+                        <li>Identify 5-10 micro-influencers in East Coast (3k-15k followers)</li>
+                        <li>Offer complimentary training packages for authentic content</li>
+                        <li>Focus: Parents, fitness enthusiasts, professionals 35-55</li>
+                        <li>Not just "fitness influencers" - lifestyle, wellness, local personalities</li>
+                    </ul>
+
+                    <p><strong>3. Email Marketing Campaign</strong></p>
+                    <ul>
+                        <li>Weekly emails to growing lead list</li>
+                        <li>Content: Educational tips, opening updates, exclusive offers</li>
+                        <li>Countdown sequence in final 2 weeks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Phase 2: Grand Opening (Week of Launch - August 19-22, 2026)</h3>
+
+            <div class="highlight-box">
+                <h4>Opening Week Strategy</h4>
+                
+                <p><strong>1. Soft Opening (August 19-21, 2026 - Tue/Wed/Thu)</strong></p>
+                <ul>
+                    <li>Founding members only - VIP access before official opening</li>
+                    <li>Iron out operational kinks with forgiving early adopters</li>
+                    <li>Test Rezerv.io booking flow, payment processing, check-in procedures</li>
+                    <li>Capture testimonial content and first training session photos</li>
+                    <li>Staff familiarization with real clients in live environment</li>
+                    <li>Sleekflow automated welcome sequences and booking confirmations tested</li>
+                </ul>
+
+                <p><strong>2. Official Launch (August 22, 2026 - Friday)</strong></p>
+                <ul>
+                    <li>Grand opening event: 10am-4pm</li>
+                    <li>Free mini movement assessments (15-min slots bookable via Rezerv.io)</li>
+                    <li>Facility tours every hour on the hour</li>
+                    <li>Meet the trainers/physios - team introductions and Q&A</li>
+                    <li>Local partnerships present (referral partner booths/tables)</li>
+                    <li>Media attendance (pre-invited journalists and bloggers)</li>
+                    <li>Special launch packages (48-hour flash sale - ends Sunday night)</li>
+                    <li>Instagram Stories live coverage throughout the day</li>
+                    <li>WhatsApp broadcast to all pre-launch leads via Sleekflow</li>
+                </ul>
+
+                <p><strong>3. Opening Weekend (August 23-25, 2026 - Sat/Sun/Mon)</strong></p>
+                <ul>
+                    <li>"Launch Weekend Special": 15% off all packages booked within 72 hours (ends Monday midnight)</li>
+                    <li>Extended hours: Saturday & Sunday 8am-6pm for maximum accessibility</li>
+                    <li>Daily social media content: client experiences, facility showcase, team spotlights</li>
+                    <li>Sleekflow follow-up sequences to all event attendees and inquiries</li>
+                    <li>Google Ads launch targeting "physiotherapy Siglap", "personal training East Coast"</li>
+                    <li>Track conversion metrics: event attendance → assessment bookings → package purchases</li>
+                </ul>
+            </div>
+
+            <h3>Phase 3: Post-Launch (September - October 2026)</h3>
+
+            <p><strong>Duration:</strong> Month 2-3 after opening</p>
+
+            <h4>Month 2: Momentum Building (September 2026)</h4>
+            <ul>
+                <li><strong>Referral Program:</strong> "Refer a friend, both get 1 free session" - Limited to first 50 referrals</li>
+                <li><strong>Corporate Partnerships:</strong> Target CBD/Marina Bay companies, lunch-time training slots</li>
+                <li><strong>Content Expansion:</strong> Client success stories (video), educational workshops, Google Business reviews</li>
+                <li><strong>Paid Advertising:</strong> Analyze first month data, shift budget to best-performing channels, retargeting campaigns</li>
+            </ul>
+
+            <h4>Month 3: Community & Retention (October 2026)</h4>
+            <ul>
+                <li><strong>Member Events:</strong> Monthly community workout or wellness workshop</li>
+                <li><strong>Partnership Activation:</strong> Joint events with clinic partners, cross-promotional campaigns</li>
+                <li><strong>PR Push Round 2:</strong> Success stories for media, "3 Months In" update features</li>
+            </ul>
+        </section>
+
+        <!-- Budget & Metrics Section -->
+        <section id="budget">
+            <h2>Budget Allocation & Success Metrics</h2>
+
+            <h3>First 3 Months Marketing Budget: $14,500</h3>
+
+            <div class="warning-box">
+                <h4>Note on Technology Costs</h4>
+                <p>The budget below covers marketing activities only. Technology platform costs (Rezerv.io, Sleekflow, website hosting) are separate operational expenses estimated at SGD $400-700/month ongoing.</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Percentage</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Digital Advertising</td>
+                        <td>$8,000</td>
+                        <td>55%</td>
+                        <td>Facebook/Instagram ads, Google Ads, retargeting</td>
+                    </tr>
+                    <tr>
+                        <td>Events & Activations</td>
+                        <td>$2,000</td>
+                        <td>14%</td>
+                        <td>Open house, grand opening, community events</td>
+                    </tr>
+                    <tr>
+                        <td>Content Creation</td>
+                        <td>$2,000</td>
+                        <td>14%</td>
+                        <td>Photography, videography, graphic design</td>
+                    </tr>
+                    <tr>
+                        <td>PR & Partnerships</td>
+                        <td>$1,500</td>
+                        <td>10%</td>
+                        <td>Media outreach, partnership development</td>
+                    </tr>
+                    <tr>
+                        <td>Print/Collateral</td>
+                        <td>$1,000</td>
+                        <td>7%</td>
+                        <td>Business cards, brochures, signage</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Technology Platform Costs (Separate from Marketing Budget)</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>One-Time Setup</th>
+                        <th>Monthly Recurring</th>
+                        <th>Annual Cost (Est.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rezerv.io</td>
+                        <td>$500-1,000</td>
+                        <td>$150-300</td>
+                        <td>$2,300-4,600</td>
+                    </tr>
+                    <tr>
+                        <td>Sleekflow</td>
+                        <td>$300-500</td>
+                        <td>$100-200</td>
+                        <td>$1,500-2,900</td>
+                    </tr>
+                    <tr>
+                        <td>Website Hosting & Maintenance</td>
+                        <td>$2,000-4,000 (development)</td>
+                        <td>$30-100</td>
+                        <td>$2,360-5,200</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total Technology Stack</strong></td>
+                        <td><strong>$2,800-5,500</strong></td>
+                        <td><strong>$280-600</strong></td>
+                        <td><strong>$6,160-12,700</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Success Metrics (First 3 Months)</h3>
+
+            <div class="brand-names-grid">
+                <div class="brand-card">
+                    <h4>Primary KPIs</h4>
+                    <ul>
+                        <li>80-100 active clients (packages + memberships)</li>
+                        <li>$40,000-60,000 in package sales</li>
+                        <li>50+ Google/Facebook 5-star reviews</li>
+                        <li>1,500+ Instagram followers</li>
+                        <li>30%+ client acquisition from referrals by Month 3</li>
+                    </ul>
+                </div>
+
+                <div class="brand-card">
+                    <h4>Secondary KPIs</h4>
+                    <ul>
+                        <li>Email list: 500+ subscribers</li>
+                        <li>Website traffic: 1,000+ monthly visitors</li>
+                        <li>Clinic referral partnerships: 3-5 active</li>
+                        <li>Media mentions: 3-5 features</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Quick Wins for Immediate Action</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>This Week</h4>
+                    <p>Secure social media handles, start building pre-launch email list</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Week 2</h4>
+                    <p>Launch "Founding Member" landing page with early-bird offer</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Week 3</h4>
+                    <p>Identify and reach out to first 3 partnership targets</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Week 4</h4>
+                    <p>Begin Instagram content (even during build-out phase - build anticipation)</p>
+                </div>
+            </div>
+
+            <div class="success-box">
+                <h4>Competitive Differentiation Summary</h4>
+                <ul>
+                    <li><strong>vs. Traditional Gyms:</strong> Expert-led training studio where every session is guided and personalized</li>
+                    <li><strong>vs. Boutique Studios:</strong> Science-backed individualization, not templated group classes</li>
+                    <li><strong>vs. Physiotherapy Clinics:</strong> Build beyond recovery—create strength and resilience that prevents re-injury</li>
+                    <li><strong>vs. Premium PT:</strong> Combine strength coaching expertise with physiotherapy knowledge</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section>
+            <h2>Recommended Next Steps</h2>
+
+            <div class="highlight-box">
+                <h4>Critical Decisions Required</h4>
+                <ol>
+                    <li><strong>Finalize Brand Name:</strong> Choose from recommended options (FORGE, KINETIC, APEX, etc.)</li>
+                    <li><strong>Commission Brand Identity:</strong> Logo design, color palette, typography system</li>
+                    <li><strong>Secure Digital Assets:</strong> Domain name, social media handles (@[brandname].sg)</li>
+                    <li><strong>Legal Registration:</strong> Business name registration, trademark filing</li>
+                    <li><strong>Website Development:</strong> Start development for launch 4 weeks pre-opening</li>
+                </ol>
+            </div>
+
+            <h3>Timeline for Brand Development</h3>
+
+            <h4>Immediate (Week 1-2)</h4>
+            <ul>
+                <li>Finalize exact brand name</li>
+                <li>Commission logo design (provide brand brief to designer)</li>
+                <li>Secure domain and social handles</li>
+                <li>Register business name</li>
+            </ul>
+
+            <h4>Short-term (Week 3-6)</h4>
+            <ul>
+                <li>Complete visual identity system</li>
+                <li>Website design and development</li>
+                <li>Physical space branding (signage, vinyl graphics)</li>
+                <li>Marketing collateral design</li>
+                <li>Staff uniform/apparel decisions</li>
+            </ul>
+
+            <h4>Medium-term (Week 7-12)</h4>
+            <ul>
+                <li>Photography/videography shoot of facility</li>
+                <li>Content library creation</li>
+                <li>Google Business Profile optimization</li>
+                <li>Partnership materials development</li>
+                <li>Launch campaign assets production</li>
+            </ul>
+        </section>
+        </div><!-- End main-content -->
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Strength Studio - Brand Strategy Document</p>
+        <p>Prepared for: Jianshenfang Pte Ltd</p>
+    </footer>
+
+    <script>
+        // Toggle expandable content
+        function toggleExpandableContent() {
+            const content = document.getElementById('expandableContent');
+            const btn = document.getElementById('readMoreBtn');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                btn.textContent = 'Read More ▼';
+                // Scroll to the button smoothly
+                btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                content.classList.add('expanded');
+                btn.textContent = 'Show Less ▲';
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const headerNavLinks = document.querySelectorAll('header nav a');
+            const sidebarNavLinks = document.querySelectorAll('.sidebar-nav nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Update header nav
+            headerNavLinks.forEach(link => {
+                link.style.background = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.background = '#B03A2E';
+                }
+            });
+
+            // Update sidebar nav
+            sidebarNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
