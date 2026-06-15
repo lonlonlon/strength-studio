@@ -48,21 +48,15 @@
     }
 
     .header-logo {
-      font-family: var(--display);
-      font-size: 28px;
-      color: var(--canvas);
-      letter-spacing: 3px;
-      line-height: 1;
-      text-transform: uppercase;
+      display: block;
+      width: 100%;
+      max-width: 280px;
     }
 
-    .header-logo span {
+    .header-logo img {
+      width: 100%;
+      height: auto;
       display: block;
-      font-size: 11px;
-      letter-spacing: 5px;
-      margin-top: 6px;
-      color: var(--flint);
-      font-family: var(--display);
     }
 
     .header-tagline {
@@ -211,8 +205,7 @@
   <header class="header">
     <div class="header-inner">
       <div class="header-logo">
-        Strength Studio
-        <span>Siglap · East Coast</span>
+        <img src="SS-Logo-White.svg" alt="Strength Studio" />
       </div>
       <p class="header-tagline">Where strength meets science.</p>
     </div>
