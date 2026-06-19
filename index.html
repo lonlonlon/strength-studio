@@ -6,12 +6,12 @@
   <title>Strength Studio — Document Index</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Rethink+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&family=Stack:wght@400;500;700&family=Instrument+Serif:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
       --ironstone: #1F2225;
       --canvas: #F4F0EB;
-      --venetian: #B03A2E;
+      --ember: #D15229;
       --basalt: #3D6A60;
       --linen: #E6DED4;
       --flint: #847B71;
@@ -20,8 +20,8 @@
       --bg: #FAFAF7;
       --border: #DDD9D2;
       --display: 'Special Gothic Expanded One', sans-serif;
-      --body: 'Rethink Sans', sans-serif;
-      --serif: 'Instrument Serif', serif;
+      --body: 'Stack', sans-serif;
+      --display-campaign: 'Instrument Serif', serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,10 +60,11 @@
     }
 
     .header-tagline {
-      font-family: var(--serif);
-      font-style: italic;
+      font-family: var(--display-campaign);
       font-size: 17px;
-      color: var(--venetian);
+      font-weight: 500;
+      color: var(--ember);
+      letter-spacing: -0.01em;
       margin-top: 18px;
     }
 
@@ -119,13 +120,13 @@
     }
 
     .doc-card:hover {
-      border-color: var(--venetian);
+      border-color: var(--ember);
       box-shadow: 0 4px 16px rgba(176, 58, 46, 0.08);
       transform: translateY(-1px);
     }
 
     .doc-card:hover .doc-arrow {
-      color: var(--venetian);
+      color: var(--ember);
       transform: translateX(3px);
     }
 
@@ -152,7 +153,7 @@
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--venetian);
+      color: var(--ember);
       margin-bottom: 3px;
     }
 
@@ -217,6 +218,16 @@
     <p class="section-desc">A consolidated reference for all brand, launch, and operational documents for Strength Studio.</p>
 
     <div class="doc-list">
+
+      <a class="doc-card" href="strength-studio-design-system.html">
+        <div class="doc-icon">🧱</div>
+        <div class="doc-body">
+          <div class="doc-tag">Design</div>
+          <div class="doc-title">Design System</div>
+          <div class="doc-desc">Component library, UI patterns, spacing, and implementation specs for digital touchpoints.</div>
+        </div>
+        <div class="doc-arrow">›</div>
+      </a>
 
       <a class="doc-card" href="strength-studio-brand-guidelines.html">
         <div class="doc-icon">🎨</div>
