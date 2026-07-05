@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Studio — IG Launch Strategy v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ironstone:#1F2225;--canvas:#F4F0EB;--ember:#E05A2D;--basalt:#3D6A60;
+  --linen:#E6DED4;--flint:#847B71;--charcoal:#2E3330;--white:#FFFFFF;
+  --bg:#FAFAF7;--border:#DDD9D2;
+  --display:'Manrope',sans-serif;
+  --body:'Manrope',sans-serif;
+  --serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--bg);color:var(--ironstone);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+.header{background:var(--ironstone);padding:48px 0 40px}
+.header-inner{max-width:820px;margin:0 auto;padding:0 28px}
+.header-logo{font-family:var(--display);font-size:32px;color:var(--canvas);letter-spacing:2px;line-height:1}
+.header-logo span{display:block;font-size:12px;letter-spacing:5px;margin-top:3px;font-family:var(--display)}
+.header-tagline{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ember);margin-top:16px}
+.header-meta{font-size:12px;color:var(--flint);margin-top:12px;display:flex;gap:16px;flex-wrap:wrap}
+
+main{max-width:820px;margin:0 auto;padding:36px 28px 80px}
+
+.section{margin-bottom:56px}
+.section-num{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ember);margin-bottom:2px}
+.section-title{font-size:22px;font-weight:700;color:var(--ironstone);margin-bottom:6px}
+.section-desc{font-size:14px;color:var(--flint);margin-bottom:24px;max-width:640px;line-height:1.7}
+
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin-bottom:14px}
+.card-title{font-size:15px;font-weight:700;color:var(--ironstone);margin-bottom:3px}
+.card-sub{font-size:12px;color:var(--flint);margin-bottom:10px}
+.card p{font-size:13.5px;color:var(--charcoal);line-height:1.7;margin-bottom:8px}
+.card p:last-child{margin-bottom:0}
+
+.note{background:rgba(176,58,46,0.05);border-left:3px solid var(--ember);padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--charcoal);line-height:1.6;border-radius:0 6px 6px 0}
+.note strong{color:var(--ember);text-transform:uppercase;letter-spacing:1px;font-size:10px;display:block;margin-bottom:3px}
+
+.basalt-note{background:rgba(61,106,96,0.06);border-left:3px solid var(--basalt);padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--charcoal);line-height:1.6;border-radius:0 6px 6px 0}
+.basalt-note strong{color:var(--basalt);text-transform:uppercase;letter-spacing:1px;font-size:10px;display:block;margin-bottom:3px}
+
+hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+
+/* Grid visual */
+.grid-map{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:20px;max-width:480px}
+.grid-cell{aspect-ratio:4/5;border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;font-weight:600;letter-spacing:0.5px;padding:8px;line-height:1.3;color:var(--white)}
+.grid-cell.dark{background:var(--ironstone)}
+.grid-cell.light{background:var(--canvas);color:var(--ironstone)}
+.grid-cell.accent{background:var(--ember)}
+.grid-cell.teal{background:var(--basalt)}
+.grid-cell.photo{background:var(--flint)}
+.grid-cell.linen{background:var(--linen);color:var(--charcoal)}
+
+/* Post cards */
+.post{margin-bottom:20px;background:var(--white);border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.post-header{background:var(--ironstone);color:var(--canvas);padding:12px 18px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px}
+.post-num{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--ember);font-weight:600}
+.post-date{font-size:10px;color:rgba(244,240,235,0.6);font-weight:500}
+.post-title{font-size:15px;font-weight:700;color:var(--canvas);width:100%;margin-top:2px;font-family:var(--serif);letter-spacing:-0.01em}
+
+.post-body{padding:18px 20px}
+.field{margin-bottom:12px}
+.field:last-child{margin-bottom:0}
+.field-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:3px}
+.field-value{font-size:13px;color:var(--ironstone);line-height:1.65}
+
+.slide-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+.slide-table th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--flint);font-weight:600;padding:6px 10px;border-bottom:1px solid var(--border)}
+.slide-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--charcoal);vertical-align:top}
+.slide-table td:first-child{font-weight:600;color:var(--ironstone);white-space:nowrap;width:60px}
+.slide-table td:nth-child(2){width:45%}
+.slide-table td:nth-child(3){color:var(--flint);font-style:italic}
+.slide-table .wc{font-size:10px;color:var(--ember);font-weight:600;font-style:normal}
+.slide-table tr:last-child td{border-bottom:none}
+
+.caption-box{background:var(--canvas);border-radius:6px;padding:14px 16px;font-size:13px;color:var(--ironstone);line-height:1.7;white-space:pre-wrap;margin-top:6px}
+.caption-box .hook{font-weight:700;font-size:14px;display:block;margin-bottom:6px}
+
+.post-note{margin-top:10px;padding:9px 12px;background:rgba(61,106,96,0.06);border-radius:6px;font-size:11.5px;color:var(--charcoal);line-height:1.5;border-left:2px solid var(--basalt)}
+.post-note strong{color:var(--basalt);text-transform:uppercase;letter-spacing:1px;font-size:10px;display:block;margin-bottom:2px}
+
+.tag{display:inline-block;font-size:9px;text-transform:uppercase;letter-spacing:0.8px;font-weight:600;padding:2px 7px;border-radius:3px;margin-right:4px}
+.tag-carousel{background:rgba(61,106,96,0.12);color:var(--basalt)}
+.tag-image{background:rgba(176,58,46,0.1);color:var(--ember)}
+.tag-reel{background:rgba(31,34,37,0.08);color:var(--charcoal)}
+
+.footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--flint);text-align:center}
+
+/* Template spec */
+.template-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+.template-card{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.template-preview{aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center}
+.template-preview .t-headline{font-family:var(--display);font-size:14px;letter-spacing:1px;line-height:1.2;margin-bottom:6px}
+.template-preview .t-body{font-family:var(--body);font-size:10px;color:var(--flint);line-height:1.4}
+.template-preview .t-label{font-size:8px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-top:auto}
+.template-info{padding:10px 12px;font-size:11px;color:var(--charcoal);line-height:1.5;border-top:1px solid var(--border);background:var(--bg)}
+
+@media(max-width:640px){
+  .header-inner,main{padding-left:16px;padding-right:16px}
+  .header-logo{font-size:24px}
+  .grid-map{max-width:100%}
+  .template-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="header-inner">
+  <div class="header-logo">STRENGTH<span>STUDIO</span></div>
+  <div class="header-tagline">IG Launch Strategy — Grid-First, Carousel-Led</div>
+  <div class="header-meta">
+    <span>v2.0 · Replaces Pre-Launch IG Content Plan v1</span>
+    <span>July 2026</span>
+    <span>JSF Transformative Pte Ltd</span>
+  </div>
+</div>
+</header>
+
+<main>
+
+<!-- ===== SECTION 0: WHY V2 ===== -->
+<div class="section">
+<p class="section-num">Section 00</p>
+<h2 class="section-title">Why this replaces v1</h2>
+<p class="section-desc">The v1 prelaunch plan was caption-first: 10 individual posts written as editorial copy with visual direction as an afterthought. That approach doesn't work for what we're now trying to do — build a visually coherent grid where every post is part of a designed system, with carousel slides that lead with images and use ≤15 words of copy per slide.</p>
+
+<div class="card">
+  <p><strong>What changed:</strong></p>
+  <p>1. Grid architecture is planned first, not post-by-post captions. The 4×3 profile grid view is the design canvas — every post cover is placed deliberately within it.</p>
+  <p>2. Carousels are now the primary format (8 of 12 posts), not a minority (3 of 10). This reflects 2026 IG performance data: carousels average 1.92% engagement vs 0.50% for Reels and 0.45% for static images, and get 1.4× the reach of single posts.</p>
+  <p>3. Slides are visual-first, copy-light. No slide exceeds 15 words. Detailed information lives in the caption, not on the slide.</p>
+  <p>4. Hashtags reduced to 3 per post (Instagram now limits hashtags to 3; the v1 plan recommended 5–8).</p>
+  <p>5. Two Reels added for discovery reach to non-followers. Carousels drive engagement and saves; Reels drive reach.</p>
+  <p>6. Post count increased from 10 to 12 to support the 4×3 grid architecture and fill the extra days.</p>
+</div>
+
+<div class="note">
+  <strong>Confidence levels on key claims</strong>
+  [Certain] Carousels outperform all other IG formats in 2026 engagement — multiple independent studies confirm 1.92% avg engagement rate. [Certain] IG now limits hashtags to 3 per post, down from 30. [Likely] A grid-planned launch profile converts profile visitors to followers at a higher rate than an ad-hoc feed — this is standard practice for brand launches but I have no controlled study to cite. [Guessing] The exact post count (12) is a balance between grid geometry and your cadence; if you can produce more, 15–18 posts would be better.
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 1: REFERENCE — SGIM APPROACH ===== -->
+<div class="section">
+<p class="section-num">Section 01</p>
+<h2 class="section-title">Reference model: @sgintlmarathon</h2>
+<p class="section-desc">What they did well, and what we're adapting for Strength Studio.</p>
+
+<div class="card">
+  <p class="card-title">What SGIM did</p>
+  <p class="card-sub">~50 posts · New handle from scratch · Complete visual identity rollout</p>
+  <p>Launched a brand-new Instagram account for the rebranded BYD Singapore International Marathon (formerly Standard Chartered Singapore Marathon). Instead of migrating the old @sgmarathon account (78K followers), they started fresh at @sgintlmarathon — a signal of brand confidence. The grid was planned as a visual mosaic: alternating between bold typographic cards, full-bleed photography, and carousel explainers, all within a unified design system (lion mark, bold colour palette, consistent typography).</p>
+  <p>Their carousel style: image-heavy slides combining photography and typographic overlays, with no more than ~15 words per slide. The copy does its job in the caption. The slides are designed to be scanned in 2 seconds each — they communicate through visuals and short punchy statements, not paragraphs.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">What we're adapting</p>
+  <p>We're a single-location personal training studio, not a national event with sponsor partners and athlete content. Our adaptation keeps the structural principles (grid-first planning, carousel-heavy mix, visual-first slides, coherent design system) but scales it to what's realistic for a pre-launch with limited photography assets and one person managing the account.</p>
+  <p><strong>Key differences from SGIM:</strong> We have 12 posts (not 50), no professional photography yet (we'll lean on brand graphics + reno photos + AI renders), and we need to convert followers into $9.90 Training Assessment bookings — not just build awareness for a distant event.</p>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 2: GRID ARCHITECTURE ===== -->
+<div class="section">
+<p class="section-num">Section 02</p>
+<h2 class="section-title">Grid architecture</h2>
+<p class="section-desc">The 4×3 grid below shows how the first 12 posts appear when someone visits the profile. Posts are numbered in reverse order (12 = most recent, top-left; 1 = oldest, bottom-right) because Instagram displays newest first. The colour blocking alternates to create visual rhythm.</p>
+
+<div class="grid-map">
+  <div class="grid-cell dark" style="font-size:9px">12<br>WE'RE OPEN<br><span style="font-size:8px;opacity:.6">Static</span></div>
+  <div class="grid-cell photo" style="font-size:9px">11<br>INTERIOR<br>REVEAL<br><span style="font-size:8px;opacity:.6">Reel</span></div>
+  <div class="grid-cell accent" style="font-size:9px">10<br>BOOK NOW<br>$9.90<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell linen" style="font-size:9px">9<br>ALICE<br>TESTIMONIAL<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell teal" style="font-size:9px">8<br>PHYSIO<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell photo" style="font-size:9px">7<br>RENO<br>WEEK 3<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell dark" style="font-size:9px">6<br>WHO<br>TRAINS<br>HERE?<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell light" style="font-size:9px">5<br>RENO<br>WEEK 2<br><span style="font-size:8px;opacity:.6">Reel</span></div>
+  <div class="grid-cell accent" style="font-size:9px">4<br>$9.90<br>ASSESSMENT<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell photo" style="font-size:9px">3<br>RENO<br>DAY 1<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell dark" style="font-size:9px">2<br>WHAT IS<br>STRENGTH<br>STUDIO?<br><span style="font-size:8px;opacity:.6">Carousel</span></div>
+  <div class="grid-cell light" style="font-size:9px">1<br>ANNOUNCE<br>-MENT<br><span style="font-size:8px;opacity:.6">Static</span></div>
+</div>
+
+<div class="card">
+  <p class="card-title">Grid design principles</p>
+  <p><strong>Alternating tone:</strong> No two adjacent cells share the same background treatment. Dark (Ironstone) and light (Canvas) posts alternate in a checkerboard pattern, with accent colours (#E05A2D Ember for conversion posts, Basalt for physio) placed strategically to draw the eye.</p>
+  <p><strong>Photography vs graphic:</strong> Photo-led posts (reno progress, interior reveal) sit between designed graphic posts to break up the visual rhythm. Photo posts use a consistent warm-neutral grade.</p>
+  <p><strong>Conversion posts are red:</strong> Posts 4 and 10 (the two $9.90 Assessment pushes) use the #E05A2D Ember background so they visually pop on the grid. When someone scrolls your profile, these are the posts their eye goes to first.</p>
+  <p><strong>Bottom row anchors the brand:</strong> Posts 1–3 (announcement, explainer, reno start) are the "about us" row. New profile visitors scroll to the bottom first — this row should answer "What is this?" in 3 seconds.</p>
+</div>
+
+<div class="basalt-note">
+  <strong>Production note</strong>
+  You can rearrange post order after publishing — Instagram now supports grid reordering via drag-and-drop. So if the grid doesn't land perfectly on first publish, adjust after.
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 3: IG DESIGN TEMPLATES ===== -->
+<div class="section">
+<p class="section-num">Section 03</p>
+<h2 class="section-title">IG design templates</h2>
+<p class="section-desc">Four slide templates cover every post in the plan. All slides are 1080 × 1350 px (4:5 ratio). Designed in the Strength Studio brand system.</p>
+
+<div class="template-grid">
+
+  <div class="template-card">
+    <div class="template-preview" style="background:var(--ironstone)">
+      <div class="t-label" style="color:var(--ember)">Template A</div>
+      <div class="t-headline" style="color:var(--canvas)">HEADLINE<br>HERE</div>
+      <div class="t-body" style="color:var(--flint)">Supporting line · max 15 words</div>
+    </div>
+    <div class="template-info"><strong>Dark typographic card.</strong> Ironstone background, Manrope headline in Canvas, Manrope body in Flint. Use for: opening statements, bold claims, CTAs.</div>
+  </div>
+
+  <div class="template-card">
+    <div class="template-preview" style="background:var(--canvas)">
+      <div class="t-label" style="color:var(--ember)">Template B</div>
+      <div class="t-headline" style="color:var(--ironstone)">HEADLINE<br>HERE</div>
+      <div class="t-body" style="color:var(--flint)">Supporting line · max 15 words</div>
+    </div>
+    <div class="template-info"><strong>Light typographic card.</strong> Canvas background, Ironstone headline, Flint body. Use for: explanations, service details, audience segments.</div>
+  </div>
+
+  <div class="template-card">
+    <div class="template-preview" style="background:var(--ember)">
+      <div class="t-label" style="color:rgba(255,255,255,.5)">Template C</div>
+      <div class="t-headline" style="color:var(--white)">$9.90</div>
+      <div class="t-body" style="color:rgba(255,255,255,.7)">Conversion slide · CTA moment</div>
+    </div>
+    <div class="template-info"><strong>Accent conversion card.</strong> #E05A2D Ember background, white text. Reserved exclusively for pricing, CTA, and booking slides. Maximum 2 per carousel.</div>
+  </div>
+
+  <div class="template-card">
+    <div class="template-preview" style="background:var(--charcoal);position:relative">
+      <div class="t-label" style="color:var(--ember)">Template D</div>
+      <div class="t-headline" style="color:var(--white);font-size:11px;font-family:var(--body);font-weight:600">Photo + text overlay</div>
+      <div class="t-body" style="color:rgba(255,255,255,.6)">Bottom-aligned headline over photo</div>
+    </div>
+    <div class="template-info"><strong>Photo overlay.</strong> Full-bleed photography with semi-transparent gradient at bottom. Headline in Manrope, white. Use for: reno progress, interior shots, equipment reveals.</div>
+  </div>
+
+</div>
+
+<div class="card" style="margin-top:16px">
+  <p class="card-title">Typography on slides</p>
+  <p><strong>Headlines:</strong> Manrope · 700–800 weight · ALL CAPS · tight letter-spacing · 36–48pt equivalent · Canvas (#F4F0EB) on dark, Ironstone (#1F2225) on light</p>
+  <p><strong>Body/supporting text:</strong> Manrope · 400–500 weight · sentence case · 18–22pt equivalent · Flint (#847B71) on light, rgba(255,255,255,0.7) on dark</p>
+  <p><strong>Display accent (taglines, pull quotes):</strong> Instrument Serif · upright (non-italic) · slightly reduced letter-spacing · used sparingly for warmth</p>
+  <p><strong>Copy rules (revised after studying SGIM carousel examples):</strong></p>
+  <p>• Headlines: ≤8 words. Always ALL CAPS Manrope 700–800.</p>
+  <p>• Narrative slides (explaining a concept): total text ≤15 words including headline.</p>
+  <p>• Data/stat slides (tables, numbers, comparisons): can exceed 15 words when the extra text is structured visually — tables, bullet lists, before/after. The information should be scannable, not read as a paragraph.</p>
+  <p><strong>Texture:</strong> Graphic slides (Templates A, B, C) should use a subtle texture overlay — grain, halftone dots, or a fine geometric pattern — over the flat brand colour. This stops slides looking like Canva defaults and creates a recognisable brand signature. SGIM uses a halftone dot pattern; Strength Studio should develop an equivalent (options: fine dot grid, subtle noise grain, or a geometric pattern derived from the logo mark).</p>
+  <p><strong>Logo lockup:</strong> Strength Studio wordmark appears on Slide 1 (cover) and the final slide (CTA) of every carousel. Not on every frame — that clutters. Consistent bottom-centre or bottom-left placement.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Colour usage by content type</p>
+  <p><strong>Training content:</strong> Ironstone backgrounds, Canvas text — the default brand treatment</p>
+  <p><strong>Physio content:</strong> Basalt (#3D6A60) backgrounds — visually distinct from training, signals a different service</p>
+  <p><strong>Conversion / CTA:</strong> #E05A2D Ember (#B03A2E) backgrounds — reserved for pricing and booking slides only</p>
+  <p><strong>Audience-facing / explainers:</strong> Canvas backgrounds — lighter, more approachable for informational content</p>
+  <p><strong>Photography:</strong> Warm-neutral grade, no heavy filters. Overlay text uses Template D treatment</p>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 4: POST-BY-POST PLAN ===== -->
+<div class="section">
+<p class="section-num">Section 04</p>
+<h2 class="section-title">Post-by-post plan</h2>
+<p class="section-desc">12 posts · Cadence: every 2–3 days · July 4 → August 2. Posts are numbered 1–12 in publishing order. Grid position is reverse (12 at top-left). Format mix: 8 carousels, 2 Reels, 2 static images.</p>
+
+<div class="note">
+  <strong>Slide specs</strong>
+  Every carousel below includes a slide-by-slide table with three columns: slide number, visual description (what the viewer sees), and on-slide copy (the exact words on the slide, with word count). No slide exceeds 15 words.
+</div>
+
+
+<!-- POST 1 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 1</span><span class="post-date" style="margin-left:10px">Fri · Jul 4</span></div>
+    <span class="tag tag-image">Static image</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Bottom-right. The anchor. Last thing someone sees scrolling your grid — first impression of the brand.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Visual</div>
+      <div class="field-value">Template A (dark). Strength Studio wordmark centred. Below: "Opening August 2026 · 77 Upper East Coast." Clean, zero clutter. This is a logo lockup post, not a creative — it anchors the grid.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">On-image copy</div>
+      <div class="field-value" style="font-weight:600">STRENGTH STUDIO · Opening August 2026 · 77 Upper East Coast <span style="color:var(--ember);font-size:11px">(12 words)</span></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">We're opening this August.</span>Strength Studio — personalised training and physiotherapy, built around how your body moves.
+
+For people who want more than a gym membership.
+
+📍 77 Upper East Coast Road, #01-03
+🗓 August 2026
+
+Follow along. We'll share the build, the team, and how to book your first session.
+
+#strengthstudio #eastcoastsg #personaltrainingsg</div>
+    </div>
+    <div class="post-note">
+      <strong>Grid note</strong>
+      This post never gets archived or reordered. It's the permanent bottom-right anchor.
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 2 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 2</span><span class="post-date" style="margin-left:10px">Mon · Jul 7</span></div>
+    <span class="tag tag-carousel">Carousel · 6 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Bottom-centre. Explainer post — "What is Strength Studio?" visible on cover. Pairs with the announcement post beside it.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Template A (dark). Cover slide.</td><td>WHAT IS STRENGTH STUDIO? <span class="wc">5 words</span></td></tr>
+        <tr><td>2</td><td>Template D. Photo: coaching close-up or AI render of training floor.</td><td>Personalised 1-to-1 coaching. Every rep, every session. <span class="wc">8 words</span></td></tr>
+        <tr><td>3</td><td>Template B (light). Icon or minimal graphic.</td><td>Physiotherapy that treats the cause, not just the symptom. <span class="wc">10 words</span></td></tr>
+        <tr><td>4</td><td>Template D. Photo: assessment-style interaction or hands-on coaching.</td><td>Every client starts with a 45-minute Training Assessment. <span class="wc">8 words</span></td></tr>
+        <tr><td>5</td><td>Template B (light). Location pin icon.</td><td>77 Upper East Coast Road. Opening August 2026. <span class="wc">8 words</span></td></tr>
+        <tr><td>6</td><td>Template A (dark). CTA slide.</td><td>Follow for updates. Bookings open soon. <span class="wc">6 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">Strength Studio in 6 slides.</span>We're not a gym membership. We're a coached environment where every session is designed around your body, your goals, and your week.
+
+No templates. No guesswork. A coach who actually watches every rep.
+
+Bookings open in a few weeks. Save this post.
+
+#strengthstudio #personaltrainingsg #eastcoastsg</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 3 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 3</span><span class="post-date" style="margin-left:10px">Thu · Jul 10</span></div>
+    <span class="tag tag-carousel">Carousel · 4 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Bottom-left. First reno post — photography-led. Anchors the "build journey" thread that runs through Posts 5, 7.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Template D. Wide shot of empty shell during hacking/demo. Same angle for all future reno posts.</td><td>DAY 1. <span class="wc">2 words</span></td></tr>
+        <tr><td>2</td><td>Photo: close-up of demolition detail — exposed brick, torn-out flooring, dust.</td><td>Currently a construction site. <span class="wc">4 words</span></td></tr>
+        <tr><td>3</td><td>Photo: another angle of the raw space. Wide, honest, unpolished.</td><td>Soon a training studio. <span class="wc">4 words</span></td></tr>
+        <tr><td>4</td><td>Template A (dark).</td><td>Follow the build. 🔨 <span class="wc">3 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">Day 1.</span>This is 77 Upper East Coast right now. Walls coming down before they go back up.
+
+Over the next 4 weeks, we'll document the build — same corner, same angle, every time. Follow along to see it come together.
+
+📍 77 Upper East Coast Road, #01-03
+
+#strengthstudio #eastcoastsg #studiobuilding</div>
+    </div>
+    <div class="post-note">
+      <strong>Critical</strong>
+      Mark the tripod position with floor tape. Every reno carousel (Posts 5, 7) must be shot from this exact spot for the before/after to land.
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 4 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 4</span><span class="post-date" style="margin-left:10px">Sun · Jul 13</span></div>
+    <span class="tag tag-carousel">Carousel · 5 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 3, right. First conversion post — #E05A2D Ember cover. Eye-catching on grid scroll.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Template C (#E05A2D Ember). Bold price as hero element.</td><td>$9.90 TRAINING ASSESSMENT <span class="wc">3 words</span></td></tr>
+        <tr><td>2</td><td>Template B (light). Step 1 icon or graphic.</td><td>We assess how your body moves. <span class="wc">7 words</span></td></tr>
+        <tr><td>3</td><td>Template B (light). Step 2 icon.</td><td>We identify what's holding you back. <span class="wc">7 words</span></td></tr>
+        <tr><td>4</td><td>Template B (light). Step 3 icon.</td><td>We map a programme built around you. <span class="wc">8 words</span></td></tr>
+        <tr><td>5</td><td>Template C (#E05A2D Ember). CTA.</td><td>45 minutes. No commitment. Bookings open soon. <span class="wc">7 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">$9.90 for what usually costs $200.</span>The Training Assessment is where every Strength Studio client begins. 45 minutes, 1-to-1 with a coach.
+
+No commitment after. No pressure. Just an honest read on where you're starting — and what your training should look like from here.
+
+Save this post. Bookings open when we do.
+
+#strengthstudio #personaltrainingsg #eastcoastsg</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 5 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 5</span><span class="post-date" style="margin-left:10px">Wed · Jul 16</span></div>
+    <span class="tag tag-reel">Reel · 15–30 sec</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 3, centre. Light/Canvas cover frame. Reno progress — breaks up the graphic-heavy posts around it.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Format</div>
+      <div class="field-value">Time-lapse or quick-cut Reel. 15–30 seconds. Phone footage is fine — this is a construction update, not a produced video. Trending or ambient audio (no voiceover needed). Cover frame: same-angle shot as Post 3 with "WEEK 2" text overlay.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Cover frame text</div>
+      <div class="field-value" style="font-weight:600">WEEK 2 <span style="color:var(--ember);font-size:11px">(2 words)</span></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">Two weeks in.</span>Walls up. Flooring going down. Same corner as Day 1 — scroll back to see where we started.
+
+Three weeks to go.
+
+#strengthstudio #eastcoastsg #studiobuilding</div>
+    </div>
+    <div class="post-note">
+      <strong>Why a Reel here</strong>
+      Discovery. Reels reach non-followers. Your first 5 posts are all image/carousel — by this point you need algorithmic reach beyond your existing (tiny) follower base.
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 6 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 6</span><span class="post-date" style="margin-left:10px">Sat · Jul 19</span></div>
+    <span class="tag tag-carousel">Carousel · 5 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 3, left. Dark cover — "WHO TRAINS HERE?" Self-identification post. Drives comments.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Template A (dark). Cover.</td><td>WHO TRAINS AT STRENGTH STUDIO? <span class="wc">5 words</span></td></tr>
+        <tr><td>2</td><td>Template B (light). Photo or illustration of professional.</td><td>Active professionals. Time-poor, results-focused. <span class="wc">5 words</span></td></tr>
+        <tr><td>3</td><td>Template B (light). Photo or illustration of older adult.</td><td>Seniors training for the next 20 years. <span class="wc">8 words</span></td></tr>
+        <tr><td>4</td><td>Template B (light). Photo or illustration of beginner.</td><td>Beginners. No experience needed. That's where we start. <span class="wc">9 words</span></td></tr>
+        <tr><td>5</td><td>Template A (dark). CTA slide.</td><td>Which one is you? Comment below. <span class="wc">6 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">Not sure if this is for you?</span>Here's who we're built for.
+
+You don't need to be fit already. You don't need experience. You just need to want something better than training alone.
+
+Which one sounds like you? 👇
+
+#strengthstudio #personaltrainingsg #eastcoastsg</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 7 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 7</span><span class="post-date" style="margin-left:10px">Tue · Jul 22</span></div>
+    <span class="tag tag-carousel">Carousel · 4 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 2, right. Photography-led reno update. Visual breathing room between graphic posts.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Template D. Same-angle wide shot. Significant progress visible.</td><td>WEEK 3. <span class="wc">2 words</span></td></tr>
+        <tr><td>2</td><td>Photo: detail — equipment arriving, flooring laid, shelving up.</td><td>Equipment arriving. <span class="wc">2 words</span></td></tr>
+        <tr><td>3</td><td>Photo: another detail — finishes, branding on wall, lighting.</td><td>Starting to feel like a studio. <span class="wc">7 words</span></td></tr>
+        <tr><td>4</td><td>Template A (dark).</td><td>One week to go. <span class="wc">5 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">Week 3.</span>Same corner. Very different view.
+
+Equipment's in. Flooring's down. Starting to look like the place we designed.
+
+One more week. Then we open the doors.
+
+#strengthstudio #eastcoastsg #studiobuilding</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 8 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 8</span><span class="post-date" style="margin-left:10px">Fri · Jul 25</span></div>
+    <span class="tag tag-carousel">Carousel · 5 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 2, centre. Basalt (teal) cover — physio content. Colour-distinct from training posts.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Basalt background. Physio icon or hands image.</td><td>PHYSIOTHERAPY AT STRENGTH STUDIO <span class="wc">4 words</span></td></tr>
+        <tr><td>2</td><td>Template B (light).</td><td>We treat the root cause, not just the symptom. <span class="wc">10 words</span></td></tr>
+        <tr><td>3</td><td>Template B (light).</td><td>Manual therapy meets corrective exercise. <span class="wc">5 words</span></td></tr>
+        <tr><td>4</td><td>Template B (light).</td><td>Your training adapts around your recovery. <span class="wc">7 words</span></td></tr>
+        <tr><td>5</td><td>Basalt background. CTA.</td><td>Standalone or integrated with training. Booking soon. <span class="wc">7 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">Pain isn't just something to push through.</span>Physiotherapy at Strength Studio treats the cause, not the symptom. Manual therapy meets corrective exercise — and where it makes sense, your training programme adapts around it.
+
+Available as standalone sessions or integrated with your coaching. Because recovery isn't separate from strength.
+
+Bookings open this week.
+
+#strengthstudio #physiotherapysg #eastcoastsg</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 9 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 9</span><span class="post-date" style="margin-left:10px">Mon · Jul 28</span></div>
+    <span class="tag tag-carousel">Carousel · 5 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 2, left. Linen/light cover. Testimonial — social proof before the conversion push.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Template B (Canvas). Large quotation mark graphic.</td><td>A CLIENT'S STORY <span class="wc">3 words</span></td></tr>
+        <tr><td>2</td><td>Template B (Canvas). Pull quote.</td><td>"I couldn't squat when I started." <span class="wc">7 words</span></td></tr>
+        <tr><td>3</td><td>Template B (Canvas). Continued.</td><td>"Now I can do full squats, 10 reps in a row." <span class="wc">12 words</span></td></tr>
+        <tr><td>4</td><td>Template B (Canvas). Attribution.</td><td>Alice, 61. Stronger than she's been in years. <span class="wc">9 words</span></td></tr>
+        <tr><td>5</td><td>Template A (dark). CTA.</td><td>Your story starts with a Training Assessment. <span class="wc">7 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">She started because she couldn't squat.</span>Alice came in at 61. No gym background. Couldn't do a bodyweight squat.
+
+A few months later: full squats, 10 reps, standing up every time. "I feel stronger than I have in years."
+
+That's what personalised coaching looks like.
+
+Your $9.90 Training Assessment is how you start. Link in bio.
+
+#strengthstudio #personaltrainingsg #eastcoastsg</div>
+    </div>
+    <div class="post-note">
+      <strong>Fallback</strong>
+      If Bernard prefers his coaching not to be implied in this testimonial, frame it as "coached training at Strength Studio" rather than attributing a specific coach.
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 10 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 10</span><span class="post-date" style="margin-left:10px">Thu · Jul 31</span></div>
+    <span class="tag tag-carousel">Carousel · 5 slides</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 1, right. Second #E05A2D Ember conversion post — "BOOK NOW" visible on cover. The primary conversion push.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Slide-by-slide</div>
+      <table class="slide-table">
+        <tr><th>Slide</th><th>Visual</th><th>On-slide copy</th></tr>
+        <tr><td>1</td><td>Template C (#E05A2D Ember). Bold headline.</td><td>BOOKINGS ARE OPEN. <span class="wc">3 words</span></td></tr>
+        <tr><td>2</td><td>Template B (light).</td><td>Training Assessment. 45 minutes. $9.90. <span class="wc">5 words</span></td></tr>
+        <tr><td>3</td><td>Template D. Interior photo or AI render.</td><td>1-to-1 with your coach. No commitment after. <span class="wc">8 words</span></td></tr>
+        <tr><td>4</td><td>Template B (light).</td><td>Be one of the first through the door. <span class="wc">10 words</span></td></tr>
+        <tr><td>5</td><td>Template C (#E05A2D Ember).</td><td>Book now. Link in bio. <span class="wc">5 words</span></td></tr>
+      </table>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">Bookings are now open.</span>Training Assessments — 45 minutes, $9.90, no commitment.
+
+If you've been following along: this is the moment. Book before we open and you'll be among the first through the door.
+
+📅 Opening this week
+💬 WhatsApp us at +65 8841 0877
+🔗 book.strength.sg (link in bio)
+
+#strengthstudio #personaltrainingsg #eastcoastsg</div>
+    </div>
+    <div class="post-note">
+      <strong>Critical</strong>
+      Update link-in-bio to the live Rezerv booking URL (book.strength.sg) before this post goes up. This is the primary conversion post — everything above builds to this.
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 11 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 11</span><span class="post-date" style="margin-left:10px">Fri · Aug 1</span></div>
+    <span class="tag tag-reel">Reel · 15–30 sec</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 1, centre. The interior reveal. Photography-led. The visual payoff of the reno journey.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Format</div>
+      <div class="field-value">Slow-pan walkthrough Reel. 15–30 seconds. Start at the entrance, move through the studio. Ambient or trending audio. No voiceover. Cover frame: wide shot of finished studio with "THIS IS WHERE YOU'LL TRAIN" text overlay.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Cover frame text</div>
+      <div class="field-value" style="font-weight:600">THIS IS WHERE YOU'LL TRAIN <span style="color:var(--ember);font-size:11px">(6 words)</span></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">This is where you'll train.</span>The build is done. Same corner where we posted Day 1 — very different room now.
+
+If you've been watching the build, you already know what this place is about. Now come see it for real.
+
+$9.90 Training Assessment. Book via link in bio or WhatsApp +65 8841 0877.
+
+#strengthstudio #eastcoastsg #personaltrainingsg</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- POST 12 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Post 12</span><span class="post-date" style="margin-left:10px">Sat · Aug 2</span></div>
+    <span class="tag tag-image">Static image</span>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Grid role</div>
+      <div class="field-value">Row 1, left. Top-left of the grid — the most visible post on your profile. Opening day.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Visual</div>
+      <div class="field-value">Template A (dark) or Template D over an opening-day interior shot. Warm, inviting, low-drama. This isn't a reveal — it's an invitation.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">On-image copy</div>
+      <div class="field-value" style="font-weight:600">WE'RE OPEN. <span style="color:var(--ember);font-size:11px">(2 words)</span></div>
+    </div>
+    <div class="field">
+      <div class="field-label">Caption</div>
+      <div class="caption-box"><span class="hook">We're open.</span>Today, Strength Studio opens its doors at 77 Upper East Coast.
+
+Thank you to everyone who followed along through the build, sent messages, and booked ahead.
+
+If you haven't booked yet — your $9.90 Training Assessment is waiting.
+
+📍 77 Upper East Coast Road, #01-03
+🔗 book.strength.sg (link in bio)
+
+#strengthstudio #eastcoastsg #personaltrainingsg</div>
+    </div>
+    <div class="post-note">
+      <strong>Tone</strong>
+      Should feel earned, not hyped. No confetti energy. This is where 4 weeks of build-up delivers.
+    </div>
+  </div>
+</div>
+
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 5: STORIES CADENCE ===== -->
+<div class="section">
+<p class="section-num">Section 05</p>
+<h2 class="section-title">Stories cadence</h2>
+<p class="section-desc">2–4 Stories per day between feed posts. No designed creatives needed. Phone-native content. This is where the daily build narrative lives.</p>
+
+<div class="card">
+  <p class="card-title">Story types</p>
+  <p><strong>Build-out clips:</strong> 5-second phone videos of walls going up, equipment arriving, tradespeople at work. Raw, unedited.</p>
+  <p><strong>Equipment reveals:</strong> One piece of gear at a time as installed. Ties to premium positioning.</p>
+  <p><strong>Polls and questions:</strong> "What's holding you back from training?" / "Beginner or returning to lifting?" — engagement signals + audience research.</p>
+  <p><strong>Countdown sticker:</strong> From July 25 onwards. Proven conversion mechanism — followers get a reminder notification when it expires.</p>
+  <p><strong>Coach voice notes:</strong> 30-second audio clips from Bernard on programming philosophy or common training mistakes. Zero-camera format if Bernard is camera-shy.</p>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 6: UPDATED PLATFORM RULES ===== -->
+<div class="section">
+<p class="section-num">Section 06</p>
+<h2 class="section-title">2026 IG platform rules</h2>
+<p class="section-desc">Key changes since the v1 plan was written.</p>
+
+<div class="card">
+  <p class="card-title">Hashtags: maximum 3 per post</p>
+  <p>[Certain] Instagram now limits hashtags to 3 per post, down from 30. Keywords in captions and on-slide text are now the primary discovery mechanism. Every post in this plan uses exactly 3 hashtags: one branded (#strengthstudio), one category (#personaltrainingsg or #physiotherapysg), one location (#eastcoastsg).</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Carousels dominate engagement</p>
+  <p>[Certain] Carousels average 1.92% engagement (vs 0.50% Reels, 0.45% static images). Instagram resurfaces carousels to users who scrolled past, showing different slides — so a single carousel generates engagement over days, not hours. Adding music to carousels pushes them into the Reels feed for broader reach.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Grid reordering is live</p>
+  <p>[Certain] Instagram now supports drag-and-drop post reordering on the grid without deleting and re-uploading. This means you can fix the grid layout after publishing if the visual flow isn't right.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Original content rewarded, reposts penalised</p>
+  <p>[Certain] Instagram's algorithm heavily penalises reposted/recycled content — up to 80% reach reduction. Every post in this plan is original. Do not cross-post identical content from Facebook without adaptation.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Slide count: 8–10 is optimal for educational carousels</p>
+  <p>[Likely] Most benchmarks recommend 8–10 slides for educational carousels. Our plan uses 4–6 slides per carousel instead — this is deliberate: shorter carousels with less copy per slide match the SGIM-style visual approach, where each slide is a designed card, not a text-heavy lesson. For a brand launch, visual impact per slide matters more than dwell time per carousel.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Facebook adaptation</p>
+  <p>Don't cross-post to Facebook without adapting. Same visuals, but captions should be slightly longer and less emoji-dependent. Facebook audiences expect more context in the text. The carousel slides themselves work across both platforms without changes.</p>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 7: ENGAGEMENT PLAN ===== -->
+<div class="section">
+<p class="section-num">Section 07</p>
+<h2 class="section-title">Outbound engagement plan</h2>
+<p class="section-desc">The v1 plan had no engagement strategy. Posts alone don't build followers for a new account — you have to go to where your audience already is.</p>
+
+<div class="card">
+  <p class="card-title">Daily routine (20 min)</p>
+  <p><strong>Respond to every comment within 6 hours of posting.</strong> The algorithm decides how far to push a post in the first 24 hours based on engagement velocity.</p>
+  <p><strong>Comment on 5–10 posts from local East Coast accounts daily.</strong> Targets: Siglap food accounts, East Coast running groups, local lifestyle pages, neighbouring businesses. Add genuine value — not "Great post!" — but a sentence that shows you're a real human in the neighbourhood.</p>
+  <p><strong>Follow 10–15 relevant local accounts per day</strong> during pre-launch. Running clubs, cycling groups, yoga studios, local physio clinics, East Coast community pages.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Partner seeding</p>
+  <p>Identify 3–5 local businesses for reciprocal Story mentions or grid features during the first two weeks. Think: the coffee shop down the road, the nearby wellness or beauty studio, the neighbourhood florist. Not fitness competitors — complementary businesses whose audiences overlap with yours.</p>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 8: OPEN FLAGS ===== -->
+<div class="section">
+<p class="section-num">Section 08</p>
+<h2 class="section-title">Open flags</h2>
+
+<div class="card">
+  <p><strong>1. Training Assessment duration:</strong> Confirmed 45 minutes. All posts and slides now reflect 45 min. ✓ Resolved.</p>
+  <p><strong>2. Bernard's social media preference:</strong> Post 9 (Alice testimonial) is the fallback for the v1 "Meet Coach Bernard" post. If Bernard is comfortable appearing in Stories or a Reel, that's additive — but nothing in this plan requires his face on the feed grid.</p>
+  <p><strong>3. Photography assets:</strong> Posts 3, 5, 7 require real reno photos from the site. Posts 2, 4, 11 can use AI interior renders with "Artist's impression" disclaimer where needed. The sooner you can get real in-studio photography (even phone shots), the stronger the grid.</p>
+  <p><strong>4. Music on carousels:</strong> Adding audio to carousels pushes them into the Reels feed algorithm. Worth testing on Posts 2, 6, and 9 — use ambient/trending audio, not licensed music that could get flagged.</p>
+  <p><strong>5. Link-in-bio timing:</strong> Update to live book.strength.sg URL no later than July 30 (before Post 10). Before that, point to WhatsApp (+65 8841 0877) or a "coming soon" page.</p>
+</div>
+</div>
+
+
+<div class="footer">
+  Strength Studio — IG Launch Strategy v2.0 &nbsp;·&nbsp; Prepared for JSF Transformative Pte Ltd &nbsp;·&nbsp; July 2026
+</div>
+
+</main>
+</body>
+</html>
