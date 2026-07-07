@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strength Studio — IG Launch Strategy v2</title>
+<title>Strength Studio — Meta Launch Strategy v3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -78,8 +78,43 @@ hr{border:none;border-top:1px solid var(--border);margin:48px 0}
 .slide-table .wc{font-size:10px;color:var(--ember);font-weight:600;font-style:normal}
 .slide-table tr:last-child td{border-bottom:none}
 
-.caption-box{background:var(--canvas);border-radius:6px;padding:14px 16px;font-size:13px;color:var(--ironstone);line-height:1.7;white-space:pre-wrap;margin-top:6px}
+.caption-box{background:var(--canvas);border-radius:6px;padding:14px 16px;font-size:13px;color:var(--ironstone);line-height:1.7;white-space:pre-wrap;margin-top:6px;border-left:3px solid var(--ember)}
+.caption-box.fb{background:rgba(24,119,242,0.05);border-left-color:#1877F2;margin-top:10px}
 .caption-box .hook{font-weight:700;font-size:14px;display:block;margin-bottom:6px}
+.caption-platform{font-size:9.5px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:var(--ember);margin-bottom:4px;margin-top:8px;display:flex;align-items:center;gap:5px}
+.caption-platform.fb{color:#1877F2}
+.caption-platform .dot{width:5px;height:5px;border-radius:50%;background:currentColor;display:inline-block}
+.slide-caption{background:var(--canvas);border-radius:6px;padding:12px 14px;font-size:12.5px;color:var(--ironstone);line-height:1.65;margin-top:6px;border-left:3px solid var(--ember)}
+.slide-caption strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--ember);margin-bottom:4px;font-weight:700}
+
+/* Accordion / captions collapsible */
+.field-label-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:3px}
+.read-more-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--ember);color:var(--white);
+  border:none;border-radius:999px;
+  padding:5px 12px 5px 14px;
+  font-family:var(--body);font-size:11px;font-weight:700;
+  letter-spacing:0.5px;text-transform:uppercase;
+  cursor:pointer;transition:all 0.2s ease;
+  box-shadow:0 1px 2px rgba(224,90,45,0.2);
+}
+.read-more-pill:hover{background:#c94a1e;box-shadow:0 2px 6px rgba(224,90,45,0.3)}
+.read-more-pill .chev{
+  display:inline-block;font-size:9px;line-height:1;
+  transition:transform 0.25s ease;
+  transform:translateY(0);
+}
+.read-more-pill[aria-expanded="true"]{background:var(--ironstone);box-shadow:none}
+.read-more-pill[aria-expanded="true"]:hover{background:var(--charcoal)}
+.read-more-pill[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.captions-collapsible{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows 0.35s ease;
+}
+.captions-collapsible.open{grid-template-rows:1fr}
+.captions-content{overflow:hidden;min-height:0}
+.captions-collapsible.open .captions-content{overflow:visible}
 
 .post-note{margin-top:10px;padding:9px 12px;background:rgba(61,106,96,0.06);border-radius:6px;font-size:11.5px;color:var(--charcoal);line-height:1.5;border-left:2px solid var(--basalt)}
 .post-note strong{color:var(--basalt);text-transform:uppercase;letter-spacing:1px;font-size:10px;display:block;margin-bottom:2px}
@@ -238,9 +273,9 @@ html{scroll-behavior:smooth}
 <header class="header">
 <div class="header-inner">
   <div class="header-logo">STRENGTH<span>STUDIO</span></div>
-  <div class="header-tagline">IG Launch Strategy — Grid-First, Carousel-Led</div>
+  <div class="header-tagline">Meta Launch Strategy — IG + FB · Grid-First, Carousel-Led</div>
   <div class="header-meta">
-    <span>v2.0 · Replaces Pre-Launch IG Content Plan v1</span>
+    <span>v3.0 · Merges IG Launch Strategy v2 + FB Caption Bank v1</span>
     <span>July 2026</span>
     <span>JSF Transformative Pte Ltd</span>
   </div>
@@ -252,17 +287,17 @@ html{scroll-behavior:smooth}
 <!-- ===== SECTION 0: WHY V2 ===== -->
 <div class="section">
 <p class="section-num">Section 00</p>
-<h2 class="section-title">Why this replaces v1</h2>
-<p class="section-desc">The v1 prelaunch plan was caption-first: 10 individual posts written as editorial copy with visual direction as an afterthought. That approach doesn't work for what we're now trying to do — build a visually coherent grid where every post is part of a designed system, with carousel slides that lead with images and use ≤15 words of copy per slide.</p>
+<h2 class="section-title">Why this replaces v2 (and the FB caption bank)</h2>
+<p class="section-desc">v3 folds the standalone FB Caption Bank into this document so that IG and FB versions of every caption live side by side. Cross-posting to both platforms simultaneously is now a single-document workflow. The IG strategy, grid architecture, template specs, and slide-by-slide plans are unchanged from v2.</p>
 
 <div class="card">
-  <p><strong>What changed:</strong></p>
-  <p>1. Grid architecture is planned first, not post-by-post captions. The 4×3 profile grid view is the design canvas — every post cover is placed deliberately within it.</p>
-  <p>2. Carousels are now the primary format (8 of 12 posts), not a minority (3 of 10). This reflects 2026 IG performance data: carousels average 1.92% engagement vs 0.50% for Reels and 0.45% for static images, and get 1.4× the reach of single posts.</p>
-  <p>3. Slides are visual-first, copy-light. No slide exceeds 15 words. Detailed information lives in the caption, not on the slide.</p>
-  <p>4. Hashtags reduced to 3 per post (Instagram now limits hashtags to 3; the v1 plan recommended 5–8).</p>
-  <p>5. Two Reels added for discovery reach to non-followers. Carousels drive engagement and saves; Reels drive reach.</p>
-  <p>6. Post count increased from 10 to 12 to support the 4×3 grid architecture and fill the extra days.</p>
+  <p><strong>What's new in v3:</strong></p>
+  <p>1. Every post now has both an IG caption and a FB caption in Section 04. The FB version is styled with a blue accent border for visual distinction.</p>
+  <p>2. Post 2's per-slide IG captions (6 of them) are now written out. FB gets one unified caption because FB doesn't support per-slide captions on organic multi-image posts.</p>
+  <p>3. Section 06 renamed to "Meta platform rules" with FB-specific rules added: no hashtags, direct URLs, staggered publish timing.</p>
+  <p>4. Two boost recommendations added to Section 08 for Posts 9 (Alice testimonial) and 10 (Bookings open) — the two highest-converting posts.</p>
+  <p><strong>Carried forward from v2 (unchanged):</strong></p>
+  <p>Grid-first design approach, 4×3 grid architecture, 8 carousels + 2 Reels + 2 static images mix, ≤15 words per narrative slide rule, IG 3-hashtag limit, template system.</p>
 </div>
 
 <div class="note">
@@ -410,8 +445,8 @@ html{scroll-behavior:smooth}
 <!-- ===== SECTION 4: POST-BY-POST PLAN ===== -->
 <div class="section" id="section-posts">
 <p class="section-num">Section 04</p>
-<h2 class="section-title">Post-by-post plan</h2>
-<p class="section-desc">12 posts · Cadence: every 2–3 days · July 4 → August 2. Posts are numbered 1–12 in publishing order. Grid position is reverse (12 at top-left). Format mix: 8 carousels, 2 Reels, 2 static images.</p>
+<h2 class="section-title">Post-by-post plan (IG + FB)</h2>
+<p class="section-desc">12 posts · Cadence: every 2–3 days · July 4 → August 2. Posts are numbered 1–12 in publishing order. Grid position is reverse (12 at top-left). Format mix: 8 carousels, 2 Reels, 2 static images. Each post has an Instagram caption and a Facebook-adapted caption. Publish IG first, then FB 2–3 hours later same day.</p>
 
 <div class="note">
   <strong>Slide specs</strong>
@@ -459,7 +494,12 @@ html{scroll-behavior:smooth}
       <div class="field-value" style="font-weight:600">STRENGTH STUDIO · Opening August 2026 · 77 Upper East Coast <span style="color:var(--ember);font-size:11px">(12 words)</span></div>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">We're opening this August.</span>Strength Studio — personalised training and physiotherapy, built around how your body moves.
 
 For people who want more than a gym membership.
@@ -470,6 +510,18 @@ For people who want more than a gym membership.
 Follow along. We'll share the build, the team, and how to book your first session.
 
 #strengthstudio #eastcoastsg #personaltrainingsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Strength Studio is opening this August in Siglap.</span>We're a personal training and physiotherapy studio built for people who want more than a gym membership — one-to-one coaching, physio that treats the cause not just the symptom, and programmes built around how your body actually moves.
+
+📍 77 Upper East Coast Road, #01-03, Singapore 455218
+🗓 Opening August 2026
+
+Over the next four weeks we'll be sharing the build, meeting the team, and opening bookings for our $9.90 introductory Training Assessment.
+
+Follow the page so you don't miss it — or drop us a message anytime on WhatsApp: wa.me/6588410877
+
+#StrengthStudio</div>
+      </div></div>
     </div>
     <div class="post-note">
       <strong>Grid note</strong>
@@ -503,14 +555,39 @@ Follow along. We'll share the build, the team, and how to book your first sessio
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
-      <div class="caption-box"><span class="hook">Strength Studio in 6 slides.</span>We're not a gym membership. We're a coached environment where every session is designed around your body, your goals, and your week.
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram · per-slide</div>
+      <div class="slide-caption"><strong>Slide 1 · Cover</strong>A personal training and physiotherapy studio opening August 2026 at 77 Upper East Coast Road. Here's what makes us different. ⟶</div>
+      <div class="slide-caption"><strong>Slide 2 · 1-to-1 coaching</strong>No group classes. No open gym floor. Every session is 1-to-1 with a coach who programmes specifically for you — and watches every rep. Not just "available if you need help."</div>
+      <div class="slide-caption"><strong>Slide 3 · Physio</strong>Physiotherapy and training under one roof. Your physio and your coach aren't in separate buildings with separate plans — they're working from the same programme. Recovery isn't bolted on. It's built in.</div>
+      <div class="slide-caption"><strong>Slide 4 · Training Assessment</strong>Every client begins with a 45-minute Training Assessment. $9.90. We look at how your body moves, flag what needs attention, and map out what your training should actually look like. No commitment after.</div>
+      <div class="slide-caption"><strong>Slide 5 · Location</strong>📍 77 Upper East Coast Road, #01-03, Singapore 455218. Siglap. Two minutes from the East Coast Park connector. Opening August 2026.</div>
+      <div class="slide-caption"><strong>Slide 6 · CTA</strong>Bookings open soon. Follow us so you don't miss it — or message us directly.
 
-No templates. No guesswork. A coach who actually watches every rep.
-
-Bookings open in a few weeks. Save this post.
+💬 WhatsApp: +65 8841 0877
+🔗 book.strength.sg (link in bio)
 
 #strengthstudio #personaltrainingsg #eastcoastsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook · single unified caption</div>
+      <div class="caption-box fb"><span class="hook">Strength Studio in one post — here's what we actually do.</span>Opening August 2026 at 77 Upper East Coast Road (#01-03), we're a personal training and physiotherapy studio built around a different way of coaching.
+
+▸ Every session is 1-to-1 with a coach who programmes specifically for you and watches every rep. No group classes. No open gym floor to wander around.
+
+▸ Physiotherapy and training under one roof — your physio and your coach work from the same programme, so recovery isn't bolted on. It's built in.
+
+▸ Every new client starts with a 45-minute Training Assessment for $9.90. No commitment. We look at how your body moves, flag what needs attention, and map out what your training should look like.
+
+▸ We're in Siglap — two minutes from the East Coast Park connector.
+
+Bookings open in a few weeks. Save this post so it comes back around when they do.
+
+💬 WhatsApp: wa.me/6588410877
+🔗 book.strength.sg</div>
+      </div></div>
     </div>
   </div>
 </div>
@@ -538,7 +615,12 @@ Bookings open in a few weeks. Save this post.
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">Day 1.</span>This is 77 Upper East Coast right now. Walls coming down before they go back up.
 
 Over the next 4 weeks, we'll document the build — same corner, same angle, every time. Follow along to see it come together.
@@ -546,6 +628,15 @@ Over the next 4 weeks, we'll document the build — same corner, same angle, eve
 📍 77 Upper East Coast Road, #01-03
 
 #strengthstudio #eastcoastsg #studiobuilding</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Day 1 of the build.</span>This is what 77 Upper East Coast Road looks like right now — walls coming down before they go back up.
+
+Over the next four weeks we'll be documenting the whole build from the same corner, same angle, every time. So when we open in August, you can scroll back and see exactly where we started.
+
+📍 77 Upper East Coast Road, #01-03, Singapore 455218
+
+Follow the page for weekly updates. Bookings open at the end of July.</div>
+      </div></div>
     </div>
     <div class="post-note">
       <strong>Critical</strong>
@@ -578,7 +669,12 @@ Over the next 4 weeks, we'll document the build — same corner, same angle, eve
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">$9.90 for what usually costs $200.</span>The Training Assessment is where every Strength Studio client begins. 45 minutes, 1-to-1 with a coach.
 
 No commitment after. No pressure. Just an honest read on where you're starting — and what your training should look like from here.
@@ -586,6 +682,21 @@ No commitment after. No pressure. Just an honest read on where you're starting �
 Save this post. Bookings open when we do.
 
 #strengthstudio #personaltrainingsg #eastcoastsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">$9.90 for what usually costs $200 — our introductory Training Assessment.</span>Every Strength Studio client begins the same way: a 45-minute one-to-one session with a coach, priced at $9.90.
+
+Here's what it covers:
+▸ How your body moves and where it's compensating
+▸ What's holding you back from your goals
+▸ A programme mapped specifically for you from here
+
+No commitment after. No sales pressure. Just an honest read on where you're starting.
+
+Bookings open in two weeks — when the doors do. Save this post or drop us a message to be first in line.
+
+💬 wa.me/6588410877
+🔗 book.strength.sg (live end of July)</div>
+      </div></div>
     </div>
   </div>
 </div>
@@ -611,12 +722,24 @@ Save this post. Bookings open when we do.
       <div class="field-value" style="font-weight:600">WEEK 2 <span style="color:var(--ember);font-size:11px">(2 words)</span></div>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">Two weeks in.</span>Walls up. Flooring going down. Same corner as Day 1 — scroll back to see where we started.
 
 Three weeks to go.
 
 #strengthstudio #eastcoastsg #studiobuilding</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Two weeks into the build.</span>Walls are up. Flooring's going down. Same corner as the Day 1 post — scroll back through the page to see where we started.
+
+Three more weeks and we open the doors.
+
+Following along? Comment below and tell us what you want us to show next — equipment reveals, the physio room, the coach lineup. We'll cover it.</div>
+      </div></div>
     </div>
     <div class="post-note">
       <strong>Why a Reel here</strong>
@@ -649,7 +772,12 @@ Three weeks to go.
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">Not sure if this is for you?</span>Here's who we're built for.
 
 You don't need to be fit already. You don't need experience. You just need to want something better than training alone.
@@ -657,6 +785,19 @@ You don't need to be fit already. You don't need experience. You just need to wa
 Which one sounds like you? 👇
 
 #strengthstudio #personaltrainingsg #eastcoastsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Wondering if Strength Studio is for someone like you? Here's who we're built for.</span>Three groups make up most of our clients:
+
+▸ Active professionals who are time-poor and want results without spending hours figuring out programming
+▸ Seniors training for the next 20 years — not just this year
+▸ Beginners with zero gym experience who don't want to feel lost on a floor
+
+You don't need to be fit already. You don't need to know what you're doing. That's exactly where we start.
+
+Which one sounds like you? Comment 1, 2, or 3 — we'd love to hear which resonates.
+
+💬 Or WhatsApp us directly if you'd rather chat: wa.me/6588410877</div>
+      </div></div>
     </div>
   </div>
 </div>
@@ -684,7 +825,12 @@ Which one sounds like you? 👇
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">Week 3.</span>Same corner. Very different view.
 
 Equipment's in. Flooring's down. Starting to look like the place we designed.
@@ -692,6 +838,13 @@ Equipment's in. Flooring's down. Starting to look like the place we designed.
 One more week. Then we open the doors.
 
 #strengthstudio #eastcoastsg #studiobuilding</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Week 3. Same corner. Very different view.</span>Equipment's in. Flooring's down. It's starting to look like the studio we designed.
+
+One more week and the doors open. Bookings for the $9.90 Training Assessment go live end of the month — save the page and we'll notify followers first.
+
+💬 wa.me/6588410877 if you want to be on the priority list.</div>
+      </div></div>
     </div>
   </div>
 </div>
@@ -720,7 +873,12 @@ One more week. Then we open the doors.
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">Pain isn't just something to push through.</span>Physiotherapy at Strength Studio treats the cause, not the symptom. Manual therapy meets corrective exercise — and where it makes sense, your training programme adapts around it.
 
 Available as standalone sessions or integrated with your coaching. Because recovery isn't separate from strength.
@@ -728,6 +886,20 @@ Available as standalone sessions or integrated with your coaching. Because recov
 Bookings open this week.
 
 #strengthstudio #physiotherapysg #eastcoastsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Pain isn't something you should just push through.</span>Physiotherapy at Strength Studio treats the root cause of what's holding you back — not just the symptom in front of you.
+
+Here's how it works:
+▸ Manual therapy where you need hands-on treatment
+▸ Corrective exercise that addresses the underlying movement issue
+▸ Where relevant, your training programme adapts around your recovery — because your physio and your coach are working from the same plan
+
+Available as standalone sessions (single or as a 4-session pack) or integrated with your training. Because recovery isn't a separate thing from getting stronger. It's part of it.
+
+Bookings open this week.
+💬 WhatsApp: wa.me/6588410877
+🔗 book.strength.sg</div>
+      </div></div>
     </div>
   </div>
 </div>
@@ -756,7 +928,12 @@ Bookings open this week.
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">She started because she couldn't squat.</span>Alice came in at 61. No gym background. Couldn't do a bodyweight squat.
 
 A few months later: full squats, 10 reps, standing up every time. "I feel stronger than I have in years."
@@ -766,6 +943,17 @@ That's what personalised coaching looks like.
 Your $9.90 Training Assessment is how you start. Link in bio.
 
 #strengthstudio #personaltrainingsg #eastcoastsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Alice came to us at 61. She couldn't do a bodyweight squat.</span>No gym background. No idea where to start. Just knew she wanted to feel stronger than she had in a decade.
+
+A few months in: full squats, ten reps, standing up every single time. In her words — "I feel stronger than I have in years."
+
+This is what one-to-one coaching looks like when it's actually built around the person doing it. Not a template. Not a class. A programme designed around where you are and where you want to go.
+
+Your $9.90 Training Assessment is how it starts:
+🔗 book.strength.sg
+💬 wa.me/6588410877</div>
+      </div></div>
     </div>
     <div class="post-note">
       <strong>Fallback</strong>
@@ -798,7 +986,12 @@ Your $9.90 Training Assessment is how you start. Link in bio.
       </table>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">Bookings are now open.</span>Training Assessments — 45 minutes, $9.90, no commitment.
 
 If you've been following along: this is the moment. Book before we open and you'll be among the first through the door.
@@ -808,6 +1001,18 @@ If you've been following along: this is the moment. Book before we open and you'
 🔗 book.strength.sg (link in bio)
 
 #strengthstudio #personaltrainingsg #eastcoastsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">Bookings are now live.</span>The $9.90 Training Assessment — 45 minutes, one-to-one with a coach, no commitment after. This is where every Strength Studio client begins.
+
+If you've been following the build these past four weeks: this is the moment. Book before we open and you'll be among the first through the door.
+
+🔗 book.strength.sg
+💬 wa.me/6588410877
+📅 Studio opens this Saturday
+📍 77 Upper East Coast Road, #01-03, Singapore 455218
+
+Questions? Drop them in the comments or message us directly.</div>
+      </div></div>
     </div>
     <div class="post-note">
       <strong>Critical</strong>
@@ -837,7 +1042,12 @@ If you've been following along: this is the moment. Book before we open and you'
       <div class="field-value" style="font-weight:600">THIS IS WHERE YOU'LL TRAIN <span style="color:var(--ember);font-size:11px">(6 words)</span></div>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">This is where you'll train.</span>The build is done. Same corner where we posted Day 1 — very different room now.
 
 If you've been watching the build, you already know what this place is about. Now come see it for real.
@@ -845,6 +1055,16 @@ If you've been watching the build, you already know what this place is about. No
 $9.90 Training Assessment. Book via link in bio or WhatsApp +65 8841 0877.
 
 #strengthstudio #eastcoastsg #personaltrainingsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">This is where you'll train.</span>The build is done. Same corner we shot on Day 1 — very different room now.
+
+If you've been watching along these past four weeks, you already know what this place is about. Now come see it for real.
+
+$9.90 Training Assessment — 45 minutes, one-to-one, no commitment:
+🔗 book.strength.sg
+💬 wa.me/6588410877
+📍 77 Upper East Coast Road, #01-03</div>
+      </div></div>
     </div>
   </div>
 </div>
@@ -870,7 +1090,12 @@ $9.90 Training Assessment. Book via link in bio or WhatsApp +65 8841 0877.
       <div class="field-value" style="font-weight:600">WE'RE OPEN. <span style="color:var(--ember);font-size:11px">(2 words)</span></div>
     </div>
     <div class="field">
-      <div class="field-label">Caption</div>
+      <div class="field-label-row">
+        <div class="field-label">Captions</div>
+        <button class="read-more-pill" type="button" aria-expanded="false">Read captions <span class="chev">▾</span></button>
+      </div>
+      <div class="captions-collapsible"><div class="captions-content">
+      <div class="caption-platform"><span class="dot"></span>Instagram</div>
       <div class="caption-box"><span class="hook">We're open.</span>Today, Strength Studio opens its doors at 77 Upper East Coast.
 
 Thank you to everyone who followed along through the build, sent messages, and booked ahead.
@@ -881,6 +1106,21 @@ If you haven't booked yet — your $9.90 Training Assessment is waiting.
 🔗 book.strength.sg (link in bio)
 
 #strengthstudio #eastcoastsg #personaltrainingsg</div>
+      <div class="caption-platform fb"><span class="dot"></span>Facebook</div>
+      <div class="caption-box fb"><span class="hook">We're open.</span>Today, Strength Studio opens its doors at 77 Upper East Coast Road.
+
+Thank you to everyone who followed the build over the last four weeks, sent us messages, tagged friends, and booked ahead. This place exists because of the community around it, and we couldn't have asked for a better start.
+
+If you haven't booked your $9.90 Training Assessment yet — it's waiting for you.
+
+🔗 book.strength.sg
+💬 wa.me/6588410877
+📍 77 Upper East Coast Road, #01-03, Singapore 455218
+
+Come and see us.
+
+#StrengthStudio</div>
+      </div></div>
     </div>
     <div class="post-note">
       <strong>Tone</strong>
@@ -919,8 +1159,8 @@ If you haven't booked yet — your $9.90 Training Assessment is waiting.
 <!-- ===== SECTION 6: UPDATED PLATFORM RULES ===== -->
 <div class="section">
 <p class="section-num">Section 06</p>
-<h2 class="section-title">2026 IG platform rules</h2>
-<p class="section-desc">Key changes since the v1 plan was written.</p>
+<h2 class="section-title">2026 Meta platform rules</h2>
+<p class="section-desc">Platform-specific rules for both IG and FB in 2026. Key changes since v1.</p>
 
 <div class="card">
   <p class="card-title">Hashtags: maximum 3 per post</p>
@@ -938,18 +1178,33 @@ If you haven't booked yet — your $9.90 Training Assessment is waiting.
 </div>
 
 <div class="card">
-  <p class="card-title">Original content rewarded, reposts penalised</p>
-  <p>[Certain] Instagram's algorithm heavily penalises reposted/recycled content — up to 80% reach reduction. Every post in this plan is original. Do not cross-post identical content from Facebook without adaptation.</p>
-</div>
-
-<div class="card">
   <p class="card-title">Slide count: 8–10 is optimal for educational carousels</p>
   <p>[Likely] Most benchmarks recommend 8–10 slides for educational carousels. Our plan uses 4–6 slides per carousel instead — this is deliberate: shorter carousels with less copy per slide match the SGIM-style visual approach, where each slide is a designed card, not a text-heavy lesson. For a brand launch, visual impact per slide matters more than dwell time per carousel.</p>
 </div>
 
 <div class="card">
-  <p class="card-title">Facebook adaptation</p>
-  <p>Don't cross-post to Facebook without adapting. Same visuals, but captions should be slightly longer and less emoji-dependent. Facebook audiences expect more context in the text. The carousel slides themselves work across both platforms without changes.</p>
+  <p class="card-title">Facebook — no per-slide captions</p>
+  <p>[Certain] FB doesn't support per-slide captions on organic multi-image posts. Post 2's six IG slide captions collapse into one unified FB caption (see Section 04). Only FB carousel <em>ads</em> support per-card headlines — that's a different content model outside this plan.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Facebook — no hashtags on business pages</p>
+  <p>[Likely] FB posts with hashtags underperform on business pages (multiple Buffer and HubSpot studies show this). All FB captions in this plan drop hashtags except Posts 1 and 12, which retain #StrengthStudio for brand trackability only.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Facebook — direct URLs work</p>
+  <p>[Certain] FB posts render clickable URLs directly. All FB captions use <code>book.strength.sg</code> and <code>wa.me/6588410877</code> inline — no "link in bio" phrasing. The WhatsApp click-to-chat link is particularly valuable on FB where older demographics are more likely to message before booking.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Facebook — stagger publish 2-4 hours after IG</p>
+  <p>[Guessing] Publishing to FB 2–4 hours after IG (rather than the same minute) tends to perform slightly better because it avoids Meta's cross-platform duplicate-content signals. Anecdotal from SG social media managers — Meta doesn't publish the exact mechanism. Recommended: IG post at scheduled time, FB post 2–3 hours later same day.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Cross-platform: original content rewarded, reposts penalised</p>
+  <p>[Certain] Instagram's algorithm heavily penalises reposted/recycled content — up to 80% reach reduction. Every post in this plan is original. Do not cross-post identical content from FB to IG without adaptation, and vice versa.</p>
 </div>
 </div>
 
@@ -992,9 +1247,36 @@ If you haven't booked yet — your $9.90 Training Assessment is waiting.
 </div>
 </div>
 
+<hr>
+
+
+<!-- ===== SECTION 9: BOOST RECOMMENDATIONS ===== -->
+<div class="section">
+<p class="section-num">Section 09</p>
+<h2 class="section-title">Paid boost recommendations (FB only)</h2>
+<p class="section-desc">Two posts justify a small paid boost on Facebook. Everything else stays organic. Total recommended spend: $40–100 across the launch window.</p>
+
+<div class="card">
+  <p class="card-title">Post 9 · Alice testimonial · $20–50 boost</p>
+  <p>[Likely] Testimonials disproportionately drive conversion on Facebook — the platform demographic trusts them more than IG's. Alice's story is your strongest social proof asset. A small boost with local geo-targeting extends its reach beyond your page followers to the surrounding neighbourhood.</p>
+  <p><strong>Targeting:</strong> 5km radius from postcode 455218 · Age 40–65 · Interest keywords: fitness, health, wellness · Exclude existing page followers</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Post 10 · Bookings open · $20–50 boost</p>
+  <p>This is your primary conversion post. FB paid boost with the same local geo-target will meaningfully outperform organic reach for the specific "we're taking bookings now" message. Time-limited value proposition (early-mover positioning) benefits from paid amplification more than any other post in the plan.</p>
+  <p><strong>Targeting:</strong> Same as Post 9, but expand age range to 25–65 to capture professionals.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Do not boost on Instagram</p>
+  <p>[Guessing] IG boosted posts underperform FB boosted posts for local business awareness in Singapore. IG's algorithmic reach for organic carousels is strong enough that boost spend on IG is better redirected to FB. If you have additional budget, put it into a separate IG Reels ad campaign, not a boosted post.</p>
+</div>
+</div>
+
 
 <div class="footer">
-  Strength Studio — IG Launch Strategy v2.0 &nbsp;·&nbsp; Prepared for JSF Transformative Pte Ltd &nbsp;·&nbsp; July 2026
+  Strength Studio — Meta Launch Strategy v3.0 &nbsp;·&nbsp; Prepared for JSF Transformative Pte Ltd &nbsp;·&nbsp; July 2026
 </div>
 
 </main>
@@ -1113,6 +1395,44 @@ If you haven't booked yet — your $9.90 Training Assessment is waiting.
         const targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
         window.scrollTo({ top: targetY, behavior: 'smooth' });
       }
+    });
+  });
+
+  // Accordion — captions collapsible toggle
+  document.querySelectorAll('.read-more-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const isOpen = pill.getAttribute('aria-expanded') === 'true';
+      const collapsible = pill.closest('.field-label-row').nextElementSibling;
+      if (!collapsible || !collapsible.classList.contains('captions-collapsible')) return;
+
+      if (isOpen) {
+        collapsible.classList.remove('open');
+        pill.setAttribute('aria-expanded', 'false');
+        pill.querySelector(':scope > :not(.chev)') && (pill.firstChild.textContent = 'Read captions ');
+      } else {
+        collapsible.classList.add('open');
+        pill.setAttribute('aria-expanded', 'true');
+        pill.firstChild.textContent = 'Hide captions ';
+      }
+    });
+  });
+
+  // When a sidebar item or top pill is clicked, auto-open that post's captions
+  allNavEls.forEach(el => {
+    el.addEventListener('click', () => {
+      const targetId = el.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      // Slight delay so scroll starts first
+      setTimeout(() => {
+        const pill = target.querySelector('.read-more-pill');
+        const collapsible = target.querySelector('.captions-collapsible');
+        if (pill && collapsible && !collapsible.classList.contains('open')) {
+          collapsible.classList.add('open');
+          pill.setAttribute('aria-expanded', 'true');
+          pill.firstChild.textContent = 'Hide captions ';
+        }
+      }, 400);
     });
   });
 })();
