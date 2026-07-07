@@ -100,15 +100,77 @@ hr{border:none;border-top:1px solid var(--border);margin:48px 0}
 .template-preview .t-label{font-size:8px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-top:auto}
 .template-info{padding:10px 12px;font-size:11px;color:var(--charcoal);line-height:1.5;border-top:1px solid var(--border);background:var(--bg)}
 
+/* Sticky post nav */
+.post-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(31,34,37,0.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(224,90,45,0.2);
+  padding:12px 0;
+  transform:translateY(-100%);transition:transform 0.3s ease;
+  box-shadow:0 2px 12px rgba(0,0,0,0.15);
+}
+.post-nav.visible{transform:translateY(0)}
+.post-nav-inner{
+  max-width:820px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.post-nav-label{
+  font-family:var(--body);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
+  color:var(--ember);flex-shrink:0;
+}
+.post-nav-scroll{
+  display:flex;gap:6px;overflow-x:auto;flex:1;
+  scrollbar-width:none;-ms-overflow-style:none;
+  padding:2px 0;
+}
+.post-nav-scroll::-webkit-scrollbar{display:none}
+.post-pill{
+  flex-shrink:0;
+  padding:6px 14px;border-radius:999px;
+  background:rgba(244,240,235,0.08);border:1px solid rgba(244,240,235,0.15);
+  color:var(--canvas);
+  font-family:var(--body);font-size:12px;font-weight:600;
+  text-decoration:none;white-space:nowrap;
+  transition:all 0.2s ease;cursor:pointer;
+}
+.post-pill:hover{background:rgba(244,240,235,0.15);border-color:rgba(244,240,235,0.3)}
+.post-pill.active{
+  background:var(--ember);border-color:var(--ember);color:var(--white);
+  box-shadow:0 0 0 3px rgba(224,90,45,0.2);
+}
+html{scroll-behavior:smooth}
 @media(max-width:640px){
   .header-inner,main{padding-left:16px;padding-right:16px}
   .header-logo{font-size:24px}
   .grid-map{max-width:100%}
   .template-grid{grid-template-columns:1fr}
+  .post-nav-inner{padding:0 12px;gap:8px}
+  .post-nav-label{display:none}
+  .post-pill{padding:5px 11px;font-size:11px}
 }
 </style>
 </head>
 <body>
+
+<nav class="post-nav" id="post-nav">
+  <div class="post-nav-inner">
+    <span class="post-nav-label">Jump to</span>
+    <div class="post-nav-scroll">
+      <a href="#post-1" class="post-pill" data-post="1">01</a>
+      <a href="#post-2" class="post-pill" data-post="2">02</a>
+      <a href="#post-3" class="post-pill" data-post="3">03</a>
+      <a href="#post-4" class="post-pill" data-post="4">04</a>
+      <a href="#post-5" class="post-pill" data-post="5">05</a>
+      <a href="#post-6" class="post-pill" data-post="6">06</a>
+      <a href="#post-7" class="post-pill" data-post="7">07</a>
+      <a href="#post-8" class="post-pill" data-post="8">08</a>
+      <a href="#post-9" class="post-pill" data-post="9">09</a>
+      <a href="#post-10" class="post-pill" data-post="10">10</a>
+      <a href="#post-11" class="post-pill" data-post="11">11</a>
+      <a href="#post-12" class="post-pill" data-post="12">12</a>
+    </div>
+  </div>
+</nav>
 
 <header class="header">
 <div class="header-inner">
@@ -283,7 +345,7 @@ hr{border:none;border-top:1px solid var(--border);margin:48px 0}
 
 
 <!-- ===== SECTION 4: POST-BY-POST PLAN ===== -->
-<div class="section">
+<div class="section" id="section-posts">
 <p class="section-num">Section 04</p>
 <h2 class="section-title">Post-by-post plan</h2>
 <p class="section-desc">12 posts · Cadence: every 2–3 days · July 4 → August 2. Posts are numbered 1–12 in publishing order. Grid position is reverse (12 at top-left). Format mix: 8 carousels, 2 Reels, 2 static images.</p>
@@ -295,7 +357,7 @@ hr{border:none;border-top:1px solid var(--border);margin:48px 0}
 
 
 <!-- POST 1 -->
-<div class="post">
+<div class="post" id="post-1">
   <div class="post-header">
     <div><span class="post-num">Post 1</span><span class="post-date" style="margin-left:10px">Fri · Jul 4</span></div>
     <span class="tag tag-image">Static image</span>
@@ -335,7 +397,7 @@ Follow along. We'll share the build, the team, and how to book your first sessio
 
 
 <!-- POST 2 -->
-<div class="post">
+<div class="post" id="post-2">
   <div class="post-header">
     <div><span class="post-num">Post 2</span><span class="post-date" style="margin-left:10px">Mon · Jul 7</span></div>
     <span class="tag tag-carousel">Carousel · 6 slides</span>
@@ -372,7 +434,7 @@ Bookings open in a few weeks. Save this post.
 
 
 <!-- POST 3 -->
-<div class="post">
+<div class="post" id="post-3">
   <div class="post-header">
     <div><span class="post-num">Post 3</span><span class="post-date" style="margin-left:10px">Thu · Jul 10</span></div>
     <span class="tag tag-carousel">Carousel · 4 slides</span>
@@ -411,7 +473,7 @@ Over the next 4 weeks, we'll document the build — same corner, same angle, eve
 
 
 <!-- POST 4 -->
-<div class="post">
+<div class="post" id="post-4">
   <div class="post-header">
     <div><span class="post-num">Post 4</span><span class="post-date" style="margin-left:10px">Sun · Jul 13</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
@@ -447,7 +509,7 @@ Save this post. Bookings open when we do.
 
 
 <!-- POST 5 -->
-<div class="post">
+<div class="post" id="post-5">
   <div class="post-header">
     <div><span class="post-num">Post 5</span><span class="post-date" style="margin-left:10px">Wed · Jul 16</span></div>
     <span class="tag tag-reel">Reel · 15–30 sec</span>
@@ -482,7 +544,7 @@ Three weeks to go.
 
 
 <!-- POST 6 -->
-<div class="post">
+<div class="post" id="post-6">
   <div class="post-header">
     <div><span class="post-num">Post 6</span><span class="post-date" style="margin-left:10px">Sat · Jul 19</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
@@ -518,7 +580,7 @@ Which one sounds like you? 👇
 
 
 <!-- POST 7 -->
-<div class="post">
+<div class="post" id="post-7">
   <div class="post-header">
     <div><span class="post-num">Post 7</span><span class="post-date" style="margin-left:10px">Tue · Jul 22</span></div>
     <span class="tag tag-carousel">Carousel · 4 slides</span>
@@ -553,7 +615,7 @@ One more week. Then we open the doors.
 
 
 <!-- POST 8 -->
-<div class="post">
+<div class="post" id="post-8">
   <div class="post-header">
     <div><span class="post-num">Post 8</span><span class="post-date" style="margin-left:10px">Fri · Jul 25</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
@@ -589,7 +651,7 @@ Bookings open this week.
 
 
 <!-- POST 9 -->
-<div class="post">
+<div class="post" id="post-9">
   <div class="post-header">
     <div><span class="post-num">Post 9</span><span class="post-date" style="margin-left:10px">Mon · Jul 28</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
@@ -631,7 +693,7 @@ Your $9.90 Training Assessment is how you start. Link in bio.
 
 
 <!-- POST 10 -->
-<div class="post">
+<div class="post" id="post-10">
   <div class="post-header">
     <div><span class="post-num">Post 10</span><span class="post-date" style="margin-left:10px">Thu · Jul 31</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
@@ -673,7 +735,7 @@ If you've been following along: this is the moment. Book before we open and you'
 
 
 <!-- POST 11 -->
-<div class="post">
+<div class="post" id="post-11">
   <div class="post-header">
     <div><span class="post-num">Post 11</span><span class="post-date" style="margin-left:10px">Fri · Aug 1</span></div>
     <span class="tag tag-reel">Reel · 15–30 sec</span>
@@ -706,7 +768,7 @@ $9.90 Training Assessment. Book via link in bio or WhatsApp +65 8841 0877.
 
 
 <!-- POST 12 -->
-<div class="post">
+<div class="post" id="post-12">
   <div class="post-header">
     <div><span class="post-num">Post 12</span><span class="post-date" style="margin-left:10px">Sat · Aug 2</span></div>
     <span class="tag tag-image">Static image</span>
@@ -850,5 +912,117 @@ If you haven't booked yet — your $9.90 Training Assessment is waiting.
 </div>
 
 </main>
+<script>
+(function(){
+  const nav = document.getElementById('post-nav');
+  const section = document.getElementById('section-posts');
+  const posts = Array.from(document.querySelectorAll('.post[id^="post-"]'));
+  const pills = Array.from(document.querySelectorAll('.post-pill'));
+
+  // Show/hide nav based on Section 04 visibility
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Show nav when Section 04 is in view or scrolled past its top
+      const rect = entry.target.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.3 && rect.bottom > 0) {
+        nav.classList.add('visible');
+      } else {
+        nav.classList.remove('visible');
+      }
+    });
+  }, { threshold: [0, 0.05, 0.5, 1], rootMargin: '0px' });
+  sectionObserver.observe(section);
+
+  // Also listen to scroll for smoother show/hide
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < 80 && rect.bottom > 200) {
+          nav.classList.add('visible');
+        } else {
+          nav.classList.remove('visible');
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Highlight active pill based on which post is in viewport
+  const postObserver = new IntersectionObserver((entries) => {
+    // Find the entry closest to the top of viewport (below nav)
+    const visible = entries.filter(e => e.isIntersecting);
+    if (visible.length === 0) return;
+
+    // Pick the one with the smallest positive top (highest in viewport, below nav)
+    let bestPost = null;
+    let bestTop = Infinity;
+    posts.forEach(post => {
+      const rect = post.getBoundingClientRect();
+      // Post is "active" if its top is above 30% of viewport but bottom hasn't left
+      if (rect.top < window.innerHeight * 0.3 && rect.bottom > 100) {
+        if (rect.top < bestTop) {
+          bestTop = rect.top;
+          bestPost = post;
+        }
+      }
+    });
+
+    if (bestPost) {
+      const activeNum = bestPost.id.replace('post-', '');
+      pills.forEach(pill => {
+        if (pill.dataset.post === activeNum) {
+          pill.classList.add('active');
+          // Scroll pill into view within nav
+          pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+    }
+  }, { threshold: [0, 0.1, 0.5, 1], rootMargin: '-80px 0px -50% 0px' });
+
+  posts.forEach(post => postObserver.observe(post));
+
+  // Fallback: also update on scroll
+  window.addEventListener('scroll', () => {
+    if (!nav.classList.contains('visible')) return;
+    let bestPost = null;
+    let bestTop = -Infinity;
+    posts.forEach(post => {
+      const rect = post.getBoundingClientRect();
+      if (rect.top < 120) {
+        if (rect.top > bestTop) {
+          bestTop = rect.top;
+          bestPost = post;
+        }
+      }
+    });
+    if (bestPost) {
+      const activeNum = bestPost.id.replace('post-', '');
+      pills.forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.post === activeNum);
+      });
+    }
+  });
+
+  // Smooth scroll offset for sticky nav height
+  pills.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = pill.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        const navHeight = nav.offsetHeight;
+        const targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
