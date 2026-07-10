@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCT
+    <span class="tag tag-boost">$150 BOOST</span>YPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -123,6 +124,26 @@ hr{border:none;border-top:1px solid var(--border);margin:48px 0}
 .tag-carousel{background:rgba(61,106,96,0.12);color:var(--basalt)}
 .tag-image{background:rgba(176,58,46,0.1);color:var(--ember)}
 .tag-reel{background:rgba(31,34,37,0.08);color:var(--charcoal)}
+.tag-boost{
+  background:var(--ember);color:var(--white);
+  font-weight:800;letter-spacing:0.8px;
+  padding:3px 9px;border-radius:3px;
+  box-shadow:0 1px 3px rgba(224,90,45,0.35);
+  font-size:9px;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.tag-boost::before{content:"●";font-size:6px;line-height:1}
+.boost-summary-row{display:grid;grid-template-columns:60px 1fr 90px 130px;gap:12px;padding:12px 14px;background:var(--white);border:1px solid var(--border);border-radius:6px;margin-bottom:8px;align-items:center;font-size:12.5px}
+.boost-summary-row.header{background:var(--ironstone);color:var(--canvas);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;border:none}
+.boost-summary-row.header .bsr-amt{color:var(--ember)}
+.boost-post-num{font-weight:700;color:var(--ironstone)}
+.boost-post-title{color:var(--charcoal);font-weight:500}
+.boost-amt{font-weight:800;color:var(--ember);text-align:right;font-family:var(--body)}
+.boost-window{color:var(--flint);font-size:11px;text-align:right}
+@media(max-width:640px){
+  .boost-summary-row{grid-template-columns:50px 1fr 70px;gap:8px;font-size:11.5px}
+  .boost-window{display:none}
+}
 
 .footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--flint);text-align:center}
 
@@ -422,6 +443,7 @@ Follow the page so you don't miss it — or drop us a message anytime on WhatsAp
   <div class="post-header">
     <div><span class="post-num">Post 2</span><span class="post-date" style="margin-left:10px">Mon · Jul 7</span></div>
     <span class="tag tag-carousel">Carousel · 6 slides</span>
+    <span class="tag tag-boost">$150 BOOST</span>
   </div>
   <div class="post-body">
     <div class="field">
@@ -537,6 +559,7 @@ Follow the page for weekly updates. Bookings open at the end of July.</div>
   <div class="post-header">
     <div><span class="post-num">Post 4</span><span class="post-date" style="margin-left:10px">Sun · Jul 13</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
+    <span class="tag tag-boost">$200 BOOST</span>
   </div>
   <div class="post-body">
     <div class="field">
@@ -741,6 +764,7 @@ One more week and the doors open. Bookings for the $9.90 Training Assessment go 
   <div class="post-header">
     <div><span class="post-num">Post 8</span><span class="post-date" style="margin-left:10px">Fri · Jul 25</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
+    <span class="tag tag-boost">$100 BOOST</span>
   </div>
   <div class="post-body">
     <div class="field">
@@ -796,6 +820,7 @@ Bookings open this week.
   <div class="post-header">
     <div><span class="post-num">Post 9</span><span class="post-date" style="margin-left:10px">Mon · Jul 28</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
+    <span class="tag tag-boost">$150 BOOST</span>
   </div>
   <div class="post-body">
     <div class="field">
@@ -854,6 +879,7 @@ Your $9.90 Training Assessment is how it starts:
   <div class="post-header">
     <div><span class="post-num">Post 10</span><span class="post-date" style="margin-left:10px">Thu · Jul 31</span></div>
     <span class="tag tag-carousel">Carousel · 5 slides</span>
+    <span class="tag tag-boost">$250 BOOST</span>
   </div>
   <div class="post-body">
     <div class="field">
@@ -1268,42 +1294,224 @@ Your first session is a 45-minute Training Assessment. We'll test your overhead 
 <hr>
 
 
-<!-- ===== SECTION 9: BOOST RECOMMENDATIONS ===== -->
+<!-- ===== SECTION 9: CONTENT BOOSTS $1,000 ===== -->
 <div class="section">
 <p class="section-num">Section 09</p>
-<h2 class="section-title">Paid boost recommendations (FB only)</h2>
-<p class="section-desc">Two posts justify a small paid boost on Facebook. Everything else stays organic. Total recommended spend: $40–100 across the launch window.</p>
+<h2 class="section-title">Content boosts — $1,000 across 6 posts</h2>
+<p class="section-desc">Concrete allocation of the $1,000 boost budget across the 4-week launch window. Boosts are labelled directly on each post's header in Section 04 with an Ember tag ($XXX BOOST). Not every post gets boosted — narrative reno posts and Reels distribute better organically, and boost budget is reserved for conversion posts and highest-trust social proof.</p>
 
-<div class="card">
-  <p class="card-title">Post 9 · Alice testimonial · $20–50 boost</p>
-  <p>[Likely] Testimonials disproportionately drive conversion on Facebook — the platform demographic trusts them more than IG's. Alice's story is your strongest social proof asset. A small boost with local geo-targeting extends its reach beyond your page followers to the surrounding neighbourhood.</p>
-  <p><strong>Targeting:</strong> 5km radius from postcode 455218 · Age 40–65 · Interest keywords: fitness, health, wellness · Exclude existing page followers</p>
+<div class="boost-summary-row header">
+  <div>Post</div>
+  <div>Title</div>
+  <div class="boost-amt">Boost</div>
+  <div class="boost-window">Window · Objective</div>
+</div>
+<div class="boost-summary-row">
+  <div class="boost-post-num">Post 2</div>
+  <div class="boost-post-title">What is Strength Studio?</div>
+  <div class="boost-amt">$150</div>
+  <div class="boost-window">Jul 7–10 · Reach + Engagement</div>
+</div>
+<div class="boost-summary-row">
+  <div class="boost-post-num">Post 4</div>
+  <div class="boost-post-title">$9.90 Training Assessment</div>
+  <div class="boost-amt">$200</div>
+  <div class="boost-window">Jul 13–16 · LPV (WhatsApp)</div>
+</div>
+<div class="boost-summary-row">
+  <div class="boost-post-num">Post 8</div>
+  <div class="boost-post-title">Physiotherapy at Strength Studio</div>
+  <div class="boost-amt">$100</div>
+  <div class="boost-window">Jul 25–28 · Reach + Engagement</div>
+</div>
+<div class="boost-summary-row">
+  <div class="boost-post-num">Post 9</div>
+  <div class="boost-post-title">Alice's story</div>
+  <div class="boost-amt">$150</div>
+  <div class="boost-window">Jul 28–31 · Engagement + LPV</div>
+</div>
+<div class="boost-summary-row">
+  <div class="boost-post-num">Post 10</div>
+  <div class="boost-post-title">Bookings open</div>
+  <div class="boost-amt">$250</div>
+  <div class="boost-window">Jul 31–Aug 3 · LPV or Messages</div>
+</div>
+<div class="boost-summary-row">
+  <div class="boost-post-num">Post 13</div>
+  <div class="boost-post-title">The Chair Test</div>
+  <div class="boost-amt">$150</div>
+  <div class="boost-window">Aug 5–8 · LPV</div>
+</div>
+<div class="boost-summary-row header">
+  <div></div>
+  <div>Total</div>
+  <div class="boost-amt">$1,000</div>
+  <div></div>
+</div>
+
+<div class="card" style="margin-top:24px">
+  <p class="card-title">Why these posts specifically</p>
+  <p><strong>Post 2 · $150 (awareness anchor):</strong> Cold audiences need to know what Strength Studio does before any offer lands. Boost early to build the "warm" pool that Phase 2 ads (Section 10) will retarget.</p>
+  <p><strong>Post 4 · $200 (offer pre-warm):</strong> Introduces the $9.90 assessment before bookings are technically live. Drive traffic to WhatsApp click-to-chat. This builds the retargeting audience for Campaign 2.</p>
+  <p><strong>Post 8 · $100 (physio segment):</strong> Attracts a distinct lead type — pain-driven, not fitness-driven. This audience is often missed by pure PT campaigns and physio leads convert to bookings at meaningfully higher rates. [Likely]</p>
+  <p><strong>Post 9 · $150 (highest-trust social proof):</strong> Alice's testimonial is your strongest single asset. Boost immediately before the bookings-open push so audiences see the proof before they see the ask.</p>
+  <p><strong>Post 10 · $250 (biggest single boost, primary conversion):</strong> The moment bookings open is the single highest-intent window. This gets the largest budget in the plan and runs a 3-day burst.</p>
+  <p><strong>Post 13 · $150 (senior educational lead):</strong> The Chair Test hook is a proven-format lead driver adapted from the GoFit reference ads. Post-launch boost extends senior audience reach after the initial launch push.</p>
 </div>
 
 <div class="card">
-  <p class="card-title">Post 10 · Bookings open · $20–50 boost</p>
-  <p>This is your primary conversion post. FB paid boost with the same local geo-target will meaningfully outperform organic reach for the specific "we're taking bookings now" message. Time-limited value proposition (early-mover positioning) benefits from paid amplification more than any other post in the plan.</p>
-  <p><strong>Targeting:</strong> Same as Post 9, but expand age range to 25–65 to capture professionals.</p>
-</div>
-
-<div class="card">
-  <p class="card-title">Do not boost on Instagram</p>
-  <p>[Guessing] IG boosted posts underperform FB boosted posts for local business awareness in Singapore. IG's algorithmic reach for organic carousels is strong enough that boost spend on IG is better redirected to FB. If you have additional budget, put it into a separate IG Reels ad campaign, not a boosted post.</p>
+  <p class="card-title">Not boosting</p>
+  <p><strong>Posts 1, 12:</strong> Announcement and opening-day posts — pure brand moments, no CTA. Boost adds no conversion signal.</p>
+  <p><strong>Posts 3, 5, 7:</strong> Reno progression — narrative content that reads worse when boosted (feels ad-y to cold audiences).</p>
+  <p><strong>Posts 6, 14:</strong> Educational carousels — Post 6 is engagement-focused (self-identification), Post 14 lands late in the window when budget's exhausted.</p>
+  <p><strong>Post 11:</strong> Interior reveal Reel — Reels distribute algorithmically at high organic reach. Paid boost on Reels underperforms boost on carousels for this offer type.</p>
 </div>
 </div>
 
 <hr>
 
 
-<!-- ===== SECTION 10: POST-LAUNCH PAID CAMPAIGNS ===== -->
+<!-- ===== SECTION 10: META AD CAMPAIGNS $2,000 ===== -->
 <div class="section">
 <p class="section-num">Section 10</p>
-<h2 class="section-title">Post-launch paid campaigns</h2>
-<p class="section-desc">Three evergreen paid ad templates that run from mid-August onwards. Adapted from GoFit Toa Payoh reference ads that historically performed as strong lead drivers, rewritten in Strength Studio voice and repositioned for our audiences.</p>
+<h2 class="section-title">Meta ad campaigns — $2,000 in 2 phases</h2>
+<p class="section-desc">The $2,000 ad campaign budget runs as three separate campaigns via Meta Ads Manager, in two sequential phases. Every campaign reuses an organic post as creative — zero incremental production. Phase 1 builds the warm audience. Phase 2 converts it.</p>
+
+<div class="note">
+  <strong>Setup blockers before launch</strong>
+  (1) Meta Pixel installed on book.strength.sg with a "booking confirmed" custom event — talk to Rezerv about their Pixel integration. Without this, Phase 2 falls back to Messages/Leads objective which is less algorithmically efficient. (2) Confirm the "$9.90 waived with LAUNCH promo code" mechanic from Post 4 artwork — if the presale offer is effectively free, ad copy should say so. "Free" is a stronger hook than "$9.90" for cold audiences.
+</div>
+
+
+<!-- PHASE 1 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Phase 1</span><span class="post-date" style="margin-left:10px">Jul 10 – Jul 30 · Pre-launch waitlist capture</span></div>
+    <span class="tag tag-boost">$800 TOTAL</span>
+    <div class="post-title">Cold → Lead Form</div>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Campaign 1 · Cold Awareness to Lead Form</div>
+      <div class="field-value">Runs continuously across the pre-launch window. Captures leads into a Meta Instant Form before bookings are technically live — those leads become the warm audience Phase 2 converts.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Objective</div>
+      <div class="field-value">Leads (Meta Instant Form — no landing page required)</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Creative</div>
+      <div class="field-value"><strong>Primary:</strong> Post 2 carousel (What is Strength Studio) — the same asset published organically, reused as ad creative<br><strong>A/B variant:</strong> Post 4 carousel ($9.90 Training Assessment) — for testing which framing pulls better cold</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Lead form fields</div>
+      <div class="field-value">Name · Email · Mobile · "Biggest goal right now" (dropdown: strength / mobility / weight loss / injury recovery / general fitness). The dropdown answer becomes the segmentation signal for follow-up messaging.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Audience</div>
+      <div class="field-value">Cold. Age 30–55. 8km radius from postcode 455218. Interests: personal training, gym, fitness, health, wellness, strength training. Exclude: existing FB + IG page followers, past 30-day engagers.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Budget + KPI</div>
+      <div class="field-value">$35 SGD/day × 22 days = <strong>$770</strong> (plus ~$30 buffer for testing). Target cost per lead: under $8 SGD. [Guessing on the exact CPL — validate after 5 days and adjust bid/audience.]</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Follow-up mechanic</div>
+      <div class="field-value">All leads captured in Phase 1 receive a WhatsApp message from +65 8841 0877 within 24 hours: "Hi [name], thanks for your interest in Strength Studio. Bookings for the $9.90 Training Assessment open August 1. Want us to reserve you a slot?"</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PHASE 2 CAMPAIGN 2 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Phase 2 · Campaign 2</span><span class="post-date" style="margin-left:10px">Jul 31 – Aug 5 · Launch conversion</span></div>
+    <span class="tag tag-boost">$720</span>
+    <div class="post-title">General $9.90 Direct Response</div>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Objective</div>
+      <div class="field-value">Conversions (booking on book.strength.sg) — falls back to Messages objective if Pixel isn't confirmed by Jul 30</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Creative</div>
+      <div class="field-value">Post 10 (Bookings open carousel) — the same asset published organically Jul 31, reused as ad creative from same day</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Audience — 2 ad sets running in parallel</div>
+      <div class="field-value"><strong>Ad Set A (warm retarget):</strong> Everyone who engaged with organic FB or IG content in the last 30 days + all Campaign 1 lead form submitters. This audience has the highest conversion rate but limited size.<br><strong>Ad Set B (lookalike):</strong> 1% lookalike audience built from Campaign 1 leads. Larger reach, cooler audience, but modelled on people who've already shown interest.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Budget + KPI</div>
+      <div class="field-value">$120 SGD/day × 6 days = <strong>$720</strong> (split 40/60 between Ad Set A and B — smaller warm audience gets less absolute budget). Target cost per booking: under $15 SGD.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PHASE 2 CAMPAIGN 3 -->
+<div class="post">
+  <div class="post-header">
+    <div><span class="post-num">Phase 2 · Campaign 3</span><span class="post-date" style="margin-left:10px">Jul 31 – Aug 5 · Launch conversion</span></div>
+    <span class="tag tag-boost">$480</span>
+    <div class="post-title">Senior $9.90 (grandchild angle)</div>
+  </div>
+  <div class="post-body">
+    <div class="field">
+      <div class="field-label">Objective</div>
+      <div class="field-value">Conversions or Leads — whichever tracking is stable. Senior audiences convert to bookings via WhatsApp at higher rates than younger audiences, so Messages objective is a valid fallback here.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Creative</div>
+      <div class="field-value">Post 9 (Alice testimonial carousel) — highest-trust senior social proof asset in the library. Also test Section 11 Campaign B copy (grandchild emotional lead) as a text-only variant.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Audience</div>
+      <div class="field-value">Age 55–75. 10km radius from postcode 455218. Behaviour: grandparent (Meta targeting attribute). Interests: active aging, senior fitness, health. Exclude Campaign 2 targeting to avoid audience overlap and inflated CPMs.</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Budget + KPI</div>
+      <div class="field-value">$80 SGD/day × 6 days = <strong>$480</strong>. Target cost per booking: under $25 SGD. Senior CPL runs 30–60% higher than general audience in Singapore health/fitness — this is realistic, not a stretch target.</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card">
+  <p class="card-title">Total spend reconciliation</p>
+  <p>Phase 1: <strong>$770</strong> (+ ~$30 testing buffer)</p>
+  <p>Phase 2 Campaign 2: <strong>$720</strong></p>
+  <p>Phase 2 Campaign 3: <strong>$480</strong></p>
+  <p style="border-top:1px solid var(--border);padding-top:8px;margin-top:8px"><strong>Total ad spend:</strong> <span style="color:var(--ember);font-weight:800">$2,000</span></p>
+  <p><strong>Content boosts (Section 09):</strong> $1,000</p>
+  <p><strong>Grand total 4-week Meta budget:</strong> <span style="color:var(--ember);font-weight:800">$3,000</span></p>
+</div>
+
+<div class="card">
+  <p class="card-title">Naming convention for Ads Manager</p>
+  <p>Following standard naming for reporting hygiene:</p>
+  <p><code>META_Leads_Cold-30-55_9.90-Waitlist_Jul26</code></p>
+  <p><code>META_Conv_Warm-Retarget_9.90-Booking_Aug26</code></p>
+  <p><code>META_Conv_Cold-Seniors_9.90-Grandchild_Aug26</code></p>
+</div>
+
+</div>
+
+
+<hr>
+
+
+<!-- ===== SECTION 11: ONGOING PAID CAMPAIGNS (POST-AUG 5) ===== -->
+<div class="section">
+<p class="section-num">Section 11</p>
+<h2 class="section-title">Ongoing paid campaigns (post-Aug 5)</h2>
+<p class="section-desc">Evergreen paid campaign library that takes over once the initial 4-week launch budget (Sections 09 + 10) is spent. Three ad templates adapted from GoFit reference ads and rewritten in Strength Studio voice. These become the ongoing paid engine from Aug 6 onwards, at whatever budget level the studio can sustain from booked revenue.</p>
 
 <div class="note">
   <strong>Timing</strong>
-  Don't launch paid ads on Day 1 of opening. Wait until Aug 15 (roughly 2 weeks post-open) so that (a) real client reviews start accumulating and can be referenced in ad copy, (b) the organic launch content has time to build initial follower base, and (c) the studio has a proven service delivery cadence to point new leads into.
+  These campaigns take over from Aug 6 onwards. Sections 09 and 10 cover the accelerated 4-week launch window using this budget. Once that spend is complete, transition to the evergreen campaigns below — ideally with 2+ real client reviews accumulated to reference in ad copy, an established organic follower base, and a proven service delivery cadence for new leads.
 </div>
 
 <div class="card">
