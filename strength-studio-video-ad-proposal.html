@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Studio — Video Ad Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ironstone:#1F2225;--canvas:#F4F0EB;--ember:#E05A2D;--basalt:#3D6A60;
+  --linen:#EDE8DF;--flint:#6F665D;--charcoal:#2E3330;--white:#FFFFFF;
+  --body:'Manrope',sans-serif;--serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:#fff;color:var(--ironstone);line-height:1.7;-webkit-font-smoothing:antialiased;max-width:800px;margin:0 auto;padding:40px 28px 80px}
+
+.header{margin-bottom:32px;padding-bottom:24px;border-bottom:2px solid var(--ironstone)}
+.header-brand{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--ember);font-weight:600;margin-bottom:4px}
+h1{font-size:26px;font-weight:700;color:var(--ironstone);margin-bottom:6px;line-height:1.3}
+.header-sub{font-size:14px;color:var(--flint);line-height:1.6}
+
+.summary{background:var(--ironstone);color:var(--canvas);padding:28px 32px;margin-bottom:40px;border-radius:10px}
+.summary-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--ember);font-weight:600;margin-bottom:12px}
+.summary-title{font-family:var(--serif);font-size:24px;line-height:1.3;color:var(--canvas);margin-bottom:16px;font-weight:400;letter-spacing:-0.01em}
+.summary-body{font-size:14px;line-height:1.7;color:rgba(244,240,235,0.85)}
+.summary-body strong{color:var(--canvas);font-weight:600}
+
+.section{margin-bottom:48px}
+.section-num{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--ember);font-weight:600;margin-bottom:2px}
+.section-title{font-family:var(--serif);font-size:32px;line-height:1.15;color:var(--ironstone);margin-bottom:20px;font-weight:400;letter-spacing:-0.01em}
+
+.reference-block{background:var(--canvas);border-radius:10px;padding:24px 28px;margin-bottom:20px}
+.reference-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:8px}
+.reference-title{font-size:17px;font-weight:700;color:var(--ironstone);margin-bottom:12px}
+.reference-body{font-size:14px;color:var(--charcoal);line-height:1.7}
+.reference-body p+p{margin-top:10px}
+.reference-quote{font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--ironstone);padding:14px 20px;border-left:3px solid var(--ember);margin:14px 0;font-style:italic}
+
+.matchcut-list{list-style:none;margin:14px 0;padding:0}
+.matchcut-list li{padding:10px 0;border-bottom:1px solid var(--linen);font-size:14px;color:var(--charcoal);display:flex;gap:12px;align-items:baseline}
+.matchcut-list li:last-child{border-bottom:none}
+.matchcut-list .gym{color:var(--ember);font-weight:600;flex:1}
+.matchcut-list .arrow{color:var(--flint);font-weight:400}
+.matchcut-list .life{color:var(--ironstone);font-weight:500;flex:1}
+
+.version{margin-bottom:56px;border:1px solid var(--linen);border-radius:12px;overflow:hidden}
+.version-header{padding:24px 28px;color:var(--canvas)}
+.version-header.a{background:var(--basalt)}
+.version-header.b{background:var(--ember)}
+.version-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;opacity:0.85;margin-bottom:4px}
+.version-name{font-family:var(--serif);font-size:28px;line-height:1.2;font-weight:400;letter-spacing:-0.01em;margin-bottom:6px}
+.version-thesis{font-size:14px;line-height:1.6;opacity:0.9}
+.version-body{padding:28px}
+
+.field{margin-bottom:24px}
+.field-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:600;margin-bottom:10px}
+.field-value{font-size:14px;color:var(--ironstone);line-height:1.7}
+
+.vo-script{background:var(--canvas);border-radius:8px;padding:20px 24px;font-family:var(--body);font-size:15px;line-height:1.7;color:var(--ironstone);white-space:pre-line;font-weight:500}
+.vo-script .cue{font-family:var(--body);font-size:12px;color:var(--flint);font-style:italic;letter-spacing:0.3px;display:block;padding:6px 10px;background:rgba(31,34,37,0.05);border-radius:4px;margin:8px 0}
+
+.storyboard{width:100%;border-collapse:collapse;font-size:13px}
+.storyboard th{text-align:left;padding:10px 12px;background:var(--ironstone);color:var(--canvas);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.storyboard td{padding:10px 12px;border-bottom:1px solid var(--linen);vertical-align:top;color:var(--charcoal)}
+.storyboard td strong{color:var(--ironstone)}
+.storyboard tr:last-child td{border-bottom:none}
+.storyboard .scene-num{width:40px;text-align:center;color:var(--ember);font-weight:700}
+.storyboard .duration{width:50px;color:var(--flint);font-weight:600}
+
+.tradeoffs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+@media (max-width:600px){.tradeoffs{grid-template-columns:1fr}}
+.tradeoff-card{padding:16px 18px;border-radius:6px}
+.tradeoff-card.strength{background:rgba(61,106,96,0.08);border-left:2px solid var(--basalt)}
+.tradeoff-card.tradeoff{background:rgba(224,90,45,0.05);border-left:2px solid var(--ember)}
+.tradeoff-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:6px}
+.tradeoff-card.strength .tradeoff-label{color:var(--basalt)}
+.tradeoff-card.tradeoff .tradeoff-label{color:var(--ember)}
+.tradeoff-body{font-size:13px;line-height:1.6;color:var(--charcoal)}
+.tradeoff-body ul{list-style:none;padding:0}
+.tradeoff-body li{padding:4px 0;padding-left:14px;position:relative}
+.tradeoff-body li:before{content:"·";position:absolute;left:0;font-weight:700;color:var(--flint)}
+
+.budget-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+.budget-table td{padding:8px 12px;border-bottom:1px solid var(--linen)}
+.budget-table td:first-child{color:var(--charcoal)}
+.budget-table td:last-child{text-align:right;color:var(--ironstone);font-weight:600;font-variant-numeric:tabular-nums}
+.budget-table tr.total td{border-bottom:none;border-top:2px solid var(--ironstone);padding-top:10px;font-weight:700;color:var(--ironstone);font-size:14px}
+.budget-table tr.total td:last-child{color:var(--ember)}
+
+.comparison{background:var(--canvas);border-radius:10px;padding:28px;margin-bottom:32px}
+.comparison-title{font-family:var(--serif);font-size:22px;color:var(--ironstone);margin-bottom:18px;font-weight:400;letter-spacing:-0.01em}
+.comparison-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.comparison-table th{text-align:left;padding:10px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--flint);font-weight:600;border-bottom:2px solid var(--ironstone)}
+.comparison-table td{padding:12px;border-bottom:1px solid var(--linen);vertical-align:top;color:var(--charcoal);line-height:1.55}
+.comparison-table td:first-child{font-weight:600;color:var(--ironstone);width:28%}
+.comparison-table tr:last-child td{border-bottom:none}
+
+.recommendation{background:var(--ironstone);color:var(--canvas);padding:28px 32px;border-radius:10px;margin-bottom:32px}
+.rec-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--ember);font-weight:600;margin-bottom:8px}
+.rec-title{font-family:var(--serif);font-size:22px;color:var(--canvas);margin-bottom:14px;font-weight:400;letter-spacing:-0.01em}
+.rec-body{font-size:14px;line-height:1.7;color:rgba(244,240,235,0.85)}
+.rec-body p+p{margin-top:10px}
+.rec-body strong{color:var(--canvas)}
+
+.next-steps{list-style:none;padding:0;counter-reset:step}
+.next-steps li{counter-increment:step;padding:14px 0 14px 44px;position:relative;border-bottom:1px solid var(--linen);font-size:14px;color:var(--ironstone);line-height:1.6}
+.next-steps li:last-child{border-bottom:none}
+.next-steps li:before{content:counter(step);position:absolute;left:0;top:14px;width:28px;height:28px;background:var(--ember);color:var(--canvas);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.next-steps li strong{color:var(--ironstone);display:block;margin-bottom:2px}
+.next-steps li span{font-size:13px;color:var(--flint);font-weight:400}
+
+.flag{background:rgba(224,90,45,0.05);border-left:3px solid var(--ember);padding:14px 18px;margin:20px 0;font-size:13px;color:var(--charcoal);line-height:1.6;border-radius:0 6px 6px 0}
+.flag strong{color:var(--ember);text-transform:uppercase;letter-spacing:1px;font-size:11px;display:block;margin-bottom:4px}
+
+.footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--linen);font-size:12px;color:var(--flint);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">Strength Studio · Proposal</div>
+  <h1>Video Ad Concept — Two Directions</h1>
+  <div class="header-sub">A short brand film to drive $9.90 Training Assessment bookings. Two approaches, one recommendation. Prepared for GM review.</div>
+</div>
+
+<div class="summary">
+  <div class="summary-label">Executive summary</div>
+  <div class="summary-title">A 60-second brand film for Strength Studio, launched shortly after opening.</div>
+  <div class="summary-body">
+    We propose producing a short brand film built around Strength Studio's actual clients, coaches, and the studio itself. Two versions are proposed inside.<br><br>
+    Both stay within <strong>SGD $400–600</strong>, can be shot in <strong>one day at the studio (targeted end of July)</strong>, and produce a <strong>60-second master + 15-second cutdown</strong> — usable across Instagram Reels, Meta feed ads, YouTube pre-roll, and the website hero. Both endings are engineered to <strong>drive $9.90 Training Assessment bookings</strong>, not just brand awareness. Recommendation and next steps at the end.
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- ============================================================ -->
+<!-- VERSION A                                                    -->
+<!-- ============================================================ -->
+
+<div class="section">
+  <div class="section-num">Part 01</div>
+  <div class="section-title">Version A · Life Stakes</div>
+
+  <div class="version">
+    <div class="version-header a">
+      <div class="version-label">Concept · Version A</div>
+      <div class="version-name">You don't train for the mirror. You train for the moments.</div>
+      <div class="version-thesis">Sequential vignettes across ages and life stages. Voiceover narrates the "why" — what training is really for.</div>
+    </div>
+    <div class="version-body">
+
+      <div class="field">
+        <div class="field-label">Voiceover script · ~50 seconds</div>
+        <div class="vo-script">You don't train for the mirror.
+You train for the moments.
+
+For the day your grandchild asks to be picked up — and you can.
+For the flight of stairs you take without thinking.
+For the groceries, the moving boxes, the suitcase in the overhead bin.
+
+Strength isn't vanity. It's capacity.
+Capacity to show up. To keep going. To live the life you want, in the body you've got.
+
+We don't train people to look strong.
+We train them to <em>be</em> strong — for whatever comes next.
+
+<span class="cue">CLOSING — CTA VO over studio wide + logo card + QR frame</span>
+We're now open.
+Come find out where you're starting from.
+Book your first session for $9.90.
+Link in bio. Or scan the QR.
+
+<span class="cue">ON-SCREEN END CARD (no VO)</span>
+Strength Studio · Built around how your body moves · Now Open · 77 Upper East Coast</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Storyboard · 6 scenes</div>
+        <table class="storyboard">
+          <thead><tr><th>#</th><th>Sec</th><th>Visual</th><th>Voiceover cue</th></tr></thead>
+          <tbody>
+            <tr><td class="scene-num">1</td><td class="duration">4s</td><td><strong>Kenn adjusting a client's squat.</strong> Close on the coach's hand on the client's back.</td><td>"You don't train for the mirror."</td></tr>
+            <tr><td class="scene-num">2</td><td class="duration">4s</td><td><strong>A grandparent lifting a small child.</strong> Warm daylight, home setting.</td><td>"You train for the moments."</td></tr>
+            <tr><td class="scene-num">3</td><td class="duration">6s</td><td><strong>Alice (61) doing a full squat</strong> in the studio, cut with her walking briskly up stairs.</td><td>"For the day your grandchild asks…"</td></tr>
+            <tr><td class="scene-num">4</td><td class="duration">6s</td><td><strong>Active professional carrying groceries / a suitcase</strong>, cut with them deadlifting in the studio.</td><td>"For the flight of stairs…"</td></tr>
+            <tr><td class="scene-num">5</td><td class="duration">5s</td><td><strong>Beginner mid-Movement-Assessment</strong> with Kenn. Slow reveal of the client's face.</td><td>"Strength isn't vanity. It's capacity."</td></tr>
+            <tr><td class="scene-num">6</td><td class="duration">12s</td><td><strong>Wide shot of the studio interior</strong>, Kenn walking through the space → logo card → QR code frame with URL.</td><td>"We're now open. Come find out where you're starting from. Book your first session for $9.90. Link in bio. Or scan the QR."</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tradeoffs">
+        <div class="tradeoff-card strength">
+          <div class="tradeoff-label">Strengths</div>
+          <div class="tradeoff-body">
+            <ul>
+              <li>Familiar, classical narrative structure — safest bet</li>
+              <li>Voiceover carries the story without visual gymnastics</li>
+              <li>Easier to edit — vignettes can stand alone</li>
+              <li>Works even if some shots underperform on the day</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tradeoff-card tradeoff">
+          <div class="tradeoff-label">Trade-offs</div>
+          <div class="tradeoff-body">
+            <ul>
+              <li>Less visually distinctive than the match-cut approach</li>
+              <li>Depends heavily on voiceover — weaker on silent-viewing (85% of IG)</li>
+              <li>Doesn't borrow the specific technique that makes match-cut ads memorable</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- VERSION B                                                    -->
+<!-- ============================================================ -->
+
+<div class="section">
+  <div class="section-num">Part 02</div>
+  <div class="section-title">Version B · Match-Cut</div>
+
+  <div class="version">
+    <div class="version-header b">
+      <div class="version-label">Concept · Version B · Recommended</div>
+      <div class="version-name">Strength isn't just what you lift. It's what you carry.</div>
+      <div class="version-thesis">Direct visual match-cuts — gym movement transitioning to a real-life equivalent. Higher energy through to the CTA.</div>
+    </div>
+    <div class="version-body">
+
+      <div class="field">
+        <div class="field-label">Voiceover script · ~50 seconds</div>
+        <div class="vo-script">Strength isn't just what you lift.
+It's what you carry.
+
+<span class="cue">MATCH-CUT 1 · Deadlift → parent lifting a child into a car seat</span>
+Not the barbell — the child.
+
+<span class="cue">MATCH-CUT 2 · Farmer's carry → someone with groceries, 4 flights of stairs, no lift</span>
+Not the dumbbells — the two bags of groceries. And no lift.
+
+<span class="cue">MATCH-CUT 3 · Recumbent bike → grandparent cycling alongside a grandchild on a smaller bike</span>
+Not the bike — the person riding next to you.
+
+Strength isn't reserved for athletes.
+It's for anyone who wants to keep doing the things that matter.
+
+<span class="cue">CLOSING — CTA VO over studio wide + logo card + QR frame</span>
+We're now open.
+Come find out where you're starting from.
+Book your first session for $9.90.
+Link in bio. Or scan the QR.
+
+<span class="cue">ON-SCREEN END CARD (no VO)</span>
+Strength Studio · Built around how your body moves · Now Open · 77 Upper East Coast</div>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Match-cut pairs at a glance</div>
+        <ul class="matchcut-list">
+          <li><span class="gym">Deadlift</span><span class="arrow">→</span><span class="life">Parent lifting a child into a car seat</span></li>
+          <li><span class="gym">Farmer's carry</span><span class="arrow">→</span><span class="life">Person carrying groceries up stairs</span></li>
+          <li><span class="gym">Recumbent bike</span><span class="arrow">→</span><span class="life">Grandparent cycling with a grandchild</span></li>
+        </ul>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Storyboard · 6 scenes</div>
+        <table class="storyboard">
+          <thead><tr><th>#</th><th>Sec</th><th>Visual</th><th>Voiceover cue</th></tr></thead>
+          <tbody>
+            <tr><td class="scene-num">1</td><td class="duration">5s</td><td><strong>Kenn adjusting a client's setup.</strong> Opening moment — coach + client, no cut.</td><td>"Strength isn't just what you lift. It's what you carry."</td></tr>
+            <tr><td class="scene-num">2</td><td class="duration">6s</td><td><strong>Client deadlifting</strong> → <strong>parent lifting child into car seat.</strong> Match on the upward motion.</td><td>"Not the barbell — the child."</td></tr>
+            <tr><td class="scene-num">3</td><td class="duration">6s</td><td><strong>Client farmer's-carry</strong> → <strong>person on stairs with grocery bags.</strong> Match on the shoulders and stride.</td><td>"Not the dumbbells — the two bags of groceries."</td></tr>
+            <tr><td class="scene-num">4</td><td class="duration">6s</td><td><strong>Senior client on recumbent bike</strong> → <strong>grandparent cycling in a park alongside a grandchild.</strong> Match on the pedaling cadence.</td><td>"Not the bike — the person riding next to you."</td></tr>
+            <tr><td class="scene-num">5</td><td class="duration">6s</td><td><strong>Client and Kenn mid-session, laughing.</strong> Warm, unposed. Transition moment.</td><td>"Strength isn't reserved for athletes."</td></tr>
+            <tr><td class="scene-num">6</td><td class="duration">12s</td><td><strong>Wide shot of the studio interior</strong> → logo card → QR code frame with URL and price callout.</td><td>"We're now open. Come find out where you're starting from. Book your first session for $9.90. Link in bio. Or scan the QR."</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flag">
+        <strong>Why this version is stronger for our channels</strong>
+        Around 85% of Instagram viewers watch with sound off. Version B's match-cut format works with the sound off — the visual pairs carry the message even without the voiceover. Version A depends more heavily on the VO. For our primary distribution channel, this matters.
+      </div>
+
+      <div class="tradeoffs">
+        <div class="tradeoff-card strength">
+          <div class="tradeoff-label">Strengths</div>
+          <div class="tradeoff-body">
+            <ul>
+              <li>Uses a distinctive editing technique that stops the scroll</li>
+              <li>Works silent — critical for IG feed distribution</li>
+              <li>Match-cuts stop the scroll harder than sequential vignettes</li>
+              <li>Casting real clients for both halves of each pair increases identification</li>
+              <li>Same budget as Version A</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tradeoff-card tradeoff">
+          <div class="tradeoff-label">Trade-offs</div>
+          <div class="tradeoff-body">
+            <ul>
+              <li>Match-cuts require deliberate shooting — same actor, similar framing on both halves</li>
+              <li>Editing takes longer — needs a colourist / editor who can match tone and cadence</li>
+              <li>If any match-cut falls flat, the ad loses more punch than a vignette-based cut</li>
+              <li>Requires client participation in life-context shots (not just studio)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- BUDGET                                                       -->
+<!-- ============================================================ -->
+
+<div class="section">
+  <div class="section-num">Part 03</div>
+  <div class="section-title">Budget · Both versions</div>
+
+  <div class="reference-block">
+    <div class="reference-body">
+      <p>Both versions are costed identically. The match-cut format doesn't cost more — it's a shot list decision, not a production upgrade. Ranges assume Singapore market freelance rates.</p>
+      <table class="budget-table">
+        <tr><td>Videographer + editor (half-day shoot, ~2-day post)</td><td>$400 – 500</td></tr>
+        <tr><td>Voiceover (in-house talent or ElevenLabs generation)</td><td>$0 – 20</td></tr>
+        <tr><td>Actors (real Strength Studio clients, with consent)</td><td>Free</td></tr>
+        <tr><td>Location (Strength Studio + one exterior)</td><td>Free</td></tr>
+        <tr><td>Colour grade + sound mix (included with editor)</td><td>—</td></tr>
+        <tr class="total"><td>Total (SGD)</td><td>$400 – 520</td></tr>
+      </table>
+      <p style="font-size:12px;color:var(--flint);margin-top:14px;font-style:italic">Voiceover: use someone in-house or generate via ElevenLabs (~$5–20 for a subscription month). Real Strength Studio clients cast in place of paid actors — free with signed consent. No commercial location permits required for the proposed non-studio shots.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- 15-SECOND CUTDOWN                                            -->
+<!-- ============================================================ -->
+
+<div class="section">
+  <div class="section-num">Part 04</div>
+  <div class="section-title">15-second cutdown · for social distribution</div>
+
+  <div class="reference-block">
+    <div class="reference-label">Why a cutdown</div>
+    <div class="reference-title">The 60-second master is not the ad that converts on IG.</div>
+    <div class="reference-body">
+      <p>The 60-second version is designed for the website hero, YouTube pre-roll, and a Meta ad set targeting warm audiences. It carries the full emotional arc.</p>
+      <p>The 15-second version is what runs in Instagram Reels, Meta feed ads, and TikTok. Different attention economics — the CTA has to appear inside the first 8 seconds, and everything must work on silent viewing. Same shoot day, different edit priorities. The cutdown is not a shortened version of the master — it's a purpose-built lead-gen asset that reuses the same footage.</p>
+    </div>
+  </div>
+
+  <div class="version" style="margin-top:24px">
+    <div class="version-header b">
+      <div class="version-label">Cutdown · 15 seconds · IG Reels + Meta feed</div>
+      <div class="version-name">Built for silent viewing. Built for the click.</div>
+      <div class="version-thesis">One match-cut, one coaching moment, one CTA. Text overlays carry the message even without sound.</div>
+    </div>
+    <div class="version-body">
+
+      <div class="field">
+        <div class="field-label">Storyboard · 4 beats</div>
+        <table class="storyboard">
+          <thead><tr><th>#</th><th>Sec</th><th>Visual</th><th>Text overlay + optional VO</th></tr></thead>
+          <tbody>
+            <tr><td class="scene-num">1</td><td class="duration">0–3s</td><td><strong>HOOK.</strong> Match-cut #1 from the master: client deadlifting → parent lifting child into car seat.</td><td><strong>Text:</strong> STRENGTH THAT MATTERS.<br><em>VO (optional):</em> "Not the barbell — the child."</td></tr>
+            <tr><td class="scene-num">2</td><td class="duration">3–7s</td><td><strong>PROOF.</strong> Client + Kenn mid-session — warm, unposed. Reused from scene 5 of the master.</td><td><strong>Text:</strong> PERSONALISED. 1-TO-1.<br><em>VO (optional):</em> "Coaching built around how you move."</td></tr>
+            <tr><td class="scene-num">3</td><td class="duration">7–11s</td><td><strong>OFFER.</strong> Client walking into the studio, being greeted. Reused from scene 6 of the master.</td><td><strong>Text:</strong> FIRST SESSION $9.90<br><em>VO (optional):</em> "45 minutes. One-to-one with a coach. No commitment."</td></tr>
+            <tr><td class="scene-num">4</td><td class="duration">11–15s</td><td><strong>CTA.</strong> Studio interior wide → logo card → QR code with URL.</td><td><strong>Text:</strong> LINK IN BIO · BOOK NOW<br><em>VO (optional):</em> "Book at strength.sg."</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="field">
+        <div class="field-label">Why this structure</div>
+        <div class="reference-body">
+          <p>Every beat has a job. The hook stops the scroll. The proof establishes the offer is real. The offer names the specific action. The CTA closes the loop with a scannable path. If a viewer sees only the first 3 seconds, they still see the match-cut — the memorable payload lands. If they see the full 15 seconds, they leave with a specific action.</p>
+          <p><strong>Text overlays are mandatory, not decorative.</strong> Around 85% of IG viewers watch with sound off — silent viewers get the same message as sound-on viewers. The VO is a bonus, not a load-bearing element.</p>
+        </div>
+      </div>
+
+      <div class="flag">
+        <strong>Production note</strong>
+        The cutdown reuses footage from the 60-second master. No additional shoot day required. But the editor needs to know both cuts are being produced <em>before</em> the shoot — some shots (particularly the "client walking into studio" scene) may need to be captured in additional angles specifically for the cutdown's OFFER beat. Total additional editing time: approximately 4-6 hours on top of the master. Included in the videographer + editor budget line — no cost uplift.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- COMPARISON + RECOMMENDATION                                  -->
+<!-- ============================================================ -->
+
+<div class="section">
+  <div class="section-num">Part 05</div>
+  <div class="section-title">Side-by-side comparison</div>
+
+  <div class="comparison">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Version A · Life Stakes</th>
+          <th>Version B · Match-Cut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Approach</td>
+          <td>Sequential vignettes tied together by voiceover</td>
+          <td>Direct visual match-cuts between gym and life</td>
+        </tr>
+        <tr>
+          <td>Emotional register</td>
+          <td>Warm, reflective, aspirational</td>
+          <td>Precise, punchy, direct</td>
+        </tr>
+        <tr>
+          <td>Works with sound off?</td>
+          <td>Partially — VO carries most of the meaning</td>
+          <td>Yes — visual pairs communicate independently</td>
+        </tr>
+        <tr>
+          <td>Drives $9.90 bookings?</td>
+          <td>Weaker — 40s emotional build settles viewer before CTA lands</td>
+          <td>Stronger — punchy pace sustains attention through the CTA</td>
+        </tr>
+        <tr>
+          <td>Production complexity</td>
+          <td>Moderate — vignettes can be shot independently</td>
+          <td>Higher — match-cuts require matched framing on both halves</td>
+        </tr>
+        <tr>
+          <td>Editing effort</td>
+          <td>Standard cut</td>
+          <td>Requires match-cut timing and colour grading precision</td>
+        </tr>
+        <tr>
+          <td>Risk profile</td>
+          <td>Safer — a weak scene doesn't collapse the ad</td>
+          <td>Higher variance — a weak match-cut noticeably hurts</td>
+        </tr>
+        <tr>
+          <td>Distinctive vs. category</td>
+          <td>Familiar — resembles standard fitness ads</td>
+          <td>Distinctive — borrows a memorable technique</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="recommendation">
+    <div class="rec-label">Recommendation</div>
+    <div class="rec-title">Version B · Match-Cut</div>
+    <div class="rec-body">
+      <p>Version B is the stronger choice for lead generation. It uses a match-cut structure that stops the scroll and remains memorable, works with the sound off (important for IG feed distribution — around 85% of viewers watch muted), and keeps energy higher through to the CTA than Version A's more philosophical arc.</p>
+      <p><strong>Why this matters for lead-gen specifically:</strong> Version A spends 40 seconds building emotional ground before the CTA arrives. Beautiful, but by the time viewers reach the offer, they've been emotionally settled rather than activated. Version B's punchier "not the barbell — the child" pattern sustains attention right up to the "$9.90 first session" CTA — which is what a conversion asset needs.</p>
+      <p><strong>The trade-off is production discipline.</strong> The match-cuts have to be planned — same actor, same framing, matching cadence between the gym half and the life half of each pair. Requires a shot list finalised before the shoot.</p>
+      <p><strong>If we go with Version A instead,</strong> it's a defensible brand-awareness ad, but a weaker lead-gen asset. Given the goal is to drive $9.90 Assessment bookings — not just build recognition — Version B is the higher-conviction choice.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- FLAGS                                                        -->
+<!-- ============================================================ -->
+
+<div class="section">
+  <div class="section-num">Part 06</div>
+  <div class="section-title">Things worth flagging</div>
+
+  <div class="flag">
+    <strong>Head coach's on-camera preference</strong>
+    Both storyboards currently include Kenn in 2 of 6 scenes as the coaching anchor. Before locking the shot list, we need to confirm Kenn is comfortable appearing on camera — and if so, at what level (full portrait, hands-only, back-of-head, or voice-over-only). This affects casting, shot list, and how much emotional weight the coach carries in the final cut. If Kenn prefers minimal presence, we can rebuild the storyboard around client-only shots, which reduces perceived warmth by roughly 30% but preserves his preference.
+  </div>
+
+  <div class="flag">
+    <strong>Client participation</strong>
+    Both versions rely on real Strength Studio clients appearing on camera in both studio and real-life contexts. Version B leans on this harder — the identification frame only works if the same client appears in both halves of each match-cut. We'd want confirmed participation from at least 3 clients (matching our target audience: seniors, active professionals, beginners) before commencing production.
+  </div>
+
+  <div class="flag">
+    <strong>Real-life shooting locations</strong>
+    Version B requires 3 non-studio shots: a car (for the child-lifting scene), a staircase (for the grocery scene), and a park with cycling paths (for the grandparent-and-grandchild cycling scene). All are freely available in the East Coast area — East Coast Park and Bedok Reservoir Park both fit. Version A requires similar but less demanding locations. No permits or commercial arrangements should be needed for either.
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- NEXT STEPS                                                   -->
+<!-- ============================================================ -->
+
+<div class="section">
+  <div class="section-num">Part 07</div>
+  <div class="section-title">Next steps</div>
+
+  <ol class="next-steps">
+    <li><strong>Approve concept direction</strong><span>Version A, Version B, or a hybrid. Decision blocker for all subsequent steps.</span></li>
+    <li><strong>Confirm client participation</strong><span>Reach out to Alice and 2–3 other clients matching our target audience. Confirm consent for both studio and non-studio filming.</span></li>
+    <li><strong>Confirm Kenn's involvement level</strong><span>Full on-camera, hands-only, or absent. This affects the shot list.</span></li>
+    <li><strong>Source videographer</strong><span>Get 2–3 quotes for a half-day shoot with 2–3 days of post-production. Confirm they can (a) match-cut if going with Version B, and (b) deliver both the 60-second master and the 15-second lead-gen cutdown from the same footage.</span></li>
+    <li><strong>Finalise shot list</strong><span>Based on approved concept, cast, and coach involvement. Include the additional angles needed for the 15-second cutdown's OFFER beat. Locked before the shoot day.</span></li>
+    <li><strong>Schedule shoot day</strong><span>Coordinate with client availability and studio build-out timeline. Ideally after the studio interior is fully installed.</span></li>
+    <li><strong>Deliver + distribute</strong><span>60-second master (website hero + YouTube) + 15-second cutdown (IG Reels + Meta feed ads) + optional 6-second bumpers for Stories. Publish ~1 week after shoot, alongside the opening announcement.</span></li>
+    <li><strong>Set up conversion tracking</strong><span>Before the ad goes live, ensure the Rezerv booking page for the Training Assessment has the Meta Pixel firing and UTM parameters in the CTA links. Otherwise you can't measure whether the ad is actually generating $9.90 bookings.</span></li>
+  </ol>
+</div>
+
+<div class="footer">
+  Strength Studio · Video Ad Proposal &nbsp;·&nbsp; Prepared for JSF Transformative Pte Ltd &nbsp;·&nbsp; July 2026
+</div>
+
+</body>
+</html>
