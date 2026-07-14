@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Studio — Google Ads Launch Plan v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ironstone:#1F2225;--canvas:#F4F0EB;--ember:#E05A2D;--basalt:#3D6A60;
+  --linen:#E6DED4;--flint:#847B71;--charcoal:#2E3330;--white:#FFFFFF;
+  --bg:#FAFAF7;--border:#DDD9D2;--google-blue:#4285F4;--google-green:#34A853;
+  --body:'Manrope',sans-serif;--serif:'Instrument Serif',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);background:var(--bg);color:var(--ironstone);line-height:1.7;-webkit-font-smoothing:antialiased}
+
+.header{background:var(--ironstone);padding:48px 0 40px}
+.header-inner{max-width:900px;margin:0 auto;padding:0 28px}
+.header-logo{font-family:var(--body);font-weight:800;font-size:32px;color:var(--canvas);letter-spacing:2px;line-height:1}
+.header-logo span{display:block;font-size:12px;letter-spacing:5px;margin-top:3px;font-weight:600}
+.header-tagline{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--ember);margin-top:16px}
+.header-meta{font-size:12px;color:var(--flint);margin-top:12px;display:flex;gap:16px;flex-wrap:wrap}
+
+main{max-width:900px;margin:0 auto;padding:36px 28px 80px}
+
+.section{margin-bottom:56px}
+.section-num{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ember);margin-bottom:2px}
+.section-title{font-size:22px;font-weight:700;color:var(--ironstone);margin-bottom:6px}
+.section-desc{font-size:14px;color:var(--flint);margin-bottom:24px;max-width:640px;line-height:1.7}
+
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin-bottom:14px}
+.card-title{font-size:15px;font-weight:700;color:var(--ironstone);margin-bottom:3px}
+.card p{font-size:13.5px;color:var(--charcoal);line-height:1.7;margin-bottom:8px}
+.card p:last-child{margin-bottom:0}
+.card code{background:var(--canvas);padding:1px 6px;border-radius:3px;font-size:12px;font-family:'SF Mono','Monaco',monospace}
+
+.note{background:rgba(224,90,45,0.05);border-left:3px solid var(--ember);padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--charcoal);line-height:1.6;border-radius:0 6px 6px 0}
+.note strong{color:var(--ember);text-transform:uppercase;letter-spacing:1px;font-size:10px;display:block;margin-bottom:3px}
+
+.warn{background:rgba(66,133,244,0.05);border-left:3px solid var(--google-blue);padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--charcoal);line-height:1.6;border-radius:0 6px 6px 0}
+.warn strong{color:var(--google-blue);text-transform:uppercase;letter-spacing:1px;font-size:10px;display:block;margin-bottom:3px}
+
+hr{border:none;border-top:1px solid var(--border);margin:48px 0}
+
+/* Budget breakdown */
+.budget-row{display:grid;grid-template-columns:1fr 90px 130px;gap:12px;padding:12px 14px;background:var(--white);border:1px solid var(--border);border-radius:6px;margin-bottom:8px;align-items:center;font-size:12.5px}
+.budget-row.header{background:var(--ironstone);color:var(--canvas);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;border:none}
+.budget-row.header .b-amt{color:var(--ember)}
+.b-label{color:var(--charcoal);font-weight:500}
+.b-label small{display:block;color:var(--flint);font-size:11px;font-weight:400;margin-top:2px}
+.b-amt{font-weight:800;color:var(--ember);text-align:right;font-family:var(--body)}
+.b-daily{color:var(--flint);font-size:11px;text-align:right}
+.budget-row.total{border:1px solid var(--ember);background:rgba(224,90,45,0.03)}
+.budget-row.total .b-amt{font-size:15px}
+
+/* Campaign card */
+.campaign{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.campaign-header{background:var(--ironstone);color:var(--canvas);padding:14px 20px}
+.campaign-tag{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--ember);font-weight:700}
+.campaign-title{font-size:16px;font-weight:700;margin-top:2px;font-family:var(--serif);letter-spacing:-0.01em;font-style:italic}
+.campaign-meta{font-size:11px;color:rgba(244,240,235,0.6);margin-top:6px;display:flex;gap:14px;flex-wrap:wrap}
+
+.campaign-body{padding:20px 22px}
+
+.field{margin-bottom:14px}
+.field-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--flint);font-weight:700;margin-bottom:5px}
+.field-value{font-size:13px;color:var(--ironstone);line-height:1.65}
+
+/* Ad group section */
+.ad-group{margin-top:20px;padding:16px 18px;background:var(--bg);border:1px solid var(--border);border-radius:8px}
+.ad-group-name{font-size:13px;font-weight:700;color:var(--ember);margin-bottom:4px;text-transform:uppercase;letter-spacing:1.2px}
+.ad-group-desc{font-size:12.5px;color:var(--flint);margin-bottom:12px;line-height:1.6}
+
+.keyword-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.kw{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:4px 9px;font-size:11px;color:var(--charcoal);font-family:'SF Mono','Monaco',monospace}
+.kw.phrase{border-color:var(--ember);color:var(--ember)}
+.kw.exact{border-color:var(--basalt);color:var(--basalt);background:rgba(61,106,96,0.05)}
+
+/* Ad card */
+.ad-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-top:14px}
+.ad-tag{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--white);background:var(--ember);padding:2px 8px;border-radius:3px;font-weight:700;margin-bottom:8px}
+.ad-name{font-size:14px;font-weight:700;color:var(--ironstone);margin-bottom:12px}
+
+.hd-grid,.ds-grid{margin-top:8px}
+.hd-item,.ds-item{display:flex;justify-content:space-between;align-items:baseline;padding:6px 10px;background:var(--bg);border-radius:4px;margin-bottom:4px;font-size:12.5px;gap:12px}
+.hd-item .hd-num,.ds-item .ds-num{color:var(--flint);font-weight:700;font-size:11px;min-width:20px}
+.hd-item .hd-text,.ds-item .ds-text{color:var(--ironstone);flex:1}
+.hd-item .cc,.ds-item .cc{color:var(--ember);font-size:11px;font-weight:600;font-family:'SF Mono','Monaco',monospace;flex-shrink:0}
+
+.sub-label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--flint);font-weight:700;margin:14px 0 6px}
+
+/* Extension grid */
+.ext-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:640px){.ext-grid{grid-template-columns:1fr}}
+.ext-block{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:12px 14px}
+.ext-block-title{font-size:11px;font-weight:700;color:var(--ember);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px}
+.ext-list{font-size:12px;color:var(--charcoal);line-height:1.8}
+.ext-list div{padding:2px 0}
+
+.footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--flint);text-align:center}
+
+/* Checklist */
+.check-list{list-style:none;padding:0}
+.check-list li{padding:8px 0 8px 24px;position:relative;font-size:13px;color:var(--charcoal);line-height:1.6;border-bottom:1px dashed var(--border)}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:"☐";position:absolute;left:0;top:8px;font-size:14px;color:var(--flint)}
+.check-list li strong{color:var(--ironstone)}
+
+@media(max-width:640px){
+  .header-inner,main{padding-left:16px;padding-right:16px}
+  .header-logo{font-size:24px}
+  .budget-row{grid-template-columns:1fr 80px;gap:8px;font-size:11.5px}
+  .b-daily{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="header-inner">
+  <div class="header-logo">STRENGTH<span>STUDIO</span></div>
+  <div class="header-tagline">Google Ads Launch Plan — v1</div>
+  <div class="header-meta">
+    <span>Companion to Meta Launch Strategy v3.1</span>
+    <span>$1,400/month · 2 campaigns · 6 ads</span>
+    <span>July 2026</span>
+  </div>
+</div>
+</header>
+
+<main>
+
+
+<!-- ===== SECTION 00: STRATEGIC OVERVIEW ===== -->
+<div class="section">
+<p class="section-num">Section 00</p>
+<h2 class="section-title">Strategic overview</h2>
+<p class="section-desc">$1,400/month across two Google Ads campaigns — one for brand-adjacent traffic to strength.sg, one for lead-gen conversions on strength.sg/start. Delivered as Search RSAs with a small remarketing layer on the traffic campaign to maximise budget efficiency.</p>
+
+<div class="note">
+  <strong>Budget efficiency flag</strong>
+  A pure "cold traffic to homepage" campaign is the least efficient Google Ads spend for a new local business at this budget level. [Certain] Homepage traffic without a defined conversion action produces no measurable outcome, and generic fitness terms in Singapore cost $1.50–3 per click. This plan runs the "traffic" campaign as brand search + retargeting instead — same $420 budget, meaningfully better efficiency. If you'd rather run pure cold awareness, the plan can be rebuilt but expect ~50% weaker cost-per-visit efficiency.
+</div>
+
+<div class="card">
+  <p class="card-title">Recommended budget split</p>
+  <div class="budget-row header">
+    <div>Campaign</div>
+    <div class="b-amt">Monthly</div>
+    <div class="b-daily">Daily</div>
+  </div>
+  <div class="budget-row">
+    <div class="b-label">Campaign 1 — Traffic (Brand + Retargeting)<small>Brand search + Display remarketing on strength.sg visitors</small></div>
+    <div class="b-amt">$420</div>
+    <div class="b-daily">$14/day</div>
+  </div>
+  <div class="budget-row">
+    <div class="b-label">Campaign 2 — Lead Gen (Training Assessment)<small>Search RSAs to /start form, high-intent keywords</small></div>
+    <div class="b-amt">$980</div>
+    <div class="b-daily">$32/day</div>
+  </div>
+  <div class="budget-row total">
+    <div class="b-label"><strong>Total</strong></div>
+    <div class="b-amt">$1,400</div>
+    <div class="b-daily">$46/day</div>
+  </div>
+</div>
+
+<div class="card">
+  <p class="card-title">Why this split (70/30 weighted to lead gen)</p>
+  <p>[Certain] Lead gen with high-intent search terms and a clear conversion action produces measurable ROI. Every dollar has an attributable outcome (form submission). Traffic campaigns provide brand-support value that's real but harder to measure.</p>
+  <p>[Likely] For a new studio with ~4 weeks of Meta campaigns already running, Google Ads works best as the "capture" layer — catching people who saw Meta ads, searched later, and are now in high-intent decision mode. That's what the Search RSA campaign structure is designed for.</p>
+  <p>Once you have 30+ days of conversion data, consider shifting to 80/20 in favour of lead gen if the lead campaign is producing under $25 CPA.</p>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 01: SETUP REQUIREMENTS ===== -->
+<div class="section">
+<p class="section-num">Section 01</p>
+<h2 class="section-title">Setup requirements (before launch)</h2>
+<p class="section-desc">Non-negotiable pre-launch setup. Skipping any of these produces campaigns that spend budget without generating measurable conversion signal.</p>
+
+<div class="card">
+  <p class="card-title">1. Conversion tracking</p>
+  <p>[Certain] Verified: GA4 (<code>G-3R5HK6K6DP</code>) and GTM (<code>GTM-MGF33GP6</code>) are already live on strength.sg. This is the foundation.</p>
+  <p><strong>What still needs setup:</strong></p>
+  <p>▸ Create a <code>form_submit</code> event in GA4 that fires when the /start page form is successfully submitted (GTM trigger: form submission on /start)</p>
+  <p>▸ Mark <code>form_submit</code> as a "Key Event" in GA4 admin (was called "Conversion" previously)</p>
+  <p>▸ Link GA4 to Google Ads account (Admin → Google Ads Links)</p>
+  <p>▸ In Google Ads, import the <code>form_submit</code> key event as a conversion action</p>
+  <p>▸ Set the conversion value to $150 (regular price of assessment — this becomes the notional "revenue" per conversion for Google's Smart Bidding)</p>
+</div>
+
+<div class="card">
+  <p class="card-title">2. Secondary conversion actions (for full-funnel visibility)</p>
+  <p>Even if the primary optimisation goal is form submission, tracking these helps Google's algorithm and gives you fuller diagnostic data:</p>
+  <p>▸ WhatsApp click (any tap on the wa.me link) → GA4 event: <code>whatsapp_click</code></p>
+  <p>▸ Phone number click → GA4 event: <code>phone_click</code></p>
+  <p>▸ Click through to book.strength.sg → GA4 event: <code>booking_link_click</code></p>
+  <p>These get imported as <em>secondary</em> conversions in Google Ads (not the bidding target, but visible in reports).</p>
+</div>
+
+<div class="card">
+  <p class="card-title">3. Google Business Profile</p>
+  <p>Ensure Google Business Profile is set up and verified for 77 Upper East Coast Road. This enables:</p>
+  <p>▸ Location extension on Google Ads (address + directions link in the ad)</p>
+  <p>▸ Google Maps listing appearing for "personal trainer near me" searches</p>
+  <p>▸ Reviews accumulation (which feed into ad quality signals)</p>
+  <p>If not set up yet, do this <strong>before launching ads</strong> — it takes 1-2 weeks for Google to verify a new business.</p>
+</div>
+
+<div class="card">
+  <p class="card-title">4. Remarketing audience</p>
+  <p>Create an audience in GA4: "All strength.sg visitors, past 30 days, did NOT submit form_submit event." This becomes the retargeting audience for Campaign 1's Display component.</p>
+</div>
+
+<div class="warn">
+  <strong>Timeline reality check</strong>
+  All four setup items above take 1-2 weeks combined if starting from scratch. Google Business Profile verification alone can take 5-7 business days. Plan launch for 2 weeks out from setup start, not tomorrow.
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 02: CAMPAIGN 1 ===== -->
+<div class="section">
+<p class="section-num">Section 02</p>
+<h2 class="section-title">Campaign 1 — Traffic (Brand + Retargeting)</h2>
+<p class="section-desc">$420/month. Two ad groups: one Search targeting brand terms (defensive, cheap), one Display targeting retargeting audiences. Homepage as landing page.</p>
+
+<div class="campaign">
+<div class="campaign-header">
+  <div class="campaign-tag">Campaign 1</div>
+  <div class="campaign-title">Traffic to strength.sg</div>
+  <div class="campaign-meta">
+    <span>Campaign type: Search + Display</span>
+    <span>Budget: $420/month · $14/day</span>
+    <span>Landing: strength.sg</span>
+  </div>
+</div>
+<div class="campaign-body">
+
+  <div class="field">
+    <div class="field-label">Campaign name (Ads Manager)</div>
+    <div class="field-value"><code>SS_Search_Brand-Retarget_Traffic_Homepage_2026</code></div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Objective</div>
+    <div class="field-value">Website Traffic. Bidding: Maximize Clicks with a max CPC bid limit of $1.50 (prevents runaway spend on competitive terms).</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Targeting</div>
+    <div class="field-value">Location: Singapore (all regions). Devices: All. Language: English + Chinese. Ad schedule: 7 days, all hours.</div>
+  </div>
+
+  <!-- Ad Group 1: Brand Search -->
+  <div class="ad-group">
+    <div class="ad-group-name">Ad Group 1 · Brand Search</div>
+    <div class="ad-group-desc">Defensive brand bidding. Very low CPC (~$0.30-0.80) because your Quality Score on your own brand is 10/10. Captures people who saw Meta ads and searched later. Budget allocation: ~$120/month (~$4/day).</div>
+
+    <div class="sub-label">Keywords</div>
+    <div class="keyword-list">
+      <span class="kw phrase">"strength studio"</span>
+      <span class="kw phrase">"strength studio siglap"</span>
+      <span class="kw phrase">"strength studio singapore"</span>
+      <span class="kw phrase">"strength.sg"</span>
+      <span class="kw exact">[strength studio training]</span>
+      <span class="kw exact">[strength studio east coast]</span>
+    </div>
+    <div class="sub-label">Match type key</div>
+    <div style="font-size:11.5px;color:var(--flint);line-height:1.6">
+      <span class="kw phrase" style="display:inline-block;margin-right:6px">"phrase"</span> = phrase match
+      <span class="kw exact" style="display:inline-block;margin-right:6px;margin-left:12px">[exact]</span> = exact match
+    </div>
+
+    <!-- Ad 1 — Brand -->
+    <div class="ad-card">
+      <span class="ad-tag">Ad 1 · Brand — Homepage Discovery</span>
+      <div class="ad-name">Angle: brand landing / studio discovery</div>
+
+      <div class="sub-label">Headlines (15 max, 30 char cap)</div>
+      <div class="hd-grid">
+        <div class="hd-item"><span class="hd-num">1</span><span class="hd-text">Strength Studio · Siglap</span><span class="cc">24</span></div>
+        <div class="hd-item"><span class="hd-num">2</span><span class="hd-text">Personalised Training in SG</span><span class="cc">27</span></div>
+        <div class="hd-item"><span class="hd-num">3</span><span class="hd-text">1-to-1 Coaching &amp; Physio</span><span class="cc">24</span></div>
+        <div class="hd-item"><span class="hd-num">4</span><span class="hd-text">Not Just Another Gym</span><span class="cc">20</span></div>
+        <div class="hd-item"><span class="hd-num">5</span><span class="hd-text">Coaches Who Watch Every Rep</span><span class="cc">27</span></div>
+        <div class="hd-item"><span class="hd-num">6</span><span class="hd-text">Movement-First Training</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">7</span><span class="hd-text">Built Around Your Body</span><span class="cc">22</span></div>
+        <div class="hd-item"><span class="hd-num">8</span><span class="hd-text">Explore Strength Studio</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">9</span><span class="hd-text">Personal Training Siglap</span><span class="cc">24</span></div>
+        <div class="hd-item"><span class="hd-num">10</span><span class="hd-text">Small Studio, Big Results</span><span class="cc">25</span></div>
+        <div class="hd-item"><span class="hd-num">11</span><span class="hd-text">Personalised Fitness Plans</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">12</span><span class="hd-text">77 Upper East Coast Road</span><span class="cc">24</span></div>
+      </div>
+
+      <div class="sub-label">Descriptions (4 max, 90 char cap)</div>
+      <div class="ds-grid">
+        <div class="ds-item"><span class="ds-num">1</span><span class="ds-text">Personalised strength training and physiotherapy studio in Siglap. Explore our approach.</span><span class="cc">86</span></div>
+        <div class="ds-item"><span class="ds-num">2</span><span class="ds-text">1-to-1 coaching designed around how your body actually moves. Not a template.</span><span class="cc">76</span></div>
+        <div class="ds-item"><span class="ds-num">3</span><span class="ds-text">Located at 77 Upper East Coast Road. Small studio, coaches who watch every rep.</span><span class="cc">79</span></div>
+        <div class="ds-item"><span class="ds-num">4</span><span class="ds-text">From beginner to senior. Programmes built for your body, goals, and lifestyle.</span><span class="cc">78</span></div>
+      </div>
+
+      <div class="sub-label">Display URL paths</div>
+      <div style="font-size:12.5px;color:var(--charcoal)">Path 1: <code>Personal-Training</code> · Path 2: <code>Siglap</code></div>
+    </div>
+  </div>
+
+
+  <!-- Ad Group 2: Remarketing Display -->
+  <div class="ad-group">
+    <div class="ad-group-name">Ad Group 2 · Display Remarketing</div>
+    <div class="ad-group-desc">Retargets people who visited strength.sg in the last 30 days but didn't submit the form. Uses Responsive Display Ads (image + text combinations Google's algorithm mixes). Budget allocation: ~$300/month (~$10/day).</div>
+
+    <div class="sub-label">Audience</div>
+    <div style="font-size:12.5px;color:var(--charcoal);line-height:1.7">
+      GA4 audience: "All strength.sg visitors, past 30 days, excluding form submitters." Exclude past 7-day form submitters as a separate filter to avoid retargeting people who just booked.
+    </div>
+
+    <div class="sub-label">Placements</div>
+    <div style="font-size:12.5px;color:var(--charcoal);line-height:1.7">
+      Google Display Network — Advantage+ (let Google's algorithm choose placements). Exclude: mobile apps (usually low quality), sensitive content categories.
+    </div>
+
+    <!-- Ad 2 — Remarketing -->
+    <div class="ad-card">
+      <span class="ad-tag">Ad 2 · Retarget — Still Thinking About It?</span>
+      <div class="ad-name">Angle: gentle nudge, remind of offer</div>
+
+      <div class="sub-label">Headlines (5 max for Display, 30 char cap)</div>
+      <div class="hd-grid">
+        <div class="hd-item"><span class="hd-num">1</span><span class="hd-text">Still Thinking It Over?</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">2</span><span class="hd-text">Your $9.90 Slot Is Waiting</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">3</span><span class="hd-text">Book Your Assessment</span><span class="cc">20</span></div>
+        <div class="hd-item"><span class="hd-num">4</span><span class="hd-text">Presale Ends Soon</span><span class="cc">17</span></div>
+        <div class="hd-item"><span class="hd-num">5</span><span class="hd-text">Ready When You Are</span><span class="cc">19</span></div>
+      </div>
+
+      <div class="sub-label">Descriptions (5 max, 90 char cap)</div>
+      <div class="ds-grid">
+        <div class="ds-item"><span class="ds-num">1</span><span class="ds-text">Free with code LAUNCH. 45 minutes with a coach. No commitment after. Book online.</span><span class="cc">80</span></div>
+        <div class="ds-item"><span class="ds-num">2</span><span class="ds-text">You visited us — here's a reminder. Your Training Assessment is free with LAUNCH.</span><span class="cc">80</span></div>
+        <div class="ds-item"><span class="ds-num">3</span><span class="ds-text">Personalised training in Siglap. Small studio, honest coaching. Book yours today.</span><span class="cc">79</span></div>
+      </div>
+
+      <div class="sub-label">Long headline (90 char cap, 1 required for Display)</div>
+      <div style="font-size:12.5px;color:var(--charcoal);background:var(--bg);padding:8px 12px;border-radius:4px">
+        Your $9.90 Training Assessment is still available — book online in under 60 seconds.
+      </div>
+
+      <div class="sub-label">Images required</div>
+      <div style="font-size:12px;color:var(--charcoal);line-height:1.7">
+        ▸ Landscape: 1200x628px — interior shot or Ad 1a creative<br>
+        ▸ Square: 1200x1200px — the vertical Ad 1a creative cropped square<br>
+        ▸ Logo: 1200x1200px — Strength Studio logomark on Ironstone
+      </div>
+    </div>
+
+
+    <!-- Ad 3 — Physio angle for retargeting -->
+    <div class="ad-card">
+      <span class="ad-tag">Ad 3 · Retarget — Physio Angle</span>
+      <div class="ad-name">Angle: physio differentiator for pain-driven visitors</div>
+
+      <div class="sub-label">Headlines (5 max, 30 char cap)</div>
+      <div class="hd-grid">
+        <div class="hd-item"><span class="hd-num">1</span><span class="hd-text">Pain? Injury? Start Here.</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">2</span><span class="hd-text">Physio + Training Together</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">3</span><span class="hd-text">Treat the Cause, Not Symptoms</span><span class="cc">29</span></div>
+        <div class="hd-item"><span class="hd-num">4</span><span class="hd-text">Move Better, Train Stronger</span><span class="cc">27</span></div>
+        <div class="hd-item"><span class="hd-num">5</span><span class="hd-text">Book a Physio Session</span><span class="cc">21</span></div>
+      </div>
+
+      <div class="sub-label">Descriptions (5 max, 90 char cap)</div>
+      <div class="ds-grid">
+        <div class="ds-item"><span class="ds-num">1</span><span class="ds-text">Physio that treats root cause. Manual therapy + corrective exercise, in one place.</span><span class="cc">80</span></div>
+        <div class="ds-item"><span class="ds-num">2</span><span class="ds-text">Recovery isn't separate from strength. It's built in. Book a session in Siglap.</span><span class="cc">78</span></div>
+        <div class="ds-item"><span class="ds-num">3</span><span class="ds-text">Your physio and coach work from the same programme. That's the difference.</span><span class="cc">74</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-label">Assets (extensions) for both ad groups</div>
+  <div class="ext-grid">
+    <div class="ext-block">
+      <div class="ext-block-title">Sitelinks (25 char)</div>
+      <div class="ext-list">
+        <div>▸ Training Programmes → /training</div>
+        <div>▸ Physiotherapy → /physio</div>
+        <div>▸ Meet Our Coaches → /coaches</div>
+        <div>▸ Book Assessment → /start</div>
+      </div>
+    </div>
+    <div class="ext-block">
+      <div class="ext-block-title">Callouts (25 char)</div>
+      <div class="ext-list">
+        <div>▸ 1-to-1 Personalised Coaching</div>
+        <div>▸ Free with code LAUNCH</div>
+        <div>▸ 45 mins with a coach</div>
+        <div>▸ Small Studio in Siglap</div>
+        <div>▸ New — Open August 2026</div>
+      </div>
+    </div>
+    <div class="ext-block">
+      <div class="ext-block-title">Structured snippets</div>
+      <div class="ext-list">
+        <div>Services: Personal Training, Physiotherapy, Movement Assessment</div>
+      </div>
+    </div>
+    <div class="ext-block">
+      <div class="ext-block-title">Location + Call</div>
+      <div class="ext-list">
+        <div>▸ Location: link to Google Business Profile</div>
+        <div>▸ Call: +65 8841 0877</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 03: CAMPAIGN 2 ===== -->
+<div class="section">
+<p class="section-num">Section 03</p>
+<h2 class="section-title">Campaign 2 — Lead Gen (Training Assessment)</h2>
+<p class="section-desc">$980/month. Search-only, three ad groups covering trial keywords, deal keywords, and local + trial. Landing page: strength.sg/start. Optimising for form_submit conversion.</p>
+
+<div class="campaign">
+<div class="campaign-header">
+  <div class="campaign-tag">Campaign 2</div>
+  <div class="campaign-title">Lead Gen · Training Assessment</div>
+  <div class="campaign-meta">
+    <span>Campaign type: Search</span>
+    <span>Budget: $980/month · $32/day</span>
+    <span>Landing: strength.sg/start</span>
+  </div>
+</div>
+<div class="campaign-body">
+
+  <div class="field">
+    <div class="field-label">Campaign name (Ads Manager)</div>
+    <div class="field-value"><code>SS_Search_Trial_LeadGen_9.90-Assessment_2026</code></div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Objective</div>
+    <div class="field-value">Leads. Bidding strategy: <strong>Maximize Conversions</strong> for the first 30 days (learning phase). Once you've accumulated 15+ conversions, switch to <strong>Target CPA</strong> at $20 SGD.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Targeting</div>
+    <div class="field-value">Location: Singapore. Bid adjustments: +20% for East + Central regions (Siglap, Marine Parade, Bedok, Katong, Kembangan, Tanjong Katong). Devices: All. Language: English + Chinese. Ad schedule: 7 days, all hours.</div>
+  </div>
+
+  <div class="field">
+    <div class="field-label">Target CPA (once bidding switches)</div>
+    <div class="field-value">$20 SGD per form submission. [Guessing on the exact CPA — first 30 days will reveal actual cost. Typical range for local fitness lead gen in SG: $15–35 depending on keyword competition.]</div>
+  </div>
+
+
+  <!-- Ad Group 1: Trial/Assessment -->
+  <div class="ad-group">
+    <div class="ad-group-name">Ad Group 1 · Trial &amp; Assessment</div>
+    <div class="ad-group-desc">High-intent search terms for people already looking for a trial session. Highest conversion rate. Budget allocation: ~$450/month (~$15/day).</div>
+
+    <div class="sub-label">Keywords</div>
+    <div class="keyword-list">
+      <span class="kw phrase">"personal training trial"</span>
+      <span class="kw phrase">"personal training singapore trial"</span>
+      <span class="kw phrase">"first session personal trainer"</span>
+      <span class="kw phrase">"training assessment singapore"</span>
+      <span class="kw phrase">"movement assessment"</span>
+      <span class="kw phrase">"fitness assessment singapore"</span>
+      <span class="kw exact">[personal training trial]</span>
+      <span class="kw exact">[free personal training trial]</span>
+      <span class="kw exact">[gym trial singapore]</span>
+    </div>
+
+    <div class="sub-label">Negative keywords (block irrelevant)</div>
+    <div class="keyword-list">
+      <span class="kw">-free trial gym</span>
+      <span class="kw">-24 hour</span>
+      <span class="kw">-fitness first</span>
+      <span class="kw">-anytime fitness</span>
+      <span class="kw">-virgin active</span>
+      <span class="kw">-jobs</span>
+      <span class="kw">-course</span>
+      <span class="kw">-certification</span>
+    </div>
+
+    <!-- Ad 4 — Free/Offer -->
+    <div class="ad-card">
+      <span class="ad-tag">Ad 4 · Offer-Forward</span>
+      <div class="ad-name">Angle: FREE with promo code — lead with the offer</div>
+
+      <div class="sub-label">Headlines (15 max, 30 char cap)</div>
+      <div class="hd-grid">
+        <div class="hd-item"><span class="hd-num">1</span><span class="hd-text">Free Training Assessment</span><span class="cc">24</span></div>
+        <div class="hd-item"><span class="hd-num">2</span><span class="hd-text">Free 45-Min Coaching Session</span><span class="cc">28</span></div>
+        <div class="hd-item"><span class="hd-num">3</span><span class="hd-text">Use Code LAUNCH · Free Trial</span><span class="cc">28</span></div>
+        <div class="hd-item"><span class="hd-num">4</span><span class="hd-text">45 Mins with a Coach · Free</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">5</span><span class="hd-text">Book Your Free Assessment</span><span class="cc">25</span></div>
+        <div class="hd-item"><span class="hd-num">6</span><span class="hd-text">Personal Training Trial</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">7</span><span class="hd-text">Try Personal Training · Free</span><span class="cc">28</span></div>
+        <div class="hd-item"><span class="hd-num">8</span><span class="hd-text">Zero Cost, Zero Commitment</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">9</span><span class="hd-text">Presale Promo · Book Now</span><span class="cc">24</span></div>
+        <div class="hd-item"><span class="hd-num">10</span><span class="hd-text">Limited Presale Offer</span><span class="cc">21</span></div>
+        <div class="hd-item"><span class="hd-num">11</span><span class="hd-text">Personal Trainer in Siglap</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">12</span><span class="hd-text">1-to-1 Coaching · Free Trial</span><span class="cc">28</span></div>
+        <div class="hd-item"><span class="hd-num">13</span><span class="hd-text">Movement Assessment Free</span><span class="cc">24</span></div>
+        <div class="hd-item"><span class="hd-num">14</span><span class="hd-text">Book in 60 Seconds</span><span class="cc">19</span></div>
+        <div class="hd-item"><span class="hd-num">15</span><span class="hd-text">Try Us Before Launch</span><span class="cc">20</span></div>
+      </div>
+
+      <div class="sub-label">Descriptions (4 max, 90 char cap)</div>
+      <div class="ds-grid">
+        <div class="ds-item"><span class="ds-num">1</span><span class="ds-text">45-min personal training assessment. Free with code LAUNCH. Book in Siglap today.</span><span class="cc">80</span></div>
+        <div class="ds-item"><span class="ds-num">2</span><span class="ds-text">1-to-1 with a coach. Movement screening + tailored plan. No commitment after.</span><span class="cc">76</span></div>
+        <div class="ds-item"><span class="ds-num">3</span><span class="ds-text">Presale offer: $9.90 waived with code LAUNCH. Usually $150. Book online today.</span><span class="cc">77</span></div>
+        <div class="ds-item"><span class="ds-num">4</span><span class="ds-text">Coach's honest read on where you are and what your training should look like next.</span><span class="cc">81</span></div>
+      </div>
+
+      <div class="sub-label">Display URL paths</div>
+      <div style="font-size:12.5px;color:var(--charcoal)">Path 1: <code>Free-Trial</code> · Path 2: <code>Book-Now</code></div>
+    </div>
+
+
+    <!-- Ad 5 — Value angle -->
+    <div class="ad-card">
+      <span class="ad-tag">Ad 5 · Value Angle</span>
+      <div class="ad-name">Angle: $150 for $9.90 (or free with code) — value framing</div>
+
+      <div class="sub-label">Headlines (15 max, 30 char cap)</div>
+      <div class="hd-grid">
+        <div class="hd-item"><span class="hd-num">1</span><span class="hd-text">$150 Assessment for $9.90</span><span class="cc">25</span></div>
+        <div class="hd-item"><span class="hd-num">2</span><span class="hd-text">Save 93% · Presale Only</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">3</span><span class="hd-text">$150 Value · $9.90 Promo</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">4</span><span class="hd-text">Save $140 with Code LAUNCH</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">5</span><span class="hd-text">Training Assessment Presale</span><span class="cc">27</span></div>
+        <div class="hd-item"><span class="hd-num">6</span><span class="hd-text">Personal Training Deal</span><span class="cc">22</span></div>
+        <div class="hd-item"><span class="hd-num">7</span><span class="hd-text">Presale Promo · Ends Soon</span><span class="cc">25</span></div>
+        <div class="hd-item"><span class="hd-num">8</span><span class="hd-text">Coach-Led Assessment · $9.90</span><span class="cc">28</span></div>
+        <div class="hd-item"><span class="hd-num">9</span><span class="hd-text">Try Us for $9.90</span><span class="cc">16</span></div>
+        <div class="hd-item"><span class="hd-num">10</span><span class="hd-text">$9.90 · Book in Siglap</span><span class="cc">22</span></div>
+        <div class="hd-item"><span class="hd-num">11</span><span class="hd-text">Movement Screening · $9.90</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">12</span><span class="hd-text">Personalised Plan · $9.90</span><span class="cc">25</span></div>
+        <div class="hd-item"><span class="hd-num">13</span><span class="hd-text">Presale Ends at Launch</span><span class="cc">22</span></div>
+        <div class="hd-item"><span class="hd-num">14</span><span class="hd-text">Lock In the $9.90 Rate</span><span class="cc">22</span></div>
+        <div class="hd-item"><span class="hd-num">15</span><span class="hd-text">Was $150, Now $9.90</span><span class="cc">19</span></div>
+      </div>
+
+      <div class="sub-label">Descriptions (4 max, 90 char cap)</div>
+      <div class="ds-grid">
+        <div class="ds-item"><span class="ds-num">1</span><span class="ds-text">Regular price $150. Get it for $9.90 with code LAUNCH during presale. Book now.</span><span class="cc">78</span></div>
+        <div class="ds-item"><span class="ds-num">2</span><span class="ds-text">45-min coach-led assessment, movement screening, personalised plan. Save 93%.</span><span class="cc">77</span></div>
+        <div class="ds-item"><span class="ds-num">3</span><span class="ds-text">Presale ends when we launch. Lock in the $9.90 rate before it returns to $150.</span><span class="cc">76</span></div>
+        <div class="ds-item"><span class="ds-num">4</span><span class="ds-text">New studio in Siglap. Book your $9.90 assessment. No commitment after.</span><span class="cc">70</span></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Ad Group 2: Deal / Low Price -->
+  <div class="ad-group">
+    <div class="ad-group-name">Ad Group 2 · Cheap &amp; Deal</div>
+    <div class="ad-group-desc">Search intent from people looking for affordable/cheap personal training. Slightly lower quality intent than Ad Group 1 but broader volume. Budget allocation: ~$280/month (~$9/day).</div>
+
+    <div class="sub-label">Keywords</div>
+    <div class="keyword-list">
+      <span class="kw phrase">"cheap personal trainer"</span>
+      <span class="kw phrase">"affordable personal training"</span>
+      <span class="kw phrase">"personal training deal"</span>
+      <span class="kw phrase">"personal training discount"</span>
+      <span class="kw phrase">"personal training promo"</span>
+      <span class="kw phrase">"budget personal trainer sg"</span>
+      <span class="kw exact">[cheap personal trainer singapore]</span>
+      <span class="kw exact">[personal training promotion]</span>
+    </div>
+
+    <div class="sub-label">Negative keywords</div>
+    <div class="keyword-list">
+      <span class="kw">-course</span>
+      <span class="kw">-certification</span>
+      <span class="kw">-online</span>
+      <span class="kw">-app</span>
+      <span class="kw">-youtube</span>
+      <span class="kw">-jobs</span>
+    </div>
+
+    <!-- Ad 6 — Deal angle (uses same Ad 5 with different landing hook) -->
+    <div class="ad-card">
+      <span class="ad-tag">Ad 6 · Deal-Focused</span>
+      <div class="ad-name">Angle: "cheap" search intent → serious offer</div>
+
+      <div class="sub-label">Headlines (15 max, 30 char cap)</div>
+      <div class="hd-grid">
+        <div class="hd-item"><span class="hd-num">1</span><span class="hd-text">$9.90 Personal Training</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">2</span><span class="hd-text">Cheap PT Trial · Siglap</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">3</span><span class="hd-text">Affordable 1-to-1 Coaching</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">4</span><span class="hd-text">$9.90 Coach-Led Session</span><span class="cc">23</span></div>
+        <div class="hd-item"><span class="hd-num">5</span><span class="hd-text">45 Mins with a Coach · $9.90</span><span class="cc">28</span></div>
+        <div class="hd-item"><span class="hd-num">6</span><span class="hd-text">Personal Trainer Deal · SG</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">7</span><span class="hd-text">Try a Coach for $9.90</span><span class="cc">21</span></div>
+        <div class="hd-item"><span class="hd-num">8</span><span class="hd-text">Under $10 · Book Today</span><span class="cc">22</span></div>
+        <div class="hd-item"><span class="hd-num">9</span><span class="hd-text">Presale Promo · $9.90 Trial</span><span class="cc">27</span></div>
+        <div class="hd-item"><span class="hd-num">10</span><span class="hd-text">Free with Code LAUNCH</span><span class="cc">21</span></div>
+        <div class="hd-item"><span class="hd-num">11</span><span class="hd-text">Personal Training Discount</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">12</span><span class="hd-text">Save on Your First Session</span><span class="cc">26</span></div>
+        <div class="hd-item"><span class="hd-num">13</span><span class="hd-text">$9.90 Assessment · Book</span><span class="cc">22</span></div>
+        <div class="hd-item"><span class="hd-num">14</span><span class="hd-text">Personal Coach Under $10</span><span class="cc">24</span></div>
+        <div class="hd-item"><span class="hd-num">15</span><span class="hd-text">Low-Cost PT Trial · Siglap</span><span class="cc">26</span></div>
+      </div>
+
+      <div class="sub-label">Descriptions (4 max, 90 char cap)</div>
+      <div class="ds-grid">
+        <div class="ds-item"><span class="ds-num">1</span><span class="ds-text">Personal training assessment for $9.90 (usually $150). 1-to-1 coaching. Siglap.</span><span class="cc">79</span></div>
+        <div class="ds-item"><span class="ds-num">2</span><span class="ds-text">Cheap doesn't have to mean template workouts. Real coaching, real assessment.</span><span class="cc">77</span></div>
+        <div class="ds-item"><span class="ds-num">3</span><span class="ds-text">45 mins with a coach for the cost of a coffee. Free with code LAUNCH.</span><span class="cc">69</span></div>
+        <div class="ds-item"><span class="ds-num">4</span><span class="ds-text">Movement screening + tailored plan + honest coach's read. Book yours online.</span><span class="cc">76</span></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Ad Group 3: Local + Trial -->
+  <div class="ad-group">
+    <div class="ad-group-name">Ad Group 3 · Local + Training</div>
+    <div class="ad-group-desc">Geo-specific keywords for East Coast, Siglap, and nearby areas. Highest quality intent per click. Budget allocation: ~$250/month (~$8/day).</div>
+
+    <div class="sub-label">Keywords</div>
+    <div class="keyword-list">
+      <span class="kw phrase">"personal trainer siglap"</span>
+      <span class="kw phrase">"personal training east coast"</span>
+      <span class="kw phrase">"gym siglap"</span>
+      <span class="kw phrase">"personal trainer bedok"</span>
+      <span class="kw phrase">"personal trainer marine parade"</span>
+      <span class="kw phrase">"personal trainer near me"</span>
+      <span class="kw phrase">"fitness studio siglap"</span>
+      <span class="kw exact">[personal trainer siglap]</span>
+      <span class="kw exact">[personal training east coast singapore]</span>
+      <span class="kw exact">[gym near siglap]</span>
+    </div>
+
+    <div class="sub-label">Reuse Ad 4 or Ad 5 with local-focused headlines pinned</div>
+    <div style="font-size:12.5px;color:var(--charcoal);line-height:1.7;padding:10px;background:var(--bg);border-radius:4px">
+      No new ad needed. Reuse Ad 4 (Offer-Forward) but pin headlines "Personal Trainer in Siglap" (position 1) and "Personal Training Trial" (position 2) so location + intent always show first. Add local sitelinks: <code>Directions to Siglap Studio</code>, <code>Free Parking at ECP</code>.
+    </div>
+  </div>
+
+
+  <div class="sub-label">Assets (extensions) for entire campaign</div>
+  <div class="ext-grid">
+    <div class="ext-block">
+      <div class="ext-block-title">Sitelinks (25 char)</div>
+      <div class="ext-list">
+        <div>▸ Book Free Assessment → /start</div>
+        <div>▸ How It Works → /start#process</div>
+        <div>▸ Meet Our Coaches → /coaches</div>
+        <div>▸ Physio Services → /physio</div>
+        <div>▸ Client Testimonials → /start#testimonials</div>
+        <div>▸ WhatsApp Us → wa.me/6588410877</div>
+      </div>
+    </div>
+    <div class="ext-block">
+      <div class="ext-block-title">Callouts (25 char)</div>
+      <div class="ext-list">
+        <div>▸ Free with Code LAUNCH</div>
+        <div>▸ 45 Mins with a Coach</div>
+        <div>▸ No Commitment After</div>
+        <div>▸ 1-to-1 Personalised</div>
+        <div>▸ Located in Siglap</div>
+        <div>▸ Suitable for All Levels</div>
+      </div>
+    </div>
+    <div class="ext-block">
+      <div class="ext-block-title">Structured snippets</div>
+      <div class="ext-list">
+        <div><strong>Services:</strong> Personal Training, Physiotherapy, Movement Assessment, Nutrition</div>
+        <div><strong>Types:</strong> 1-to-1 Coaching, Injury Recovery, Senior Fitness, Beginner-Friendly</div>
+      </div>
+    </div>
+    <div class="ext-block">
+      <div class="ext-block-title">Location + Call + Promotion</div>
+      <div class="ext-list">
+        <div>▸ Location: Google Business Profile</div>
+        <div>▸ Call: +65 8841 0877</div>
+        <div>▸ Promotion: "$140 off with code LAUNCH · Valid until launch"</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 04: LAUNCH CHECKLIST ===== -->
+<div class="section">
+<p class="section-num">Section 04</p>
+<h2 class="section-title">Launch checklist</h2>
+<p class="section-desc">Everything to tick off before the first ad goes live. Do these in order.</p>
+
+<div class="card">
+  <p class="card-title">Pre-launch (2 weeks out)</p>
+  <ul class="check-list">
+    <li><strong>Google Business Profile</strong> verified and live at 77 Upper East Coast Road. Add photos of studio interior, exterior, and one team photo.</li>
+    <li><strong>GA4 form_submit event</strong> created via GTM trigger on /start page form submission. Test using GA4 DebugView before publishing.</li>
+    <li><strong>Mark form_submit as Key Event</strong> in GA4 admin.</li>
+    <li><strong>Link GA4 to Google Ads</strong> account.</li>
+    <li><strong>Import form_submit as conversion action</strong> in Google Ads with $150 conversion value.</li>
+    <li><strong>Set up secondary conversion events</strong>: whatsapp_click, phone_click, booking_link_click.</li>
+    <li><strong>Create GA4 remarketing audience</strong>: strength.sg visitors past 30 days, excluding form submitters.</li>
+    <li><strong>Import audience to Google Ads</strong> for Campaign 1's Display component.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <p class="card-title">Campaign build (week of launch)</p>
+  <ul class="check-list">
+    <li><strong>Campaign 1</strong>: Create Search + Display campaign, structure with 2 ad groups (Brand Search + Display Remarketing), enter keywords and ads from Section 02.</li>
+    <li><strong>Campaign 2</strong>: Create Search campaign, structure with 3 ad groups (Trial &amp; Assessment, Cheap &amp; Deal, Local + Training), enter keywords and ads from Section 03.</li>
+    <li><strong>Assets library</strong>: Add all sitelinks, callouts, structured snippets, location extension, call extension, promotion extension.</li>
+    <li><strong>Location bid adjustments</strong>: +20% for Siglap, Marine Parade, Bedok, Katong, Kembangan, Tanjong Katong.</li>
+    <li><strong>Budget caps</strong>: $14/day Campaign 1, $32/day Campaign 2. Enable shared budget only if you plan to shift between campaigns dynamically.</li>
+    <li><strong>Ad Preview and Diagnosis</strong>: Run a test search for each keyword to confirm ads render correctly before enabling.</li>
+    <li><strong>Enable enhanced conversions</strong> for lead form submission (uses hashed email/phone from form for improved conversion matching).</li>
+  </ul>
+</div>
+
+<div class="card">
+  <p class="card-title">First 7 days of live campaigns</p>
+  <ul class="check-list">
+    <li><strong>Daily budget monitoring</strong>: check daily to catch runaway spend or bid issues.</li>
+    <li><strong>Search terms report</strong>: check every 2 days. Add poor-fit terms to negative keyword list.</li>
+    <li><strong>Ad Strength score</strong>: aim for "Good" or "Excellent" per ad. If "Poor", add more headlines/descriptions.</li>
+    <li><strong>Do not change bids or budgets</strong> in the first 7 days. Google's algorithm needs a stable learning period.</li>
+    <li><strong>Track lead quality</strong>: how many of the form submissions are showing up to their Training Assessment? Cost per booking &gt; cost per form submission.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <p class="card-title">Day 30 review</p>
+  <ul class="check-list">
+    <li><strong>Bidding strategy switch</strong>: if Campaign 2 has 15+ conversions, switch from Maximize Conversions to Target CPA at $20 SGD.</li>
+    <li><strong>Budget rebalance</strong>: if Campaign 2's CPA is under $25, consider shifting $100–200 from Campaign 1 into Campaign 2.</li>
+    <li><strong>Pause underperformers</strong>: any ad group with 0 conversions after 30 days and $100+ spent should be paused or restructured.</li>
+    <li><strong>Iterate creative</strong>: replace the bottom 30% of headlines in the top-performing ads with new variations testing new angles.</li>
+    <li><strong>Add negative keywords</strong>: search terms report should have 20-40 negatives added by end of month 1.</li>
+  </ul>
+</div>
+</div>
+
+<hr>
+
+
+<!-- ===== SECTION 05: KPI TARGETS ===== -->
+<div class="section">
+<p class="section-num">Section 05</p>
+<h2 class="section-title">KPI targets (first 30 days)</h2>
+<p class="section-desc">Realistic targets for month 1. These are calibration goals, not stretch. Actual performance will vary based on creative quality, seasonality, and Meta ad overlap.</p>
+
+<div class="card">
+  <p class="card-title">Campaign 1 · Traffic</p>
+  <p><strong>Clicks:</strong> 250–400 total across brand + retargeting [Likely]</p>
+  <p><strong>Cost per click:</strong> Brand search $0.30–0.80 · Display retargeting $0.80–1.50 [Likely]</p>
+  <p><strong>Landing page engagement:</strong> Bounce rate under 55% on homepage [Guessing]</p>
+  <p><strong>Assisted conversions:</strong> Retargeting should contribute 3–8 secondary conversions to Campaign 2 [Guessing]</p>
+</div>
+
+<div class="card">
+  <p class="card-title">Campaign 2 · Lead Gen</p>
+  <p><strong>Form submissions:</strong> 35–60 in month 1 [Likely]</p>
+  <p><strong>Cost per lead:</strong> $16–28 SGD [Likely]</p>
+  <p><strong>Click-through rate:</strong> 4–8% (Search RSAs on qualified keywords) [Certain range]</p>
+  <p><strong>Conversion rate:</strong> 3–7% of clicks convert to form submission [Likely — depends heavily on landing page performance]</p>
+  <p><strong>Lead-to-booking rate:</strong> 40–60% of leads should convert to actual assessment bookings [Guessing — first real data from month 1]</p>
+</div>
+
+<div class="warn">
+  <strong>What to worry about</strong>
+  If CPL exceeds $40 after 30 days, something structural is wrong — likely landing page mismatch, poor keyword-to-ad alignment, or the offer not resonating with the traffic segment. Diagnose before continuing to spend.
+</div>
+</div>
+
+
+<div class="footer">
+  Strength Studio — Google Ads Launch Plan v1.0 &nbsp;·&nbsp; Prepared for JSF Transformative Pte Ltd &nbsp;·&nbsp; Companion to Meta Launch Strategy v3.1 &nbsp;·&nbsp; July 2026
+</div>
+
+</main>
+</body>
+</html>
